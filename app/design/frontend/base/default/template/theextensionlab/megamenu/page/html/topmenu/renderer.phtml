@@ -1,0 +1,47 @@
+<?php
+/** @var Varien_Data_Tree_Node $menuTree */
+/** @var string $childrenWrapClass */
+?>
+
+<?php $children = $menuTree->getChildren();?>
+<?php $parentLevel = $menuTree->getLevel();?>
+<?php $childLevel = is_null($parentLevel) ? 0 : $parentLevel + 1; ?>
+
+<?php foreach($children as $child):?>
+    <?php $hasDropdownContent = $this->getHasDropdownContent($child);?>
+    <?php $child->setLevel($childLevel);?>
+    <?php $_hasChildren = ($child->hasChildren()) ? 'has-children' : '';?>
+
+    <li <?php echo $this->_getRenderedMenuItemAttributes($child);?>>
+        <a href="<?php echo $child->getUrl();?>" class="level<?php echo $childLevel?> <?php echo $_hasChildren;?>">
+            <?php echo $this->escapeHtml($this->__($child->getName()))?>
+        </a>
+
+        <?php if(!empty($childrenWrapClass)) :?>
+            <div class="<?php echo $childrenWrapClass?>">
+        <?php endif;?>
+
+
+        <?php if (!empty($_hasChildren) && $hasDropdownContent):?>
+
+            <?php $divClass = 'level'.$childLevel.$this->getMenuDropDownTypeClass($child).' xlab_grid_container';?>
+
+            <div class="<?php echo $divClass;?>">
+                <?php foreach($child->getColumns() as $column):?>
+                    <?php if(!empty($column['content']) && $column['col_width'] != 0):?>
+                        <div class="column xlab_column_<?php echo $column['col_width'];?>">
+                            <?php echo $column['content'];?>
+                        </div>
+                    <?php endif;?>
+                <?php endforeach;?>
+            </div>
+        <?php endif;?>
+
+
+        <?php if(!empty($childrenWrapClass)) :?>
+            </div>
+        <?php endif;?>
+
+    </li>
+
+<?php endforeach;?>

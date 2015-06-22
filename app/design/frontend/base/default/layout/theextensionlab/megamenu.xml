@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<layout>
+    <default>
+        <reference name="catalog.topnav">
+            <block type="theextensionlab_megamenu/page_html_topmenu_renderer" name="catalog.topnav.renderer"
+                   template="theextensionlab/megamenu/page/html/topmenu/renderer.phtml"/>
+        </reference>
+    </default>
+</layout>
