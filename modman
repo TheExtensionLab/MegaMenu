@@ -1,2 +1,4 @@
 app/etc/modules/TheExtensionLab_MegaMenu.xml    app/etc/modules/TheExtensionLab_MegaMenu.xml
 app/code/community/TheExtensionLab/MegaMenu/    app/code/community/TheExtensionLab/MegaMenu/
+app/design/frontend/base/default/layout/theextensionlab/megamenu.xml   app/design/frontend/base/default/layout/theextensionlab/megamenu.xml
+app/design/frontend/base/default/template/theextensionlab/megamenu/ app/design/frontend/base/default/template/theextensionlab/megamenu/
