@@ -49,6 +49,14 @@
 
     </global>
 
+    <default>
+        <catalog>
+            <navigation>
+                <sections_count>7</sections_count>
+            </navigation>
+        </catalog>
+    </default>
+
     <phpunit>
         <suite>
             <modules>

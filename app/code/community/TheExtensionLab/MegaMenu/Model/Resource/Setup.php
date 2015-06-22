@@ -12,5 +12,138 @@
 class TheExtensionLab_MegaMenu_Model_Resource_Setup
     extends Mage_Catalog_Model_Resource_Setup
 {
+    const MEGAMENU_SECTIONS_COUNT_PATH = 'catalog/navigation/sections_count';
 
+    public function getDefaultEntities()
+    {
+        $menuMainAttributes = $this->_getMenuMainAttributes();
+        $menuSectionsAttributes = $this->_getMenuSectionsAttributes();
+
+        $attributes = array_merge($menuMainAttributes,$menuSectionsAttributes);
+
+        return array(
+            'catalog_category' => array(
+                'entity_model'                => 'catalog/category',
+                'attribute_model'             => 'catalog/resource_eav_attribute',
+                'table'                       => 'catalog/category',
+                'additional_attribute_table'  => 'catalog/eav_attribute',
+                'entity_attribute_collection' => 'catalog/category_attribute_collection',
+                'attributes'                  => $attributes
+            )
+        );
+    }
+
+    private function _getMenuMainAttributes()
+    {
+        $menuMainAttributes = array(
+            'menu_name' => array(
+                'type'                     => 'text',
+                'label'                    => 'Menu Name',
+                'input'                    => 'text',
+                'required'                 => false,
+                'sort_order'               => 10,
+                'global'                   => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_STORE,
+                'wysiwyg_enabled'          => false,
+                'is_html_allowed_on_front' => false,
+                'group'                    => 'MegaMenu Settings',
+                'note'                     => 'If set this will override the default category name within the menu only.'
+            ),
+            'menu_dropdown_type'          => array(
+                'type'                       => 'int',
+                'label'                      => 'Menu DropDown Type',
+                'input'                      => 'select',
+                'source'                     => 'theextensionlab_megamenu/dropdown_type',
+                'sort_order'                 => 20,
+                'global'                     => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_STORE,
+                'group'                      => 'MegaMenu Settings',
+            ),
+            'menu_dropdown_width' => array(
+                'type'                     => 'text',
+                'label'                    => 'DropDown Width',
+                'input'                    => 'text',
+                'required'                 => false,
+                'sort_order'               => 30,
+                'global'                   => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_STORE,
+                'wysiwyg_enabled'          => false,
+                'is_html_allowed_on_front' => false,
+                'group'                    => 'MegaMenu Settings',
+                'note'                     => 'Width of dropdown, leave empty for default width. Enter with units e.g "800px" or "80%"'
+            ),
+            'menu_link_type'   => array(
+                'type'       => 'int',
+                'label'      => 'Link Type',
+                'input'      => 'select',
+                'source'     => 'theextensionlab_megamenu/link_type',
+                'required'   => false,
+                'sort_order' => 40,
+                'global'     => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_STORE,
+                'group'      => 'MegaMenu Settings',
+            ),
+            'menu_link'   => array(
+                'type'                     => 'text',
+                'label'                    => 'Link',
+                'input'                    => 'text',
+                'required'                 => false,
+                'sort_order'               => 50,
+                'global'                   => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_STORE,
+                'wysiwyg_enabled'          => false,
+                'is_html_allowed_on_front' => false,
+                'group'                    => 'MegaMenu Settings',
+                'note'                     => 'Use this category as a menu link placeholder, if you set this to internal or external it is recommended you set the category "Is Active" option to no.'
+            )
+        );
+
+        return $menuMainAttributes;
+    }
+
+    private function _getMenuSectionsAttributes()
+    {
+        $sectionsConfig = array();
+        $columnsCount = Mage::getStoreConfig(self::MEGAMENU_SECTIONS_COUNT_PATH);
+
+        for($i = 1;$i <= $columnsCount;$i++)
+        {
+            $sectionsConfig["menu_section_{$i}_content"] = $this->_getMenuSectionsAttribute($i);
+            $sectionsConfig["menu_section_{$i}_column_width"] = $this->_getMenuSectionsWidthAttribute($i);
+        }
+
+        return $sectionsConfig;
+    }
+
+    private function _getMenuSectionsAttribute($columnNumber)
+    {
+        $offset = 100;
+        $sortIncrement = 10;
+        $sortOrder = ($sortIncrement * $columnNumber) + $offset;
+
+        return array(
+                'type'                     => 'text',
+                'label'                    => "Section {$columnNumber} Content",
+                'input'                    => 'textarea',
+                'required'                 => false,
+                'sort_order'               => $sortOrder,
+                'global'                   => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_STORE,
+                'wysiwyg_enabled'          => true,
+                'is_html_allowed_on_front' => true,
+                'group'                    => 'MegaMenu Contents'
+        );
+    }
+
+    private function _getMenuSectionsWidthAttribute($columnNumber)
+    {
+        $offset = 105;
+        $sortIncrement = 10;
+        $sortOrder = ($sortIncrement * $columnNumber) + $offset;
+
+        return array(
+                'type'       => 'varchar',
+                'label'      => "Section {$columnNumber} Columns",
+                'input'      => 'select',
+                'source'     => 'theextensionlab_megamenu/columns_qty',
+                'required'   => false,
+                'sort_order' => $sortOrder + 5,
+                'global'     => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_STORE,
+                'group'      => 'MegaMenu Contents'
+        );
+    }
 }
