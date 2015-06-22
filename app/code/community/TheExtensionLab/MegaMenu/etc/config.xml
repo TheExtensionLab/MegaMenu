@@ -30,8 +30,23 @@
         <models>
             <theextensionlab_megamenu>
                 <class>TheExtensionLab_MegaMenu_Model</class>
+                <resourceModel>theextensionlab_megamenu_resource</resourceModel>
             </theextensionlab_megamenu>
+
+            <theextensionlab_megamenu_resourec>
+                <class>TheExtensionLab_MegaMenu_Model_Resource</class>
+            </theextensionlab_megamenu_resourec>
         </models>
+
+        <resources>
+            <theextensionlab_megamenu_setup>
+                <setup>
+                    <module>TheExtensionLab_MegaMenu</module>
+                    <class>TheExtensionLab_MegaMenu_Model_Resource_Setup</class>
+                </setup>
+            </theextensionlab_megamenu_setup>
+        </resources>
+
     </global>
 
     <phpunit>
