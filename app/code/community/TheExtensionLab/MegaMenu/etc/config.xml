@@ -14,6 +14,26 @@
         </TheExtensionLab_MegaMenu>
     </modules>
 
+    <global>
+        <blocks>
+            <theextensionlab_megamenu>
+                <class>TheExtensionLab_MegaMenu_Block</class>
+            </theextensionlab_megamenu>
+        </blocks>
+
+        <helpers>
+            <theextensionlab_megamenu>
+                <class>TheExtensionLab_MegaMenu_Helper</class>
+            </theextensionlab_megamenu>
+        </helpers>
+
+        <models>
+            <theextensionlab_megamenu>
+                <class>TheExtensionLab_MegaMenu_Model</class>
+            </theextensionlab_megamenu>
+        </models>
+    </global>
+
     <phpunit>
         <suite>
             <modules>
