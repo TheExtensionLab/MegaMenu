@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <TheExtensionLab_MegaMenu>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Catalog/>
+                <Mage_Widget/>
+            </depends>
+        </TheExtensionLab_MegaMenu>
+    </modules>
+</config>
