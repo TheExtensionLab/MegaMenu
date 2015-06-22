@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+ * @category    TheExtensionLab
+ * @package     TheExtensionLab_MegaMenu
+ * @copyright   Copyright (c) TheExtensionLab (http://www.theextensionlab.com)
+ * @license
+ * @author      James Anelay @ TheExtensionLab <james@theextensionlab.com>
+ *
+-->
+<config>
+    <modules>
+        <TheExtensionLab_MegaMenu>
+            <version>0.1.0</version>
+        </TheExtensionLab_MegaMenu>
+    </modules>
+
+    <phpunit>
+        <suite>
+            <modules>
+                <TheExtensionLab_MegaMenu/>
+            </modules>
+        </suite>
+    </phpunit>
+</config>
