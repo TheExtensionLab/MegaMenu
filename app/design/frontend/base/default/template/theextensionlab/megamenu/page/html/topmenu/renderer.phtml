@@ -4,16 +4,12 @@
 ?>
 
 <?php $children = $menuTree->getChildren();?>
-<?php $parentLevel = $menuTree->getLevel();?>
-<?php $childLevel = is_null($parentLevel) ? 0 : $parentLevel + 1; ?>
 
 <?php foreach($children as $child):?>
-    <?php $hasDropdownContent = $this->getHasDropdownContent($child);?>
-    <?php $child->setLevel($childLevel);?>
-    <?php $_hasChildren = ($child->hasChildren()) ? 'has-children' : '';?>
+    <?php $this->setCategoryData($child);?>
 
     <li <?php echo $this->_getRenderedMenuItemAttributes($child);?>>
-        <a href="<?php echo $child->getUrl();?>" class="level<?php echo $childLevel?> <?php echo $_hasChildren;?>">
+        <a href="<?php echo $child->getUrl();?>" class="<?php echo $this->getCategoryLiClass($child)?>">
             <?php echo $this->escapeHtml($this->__($child->getName()))?>
         </a>
 
@@ -21,12 +17,9 @@
             <div class="<?php echo $childrenWrapClass?>">
         <?php endif;?>
 
+        <?php if ($child->hasChildren() && $child->getHasDropDownContent()):?>
 
-        <?php if (!empty($_hasChildren) && $hasDropdownContent):?>
-
-            <?php $divClass = 'level'.$childLevel.$this->getMenuDropDownTypeClass($child).' xlab_grid_container';?>
-
-            <div class="<?php echo $divClass;?>">
+            <div class="<?php echo $this->getMenuDropDownTypeClass($child);?>">
                 <?php foreach($child->getColumns() as $column):?>
                     <?php if(!empty($column['content']) && $column['col_width'] != 0):?>
                         <div class="column xlab_column_<?php echo $column['col_width'];?>">
@@ -37,11 +30,9 @@
             </div>
         <?php endif;?>
 
-
         <?php if(!empty($childrenWrapClass)) :?>
             </div>
         <?php endif;?>
 
     </li>
-
 <?php endforeach;?>
