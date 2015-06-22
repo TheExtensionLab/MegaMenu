@@ -1,8 +1,6 @@
 <?php
 
 /**
- * MegaMenu Setup Resource Model
- *
  * @category    TheExtensionLab
  * @package     TheExtensionLab_MegaMenu
  * @copyright   Copyright (c) TheExtensionLab (http://www.theextensionlab.com)
@@ -13,6 +11,21 @@ class TheExtensionLab_MegaMenu_Model_Resource_Setup
     extends Mage_Catalog_Model_Resource_Setup
 {
     const MEGAMENU_SECTIONS_COUNT_PATH = 'catalog/navigation/sections_count';
+
+    public function addInstallationSuccessfulNotification(){
+        $docUrl = "http://docs.theextensionlab.com/megamenu/installation.html";
+        $inboxModel = Mage::getModel('adminnotification/inbox');
+        if(!method_exists($inboxModel,'addNotice')){
+            return;
+        }
+        $inboxModel->addNotice(
+            'You have successfully installed TheExtensionLab_MegaMenu:
+            The Menu can be configured under two new tabs in for each category in the Catalog > Manage Categories section.',
+            'For full up to date documenation see <a href="'.$docUrl.'" target="_blank">'.$docUrl.'</a>',
+            'http://docs.theextensionlab.com/megamenu/configuration.html',
+            true
+        );
+    }
 
     public function getDefaultEntities()
     {
@@ -103,14 +116,14 @@ class TheExtensionLab_MegaMenu_Model_Resource_Setup
 
         for($i = 1;$i <= $columnsCount;$i++)
         {
-            $sectionsConfig["menu_section_{$i}_content"] = $this->_getMenuSectionsAttribute($i);
+            $sectionsConfig["menu_section_{$i}_content"] = $this->_getMenuSectionsContentAttribute($i);
             $sectionsConfig["menu_section_{$i}_column_width"] = $this->_getMenuSectionsWidthAttribute($i);
         }
 
         return $sectionsConfig;
     }
 
-    private function _getMenuSectionsAttribute($columnNumber)
+    private function _getMenuSectionsContentAttribute($columnNumber)
     {
         $offset = 100;
         $sortIncrement = 10;
