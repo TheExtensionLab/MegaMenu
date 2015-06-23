@@ -46,6 +46,69 @@
                 </setup>
             </theextensionlab_megamenu_setup>
         </resources>
+
+        <events>
+            <page_block_html_topmenu_gethtml_before>
+                <observers>
+
+                    <!-- Disable default topmenu observer -->
+                    <catalog_add_topmenu_items>
+                        <type>disabled</type>
+                    </catalog_add_topmenu_items>
+
+                    <!-- Add our own -->
+                    <theextensionlab_megamenu>
+                        <class>theextensionlab_megamenu/observer</class>
+                        <method>pageBlockHtmlTopmenGethtmlBefore</method>
+                    </theextensionlab_megamenu>
+                </observers>
+            </page_block_html_topmenu_gethtml_before>
+
+            <catalog_category_collection_load_before>
+                <observers>
+                    <theextensionlab_megamenu>
+                        <class>theextensionlab_megamenu/observer</class>
+                        <method>catalogCategoryCollectionLoadBefore</method>
+                    </theextensionlab_megamenu>
+                </observers>
+            </catalog_category_collection_load_before>
+
+            <catalog_category_flat_loadnodes_before>
+                <observers>
+                    <theextensionlab_megamenu>
+                        <class>theextensionlab_megamenu/observer</class>
+                        <method>catalogCategoryFlatLoadnodesBefore</method>
+                    </theextensionlab_megamenu>
+                </observers>
+            </catalog_category_flat_loadnodes_before>
+        </events>
+
+        <theextensionlab_megamenu>
+            <extra_attributes>
+                <menu_section_1_column_width/>
+                <menu_section_2_column_width/>
+                <menu_section_3_column_width/>
+                <menu_section_4_column_width/>
+                <menu_section_5_column_width/>
+                <menu_section_6_column_width/>
+                <menu_section_7_column_width/>
+                <menu_section_1_content/>
+                <menu_section_2_content/>
+                <menu_section_3_content/>
+                <menu_section_4_content/>
+                <menu_section_5_content/>
+                <menu_section_6_content/>
+                <menu_section_7_content/>
+                <menu_link_type/>
+                <menu_link/>
+                <menu_name/>
+                <image/>
+                <thumbnail/>
+                <menu_dropdown_width/>
+                <menu_dropdown_type/>
+            </extra_attributes>
+        </theextensionlab_megamenu>
+
     </global>
 
     <frontend>

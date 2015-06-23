@@ -13,7 +13,8 @@ class TheExtensionLab_MegaMenu_Model_Config_Source_Columns
     extends TheExtensionLab_MegaMenu_Model_Config_Source_Abstract
 {
     protected $_eventPrefix = 'columns';
-    protected $_columnTypes = array(24,5);
+    protected $_columnTypes = array(5,24);
+    const MAX_COLUMNS = 24;
 
     public function getAllOptionsArray()
     {
