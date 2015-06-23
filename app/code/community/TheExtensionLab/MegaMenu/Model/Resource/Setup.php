@@ -112,7 +112,7 @@ class TheExtensionLab_MegaMenu_Model_Resource_Setup
     private function _getMenuSectionsAttributes()
     {
         $sectionsConfig = array();
-        $columnsCount = Mage::getStoreConfig(self::MEGAMENU_SECTIONS_COUNT_PATH);
+        $columnsCount = (int) Mage::getConfig()->getNode(self::MEGAMENU_SECTIONS_COUNT_PATH,'default');
 
         for($i = 1;$i <= $columnsCount;$i++)
         {
@@ -125,7 +125,7 @@ class TheExtensionLab_MegaMenu_Model_Resource_Setup
 
     private function _getMenuSectionsContentAttribute($columnNumber)
     {
-        $offset = 100;
+        $offset = 105;
         $sortIncrement = 10;
         $sortOrder = ($sortIncrement * $columnNumber) + $offset;
 
@@ -144,7 +144,7 @@ class TheExtensionLab_MegaMenu_Model_Resource_Setup
 
     private function _getMenuSectionsWidthAttribute($columnNumber)
     {
-        $offset = 105;
+        $offset = 100;
         $sortIncrement = 10;
         $sortOrder = ($sortIncrement * $columnNumber) + $offset;
 
@@ -154,7 +154,7 @@ class TheExtensionLab_MegaMenu_Model_Resource_Setup
                 'input'      => 'select',
                 'source'     => 'theextensionlab_megamenu/config_source_columns',
                 'required'   => false,
-                'sort_order' => $sortOrder + 5,
+                'sort_order' => $sortOrder,
                 'global'     => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_STORE,
                 'group'      => 'MegaMenu Contents'
         );
