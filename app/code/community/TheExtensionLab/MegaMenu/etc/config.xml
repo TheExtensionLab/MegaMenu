@@ -46,8 +46,17 @@
                 </setup>
             </theextensionlab_megamenu_setup>
         </resources>
-
     </global>
+
+    <frontend>
+        <layout>
+            <updates>
+                <theextensionlab_megamenu>
+                    <file>theextensionlab/megamenu.xml</file>
+                </theextensionlab_megamenu>
+            </updates>
+        </layout>
+    </frontend>
 
     <default>
         <catalog>
