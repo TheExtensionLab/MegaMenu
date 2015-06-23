@@ -36,6 +36,11 @@ class TheExtensionLab_MegaMenu_Block_Page_Html_Topmenu_Renderer
     protected function getHasDropdownContent(Varien_Data_Tree_Node $item)
     {
         $hasContent = false;
+
+        if(!$item->hasColumns()):
+            return false;
+        endif;
+
         $columns = $item->getColumns();
 
         foreach($columns as $column){
