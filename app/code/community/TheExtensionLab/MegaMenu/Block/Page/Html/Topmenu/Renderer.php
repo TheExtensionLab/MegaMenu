@@ -57,9 +57,8 @@ class TheExtensionLab_MegaMenu_Block_Page_Html_Topmenu_Renderer
         return $class;
     }
 
-    protected function setCategoryData($category)
+    protected function setCategoryData($category,$parentLevel)
     {
-        $parentLevel = $menuTree->getLevel();
         $childLevel = is_null($parentLevel) ? 0 : $parentLevel + 1;
 
         $category->setLevel($childLevel);

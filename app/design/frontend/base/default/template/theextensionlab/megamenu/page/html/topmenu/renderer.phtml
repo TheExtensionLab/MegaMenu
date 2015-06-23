@@ -6,7 +6,7 @@
 <?php $children = $menuTree->getChildren();?>
 
 <?php foreach($children as $child):?>
-    <?php $this->setCategoryData($child);?>
+    <?php $this->setCategoryData($child,$menuTree->getLevel());?>
 
     <li <?php echo $this->_getRenderedMenuItemAttributes($child);?>>
         <a href="<?php echo $child->getUrl();?>" class="<?php echo $this->getCategoryLiClass($child)?>">
