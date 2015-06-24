@@ -33,6 +33,22 @@
   border: 0px;
 }
 
+/*----------- Dropdown Types ---------------*/
+#nav li.level0 .absolute-center {
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  width: 100% !important;
+}
+#nav li.level0 .absolute-left {
+  left: 0px;
+  right: auto;
+}
+#nav li.level0 .absolute-right {
+  right: 0px;
+  left: auto;
+}
+
 /*----------- Content Columns ---------------*/
 .content-columns-1 {
   -webkit-column-count: 1;

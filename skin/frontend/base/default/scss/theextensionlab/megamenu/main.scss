@@ -53,6 +53,30 @@
   }
 }
 
+/*----------- Dropdown Types ---------------*/
+#nav {
+  li {
+    &.level0 {
+      .absolute-center{
+        left:0px;
+        right:0px;
+        top:0px;
+        width:100% !important;
+      }
+
+      .absolute-left{
+        left:0px;
+        right:auto;
+      }
+
+      .absolute-right{
+        right:0px;
+        left:auto;
+      }
+    }
+  }
+}
+
 /*----------- Content Columns ---------------*/
 $max-content-columns: 5;
 @for $i from 1 through $max-content-columns {
