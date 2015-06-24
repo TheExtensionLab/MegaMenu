@@ -11,6 +11,16 @@ class TheExtensionLab_MegaMenu_Block_Page_Html_Topmenu_Renderer
     extends Mage_Page_Block_Html_Topmenu_Renderer
 {
 
+    protected function _toHtml()
+    {
+        $html = parent::_toHtml();
+//        $prefetcher = $this->_getMegaMenuHelper()->getMenuWidgetPrefetcher();
+//        $prefetcher->prefetchRequiredData($html);
+        $processor = $this->_getMegaMenuHelper()->getMenuTemplateProcessor();
+        $html = $processor->filter($html);
+        return $html;
+    }
+
     protected function _getMenuItemClasses(Varien_Data_Tree_Node $item)
     {
         $classes = array();
@@ -117,5 +127,10 @@ class TheExtensionLab_MegaMenu_Block_Page_Html_Topmenu_Renderer
         }
 
         return $style;
+    }
+
+    private function _getMegaMenuHelper()
+    {
+        return Mage::helper('theextensionlab_megamenu');
     }
 }

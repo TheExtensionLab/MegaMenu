@@ -127,6 +127,13 @@
             </extra_attributes>
         </theextensionlab_megamenu>
 
+        <theextensionlab_megamenu>
+            <menu>
+                <tempate_filter>widget/template_filter</tempate_filter>
+                <widget_prefetcher>theextensionlab_megamenu/menu_widget_prefetcher</widget_prefetcher>
+            </menu>
+        </theextensionlab_megamenu>
+
     </global>
 
     <frontend>

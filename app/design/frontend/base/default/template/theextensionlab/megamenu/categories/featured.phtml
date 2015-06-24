@@ -1,0 +1,17 @@
+<?php /** @var $this TheExtensionLab_MegaMenu_Block_Widget_Category_Featured */
+$featuredCategoryNode = $this->getFeaturedCategoryNode();?>
+
+<div class="featured-category <?php echo $this->getDisplayClass();?>">
+    <a href="<?php echo $featuredCategoryNode->getUrl();?>">
+        <?php $imagePath = $featuredCategoryNode->getThumbnailImage();?>
+        <?php $imageUrl = Mage::helper('theextensionlab_megamenu/category')->getFullImageUrl($imagePath); ?>
+        <?php if($imageUrl):?>
+            <img src="<?php echo $imageUrl?>" />
+        <?php endif;?>
+        <?php if($this->hasTitle()):?>
+            <span><?php echo $this->getTitle();?></span>
+        <?php else:?>
+            <span><?php echo $featuredCategoryNode->getName(); ?></span>
+        <?php endif;?>
+    </a>
+</div>

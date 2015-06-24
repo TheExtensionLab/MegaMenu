@@ -16,6 +16,6 @@
 
     private function _getStylesHelper()
     {
-        return Mage::helper('theextensionlab_megamenu/css');
+        return Mage::helper('theextensionlab_megamenu/display_styles');
     }
 }

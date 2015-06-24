@@ -10,7 +10,7 @@
                 <type>text</type>
             </title>
 
-            <menu_category_id>
+            <menu_featured_category_id>
                 <visible>1</visible>
                 <required>1</required>
                 <label>Category</label>
@@ -23,7 +23,7 @@
                         </button>
                     </data>
                 </helper_block>
-            </menu_category_id>
+            </menu_featured_category_id>
 
             <display_on>
                 <required>0</required>
