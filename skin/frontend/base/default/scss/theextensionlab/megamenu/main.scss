@@ -1,0 +1,65 @@
+@import "mixins/main";
+@import "settings";
+
+/*----------- Main DropDown Positioning ---------------*/
+//Includes some resetting of default styles.
+#nav {
+
+  position:relative;
+  z-index:1000;
+
+  li{
+    position:static;
+
+    &.level0{
+      > div {
+        display:none;
+        position:absolute;
+        width:100%;
+        background-color:blue;
+      }
+
+      .shown-sub{
+        display:block;
+      }
+    }
+
+    &.menu-active{
+      > div {
+        display: block;
+      }
+    }
+  }
+
+  //RWD specific
+  .nav-primary{
+    li{
+      &.level0{
+        > div {
+          position:relative;
+          @media #{$medium-up}{
+            position:absolute;
+          }
+        }
+      }
+    }
+  }
+
+  div {
+    position: relative;
+    left: auto;
+    width: auto;
+    border: 0px;
+  }
+}
+
+/*----------- Content Columns ---------------*/
+$max-content-columns: 5;
+@for $i from 1 through $max-content-columns {
+  .content-columns-#{$i}
+  {
+    -webkit-column-count: $i; /* Chrome, Safari, Opera */
+    -moz-column-count: $i; /* Firefox */
+    column-count: $i;
+  }
+}

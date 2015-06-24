@@ -1,6 +1,16 @@
 <?xml version="1.0"?>
 <layout>
     <default>
+        <reference name="head">
+            <action method="addCss">
+                <stylesheet>css/theextensionlab/megamenu/grid.css</stylesheet>
+            </action>
+            <action method="addCss">
+                <stylesheet>css/theextensionlab/megamenu/main.css</stylesheet>
+            </action>
+        </reference>
+
+
         <reference name="catalog.topnav">
             <block type="theextensionlab_megamenu/page_html_topmenu_renderer" name="catalog.topnav.renderer"
                    template="theextensionlab/megamenu/page/html/topmenu/renderer.phtml"/>

@@ -1,0 +1,3 @@
+@mixin grid_column($columns,$grid-columns:$grid-columns){
+  width: 100% / ($grid-columns/$columns);
+}
