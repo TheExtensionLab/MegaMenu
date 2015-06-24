@@ -147,6 +147,18 @@
         </catalog>
     </default>
 
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <theextensionlab_megamenu before="Mage_Adminhtml">TheExtensionLab_MegaMenu_Adminhtml</theextensionlab_megamenu>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
     <phpunit>
         <suite>
             <modules>
