@@ -123,7 +123,7 @@ class TheExtensionLab_MegaMenu_Block_Page_Html_Topmenu_Renderer
 
         if($child->getMenuDropdownWidth() != null)
         {
-            $style .= ' width:'.$child->getMenuDropdownWidth().'"';
+            $style .= ' width:'.$child->getMenuDropdownWidth().';';
         }
 
         return $style;
