@@ -12,11 +12,11 @@
         Mage::register('current_menu', $menu);
     }
 
-    public function addCategoryFeildDependancys(Varien_Event_Observer $observer)
+    public function addCategoryFieldDependancys(Varien_Event_Observer $observer)
     {
         $block = $observer->getBlock();
         if($block instanceof Mage_Adminhtml_Block_Catalog_Category_Tab_Attributes) {
-            $this->_getConfigDependancyModel()->addCategoryFeildDependancys($block);
+            $this->_getConfigDependancyModel()->addCategoryFieldDependancys($block);
         }
     }
 
