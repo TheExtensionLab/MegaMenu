@@ -81,6 +81,15 @@
                     </theextensionlab_megamenu>
                 </observers>
             </catalog_category_flat_loadnodes_before>
+
+            <adminhtml_block_html_before>
+                <observers>
+                    <theextensionlab_megamenu>
+                        <class>theextensionlab_megamenu/observer</class>
+                        <method>addCategoryFeildDependancys</method>
+                    </theextensionlab_megamenu>
+                </observers>
+            </adminhtml_block_html_before>
         </events>
 
         <theextensionlab_megamenu>
