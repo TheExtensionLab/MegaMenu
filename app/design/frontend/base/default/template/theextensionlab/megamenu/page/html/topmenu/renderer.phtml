@@ -19,7 +19,9 @@
 
         <?php if ($child->hasChildren() && $child->getHasDropDownContent()):?>
 
-            <div class="<?php echo $this->getMenuDropDownTypeClass($child);?>">
+            <?php $inlineStyle = $this->getDropDownInlineStyle($child);?>
+
+            <div class="<?php echo $this->getMenuDropDownTypeClass($child);?>" <?php if(!empty($inlineStyle)): echo 'style="'.$inlineStyle.'"'; endif; ?>>
                 <?php foreach($child->getColumns() as $column):?>
                     <?php if(!empty($column['content']) && $column['col_width'] != 0):?>
                         <div class="column xlab_column_<?php echo $column['col_width'];?>">

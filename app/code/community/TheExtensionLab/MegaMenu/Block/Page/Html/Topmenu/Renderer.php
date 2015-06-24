@@ -106,4 +106,16 @@ class TheExtensionLab_MegaMenu_Block_Page_Html_Topmenu_Renderer
 
         return $dropdownClass;
     }
+
+    protected function getDropDownInlineStyle($child){
+
+        $style = '';
+
+        if($child->getMenuDropdownWidth() != null)
+        {
+            $style .= ' width:'.$child->getMenuDropdownWidth().'"';
+        }
+
+        return $style;
+    }
 }
