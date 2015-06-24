@@ -1,6 +1,6 @@
 <?php class TheExtensionLab_MegaMenu_Model_Config_Dependancy
 {
-    public function addCategoryFeildDependancys(Mage_Adminhtml_Block_Catalog_Category_Tab_Attributes $block)
+    public function addCategoryFieldDependancys(Mage_Adminhtml_Block_Catalog_Category_Tab_Attributes $block)
     {
         $group = $block->getGroup();
         $groupId = $group->getAttributeGroupId();

@@ -86,7 +86,7 @@
                 <observers>
                     <theextensionlab_megamenu>
                         <class>theextensionlab_megamenu/observer</class>
-                        <method>addCategoryFeildDependancys</method>
+                        <method>addCategoryFieldDependancys</method>
                     </theextensionlab_megamenu>
                 </observers>
             </adminhtml_block_html_before>
