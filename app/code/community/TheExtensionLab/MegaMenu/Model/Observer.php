@@ -20,6 +20,12 @@
         }
     }
 
+    public function enableWysiwygInWysiwygConfig(Varien_Event_Observer $observer)
+    {
+        $wysiwygConfig = $observer->getEvent()->getConfig();
+        $wysiwygConfig->setAddWidgets('true');
+    }
+
     public function catalogCategoryFlatLoadnodesBefore(Varien_Event_Observer $observer) {
         $select = $observer->getSelect();
         $this->_getMenuAttributesModel()->addExtraFlatAttributesToSelect($select);
