@@ -8,6 +8,7 @@
             <action method="addCss">
                 <stylesheet>css/theextensionlab/megamenu/main.css</stylesheet>
             </action>
+            <action method="addItem"><type>skin_js</type><name>js/theextensionlab/megamenu/menu.js</name></action>
         </reference>
 
 

@@ -3,3 +3,4 @@ app/code/community/TheExtensionLab/MegaMenu/    app/code/community/TheExtensionL
 app/design/frontend/base/default/layout/theextensionlab/megamenu.xml   app/design/frontend/base/default/layout/theextensionlab/megamenu.xml
 app/design/frontend/base/default/template/theextensionlab/megamenu/ app/design/frontend/base/default/template/theextensionlab/megamenu/
 skin/frontend/base/default/css/theextensionlab/megamenu/    skin/frontend/base/default/css/theextensionlab/megamenu/
+skin/frontend/base/default/js/theextensionlab/megamenu/    skin/frontend/base/default/js/theextensionlab/megamenu/
