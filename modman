@@ -1,7 +1,9 @@
 app/etc/modules/TheExtensionLab_MegaMenu.xml    app/etc/modules/TheExtensionLab_MegaMenu.xml
 app/code/community/TheExtensionLab/MegaMenu/    app/code/community/TheExtensionLab/MegaMenu/
 app/design/adminhtml/default/default/layout/theextensionlab/megamenu.xml    app/design/adminhtml/default/default/layout/theextensionlab/megamenu.xml
+app/design/adminhtml/default/default/template/theextensionlab/megamenu/ app/design/adminhtml/default/default/template/theextensionlab/megamenu/
 app/design/frontend/base/default/layout/theextensionlab/megamenu.xml   app/design/frontend/base/default/layout/theextensionlab/megamenu.xml
 app/design/frontend/base/default/template/theextensionlab/megamenu/ app/design/frontend/base/default/template/theextensionlab/megamenu/
 skin/frontend/base/default/css/theextensionlab/megamenu/    skin/frontend/base/default/css/theextensionlab/megamenu/
 skin/frontend/base/default/js/theextensionlab/megamenu/    skin/frontend/base/default/js/theextensionlab/megamenu/
+js/theextensionlab/megamenu js/theextensionlab/megamenu

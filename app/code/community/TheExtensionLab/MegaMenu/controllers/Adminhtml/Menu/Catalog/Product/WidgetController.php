@@ -9,7 +9,9 @@ class TheExtensionLab_MegaMenu_Adminhtml_Menu_Catalog_Product_WidgetController
 
         $this->getLayout()->getBlock('root')->append($this->_initGrid());
 
-        $serializer = $this->getLayout()->createBlock('adminhtml/widget_grid_serializer', 'megamenu_featured_products_grid_serializer');
+        $serializer = $this->getLayout()->createBlock('adminhtml/widget_grid_serializer', 'megamenu_featured_products_grid_serializer')
+            ->setTemplate('theextensionlab/megamenu/widget/grid/json/serializer.phtml')
+        ;
         $serializer->initSerializerBlock(
             'adminhtml.megamenu.catalog.product.widget.grid',
             'getSelectedProducts',

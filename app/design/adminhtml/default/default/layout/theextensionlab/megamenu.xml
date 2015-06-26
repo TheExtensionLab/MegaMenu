@@ -1,5 +1,13 @@
 <?xml version="1.0"?>
 <layout>
+    <default>
+        <reference name="head">
+            <action method="addJs">
+                <script>theextensionlab/megamenu/adminhtml/grid/json/serializer.js</script>
+            </action>
+        </reference>
+    </default>
+
     <adminhtml_menu_catalog_product_widget_chooser>
         <block type="core/text_list" name="root" output="toHtml">
         </block>

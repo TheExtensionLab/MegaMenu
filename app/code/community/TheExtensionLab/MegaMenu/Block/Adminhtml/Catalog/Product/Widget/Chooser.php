@@ -79,7 +79,7 @@ extends Mage_Adminhtml_Block_Catalog_Product_Widget_Chooser
             'index'     => 'entity_id'
         ));
 
-        $this->addColumn(
+        $this->addColumnAfter(
             'position', array(
                 'header'         => Mage::helper('eav')->__('Position'),
                 'name'           => 'position',
@@ -88,7 +88,7 @@ extends Mage_Adminhtml_Block_Catalog_Product_Widget_Chooser
                 'width'          => '1',
                 'editable'       => true,
                 'value'          => '0'
-            )
+            ),'chooser_name'
         );
 
         parent::_prepareColumns();
