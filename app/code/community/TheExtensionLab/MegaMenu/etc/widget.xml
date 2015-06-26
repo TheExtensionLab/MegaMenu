@@ -49,4 +49,57 @@
             </template>
         </parameters>
     </featured_category_menu_block>
+
+    <featured_product_menu_block type="theextensionlab_megamenu/widget_featuredProduct">
+        <name>MegaMenu - Featured Product Section</name>
+        <description>Add a featured product</description>
+        <is_email_compatible>1</is_email_compatible>
+        <parameters>
+            <title translate="label">
+                <visible>1</visible>
+                <label>Title</label>
+                <type>text</type>
+            </title>
+
+            <megamenu_featured_product_ids translate="label">
+                <visible>1</visible>
+                <required>1</required>
+                <label>Product</label>
+                <type>label</type>
+                <helper_block>
+                    <type>theextensionlab_megamenu/adminhtml_catalog_product_widget_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Product(s)...</open>
+                        </button>
+                    </data>
+                </helper_block>
+                <sort_order>10</sort_order>
+            </megamenu_featured_product_ids>
+
+            <display_on>
+                <required>0</required>
+                <visible>1</visible>
+                <label>Display On</label>
+                <type>multiselect</type>
+                <value>small,medium,large</value>
+                <source_model>theextensionlab_megamenu/config_source_display</source_model>
+            </display_on>
+
+            <template>
+                <required>1</required>
+                <visible>1</visible>
+                <label>Template</label>
+                <type>select</type>
+                <value>theextensionlab/megamenu/products/featured.phtml</value>
+                <values>
+                    <default translate="label">
+                        <value>theextensionlab/megamenu/products/featured.phtml</value>
+                        <label>Default Featured Product Template</label>
+                    </default>
+                </values>
+            </template>
+        </parameters>
+    </featured_product_menu_block>
+
 </widgets>

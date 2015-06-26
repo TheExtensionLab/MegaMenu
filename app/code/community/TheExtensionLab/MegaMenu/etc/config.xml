@@ -146,6 +146,16 @@
         </layout>
     </frontend>
 
+    <adminhtml>
+        <layout>
+            <updates>
+                <theextensionlab_megamenu>
+                    <file>theextensionlab/megamenu.xml</file>
+                </theextensionlab_megamenu>
+            </updates>
+        </layout>
+    </adminhtml>
+
     <default>
         <catalog>
             <navigation>

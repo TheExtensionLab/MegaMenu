@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_menu_catalog_product_widget_chooser>
+        <block type="core/text_list" name="root" output="toHtml">
+        </block>
+    </adminhtml_menu_catalog_product_widget_chooser>
+
+    <adminhtml_menu_catalog_product_widget_choosergridonly>
+        <block type="core/text_list" name="root" output="toHtml">
+        </block>
+    </adminhtml_menu_catalog_product_widget_choosergridonly>
+</layout>
