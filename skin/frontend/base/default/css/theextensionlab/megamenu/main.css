@@ -10,7 +10,6 @@
   display: none;
   position: absolute;
   width: 100%;
-  background-color: blue;
 }
 #nav li.level0 .shown-sub {
   display: block;
@@ -37,7 +36,6 @@
 #nav li.level0 .absolute-center {
   left: 0px;
   right: 0px;
-  top: 0px;
   width: 100% !important;
 }
 #nav li.level0 .absolute-left {
