@@ -28,11 +28,13 @@
     {
         $params = $this->_getIncludeParameters($construction[2]);
 
-        if (isset($params['megamenu_featured_products_ids'])) {
-            $featuredProductIds = explode(',', $params['megamenu_featued_products_ids']);
-            $this->_dataToPrefetch['product_ids'] = array_merge(
-                $featuredProductIds, $this->_dataToPrefetch['product_ids']
-            );
+        if (isset($params['megamenu_featured_product_ids'])) {
+            $featuredProducts = json_decode($params['megamenu_featured_product_ids']);
+
+            foreach($featuredProducts as $featuredProductId => $featuredProductSettings)
+            {
+                $this->_dataToPrefetch['product_ids'][] = $featuredProductId;
+            };
         }
 
         if(isset($params['option_ids'])) {
@@ -59,20 +61,16 @@
     private function _preFetchFeaturedProducts()
     {
         if (isset($this->_dataToPrefetch['product_ids'])) {
-            $featuredProductsById = array();
-
             $featuredProductLimit = 20;
 
             $featuredProductsCollection = Mage::getModel('catalog/product')->getCollection()
                 ->addAttributeToFilter('entity_id', array('in' => $this->_dataToPrefetch['product_ids']))
                 ->addAttributeToSelect(array('name', 'menu_image', 'price', 'special_price', 'url_key'))
-                ->setPageSize($featuredProductLimit);
+                ->setPageSize($featuredProductLimit)
+                ->load()
+            ;
 
-            foreach ($featuredProductsCollection as $featuredProduct) {
-                $featuredProductsById[$featuredProduct->getId()] = $featuredProduct;
-            }
-
-            Mage::register('menu_featured_products_collection', $featuredProductsById);
+            Mage::register('megamenu_products_collection', $featuredProductsCollection);
         }
     }
 }

@@ -14,8 +14,8 @@ class TheExtensionLab_MegaMenu_Block_Page_Html_Topmenu_Renderer
     protected function _toHtml()
     {
         $html = parent::_toHtml();
-//        $prefetcher = $this->_getMegaMenuHelper()->getMenuWidgetPrefetcher();
-//        $prefetcher->prefetchRequiredData($html);
+        $prefetcher = $this->_getMegaMenuHelper()->getMenuWidgetPrefetcher();
+        $prefetcher->prefetch($html);
         $processor = $this->_getMegaMenuHelper()->getMenuTemplateProcessor();
         $html = $processor->filter($html);
         return $html;
