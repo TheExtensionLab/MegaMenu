@@ -1,6 +1,10 @@
 @import "mixins/main";
 @import "settings";
 
+$dropdown-background-color:#fff;
+$dropdown-internals-border-color:#eceff1;
+$dropdwon-external-border-color:#e8eaeb;
+
 /*----------- Main DropDown Positioning ---------------*/
 //Includes some resetting of default styles.
 #nav {
@@ -52,6 +56,19 @@
   }
 }
 
+/*----------- Main DropDown Styling ---------------*/
+@media #{$medium-up}{
+  #nav div.megamenu {
+    background-color: $dropdown-background-color;
+    border:1px solid $dropdwon-external-border-color;
+  }
+
+  //RWD only
+  #nav .nav-primary div.megamenu {
+    border-top: 2px solid #64b5f6;
+  }
+}
+
 /*----------- Dropdown Types ---------------*/
 #nav {
   li {
@@ -83,5 +100,27 @@ $max-content-columns: 5;
     -webkit-column-count: $i; /* Chrome, Safari, Opera */
     -moz-column-count: $i; /* Firefox */
     column-count: $i;
+  }
+}
+
+/*----------- Featured Product ---------------*/
+.featured-product{
+  padding:27px;
+  text-align:center;
+
+  img{
+    margin:0 auto 15px;
+    padding:10px;
+    border:1px solid $dropdown-internals-border-color;
+    box-sizing:border-box;
+    max-width:100%;
+  }
+
+  .button{
+    margin-top:5px;
+
+    span{
+      color:#fff;
+    }
   }
 }

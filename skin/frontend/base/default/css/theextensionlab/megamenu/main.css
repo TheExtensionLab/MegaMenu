@@ -32,6 +32,17 @@
   border: 0px;
 }
 
+/*----------- Main DropDown Styling ---------------*/
+@media only screen and (min-width: 770px) {
+  #nav div.megamenu {
+    background-color: #fff;
+    border: 1px solid #e8eaeb;
+  }
+
+  #nav .nav-primary div.megamenu {
+    border-top: 2px solid #64b5f6;
+  }
+}
 /*----------- Dropdown Types ---------------*/
 #nav li.level0 .absolute-center {
   left: 0px;
@@ -86,4 +97,23 @@
   -moz-column-count: 5;
   /* Firefox */
   column-count: 5;
+}
+
+/*----------- Featured Product ---------------*/
+.featured-product {
+  padding: 27px;
+  text-align: center;
+}
+.featured-product img {
+  margin: 0 auto 15px;
+  padding: 10px;
+  border: 1px solid #eceff1;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.featured-product .button {
+  margin-top: 5px;
+}
+.featured-product .button span {
+  color: #fff;
 }
