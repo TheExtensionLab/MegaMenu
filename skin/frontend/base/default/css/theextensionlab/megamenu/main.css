@@ -144,6 +144,32 @@
   line-height: 16px;
 }
 
+/*----------- Featured Category ---------------*/
+.featured-category, .featured-category a {
+  position: relative;
+}
+
+.featured-category {
+  padding: 15px;
+}
+.featured-category img {
+  width: 100%;
+}
+.featured-category a span {
+  background-color: rgba(100, 181, 246, 0.35);
+  bottom: 0;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: bold;
+  left: 0;
+  margin-right: 10px;
+  padding: 5px 10px;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+
 /*------------- Component Styles --------------*/
 .section-title {
   font-weight: bold;

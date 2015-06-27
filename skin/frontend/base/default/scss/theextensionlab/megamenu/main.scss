@@ -139,6 +139,35 @@ $max-content-columns: 5;
   }
 }
 
+/*----------- Featured Category ---------------*/
+.featured-category,.featured-category a
+{
+  position:relative;
+}
+
+.featured-category{
+  padding:15px;
+  img{
+    width:100%;
+  }
+  a{
+    span{
+      background-color: rgba(100,181,246,0.35);
+      bottom: 0;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: bold;
+      left: 0;
+      margin-right: 10px;
+      padding: 5px 10px;
+      position: absolute;
+      text-align: center;
+      text-transform: uppercase;
+      width: 100%;
+    }
+  }
+}
+
 /*------------- Component Styles --------------*/
 
 .section-title{
