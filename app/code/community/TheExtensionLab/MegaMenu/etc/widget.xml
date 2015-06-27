@@ -50,7 +50,7 @@
         </parameters>
     </featured_category_menu_block>
 
-    <featured_product_menu_block type="theextensionlab_megamenu/widget_featuredProduct">
+    <featured_product_menu_block type="theextensionlab_megamenu/widget_product_featured">
         <name>MegaMenu - Featured Product Section</name>
         <description>Add a featured product</description>
         <is_email_compatible>1</is_email_compatible>
