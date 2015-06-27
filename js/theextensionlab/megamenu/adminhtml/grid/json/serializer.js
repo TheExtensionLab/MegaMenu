@@ -9,7 +9,7 @@ jsonSerializerController.prototype = Object.extend(serializerController.prototyp
         if(this.multidimensionalMode){
             var clone = this.gridData.clone();
             clone.each(function(pair) {
-                clone.set(pair.key, Object.toQueryString(pair.value));
+                clone.set(pair.key, pair.value);
             });
 
             var jsonString = JSON.stringify(clone.toJSON()).addSlashes();
