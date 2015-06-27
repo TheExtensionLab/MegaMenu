@@ -97,6 +97,10 @@
                         <value>theextensionlab/megamenu/products/featured.phtml</value>
                         <label>Default Featured Product Template</label>
                     </default>
+                    <secondary translate="label">
+                        <value>theextensionlab/megamenu/products/featured-secondary.phtml</value>
+                        <label>Secondary Featured Product Template</label>
+                    </secondary>
                 </values>
             </template>
         </parameters>

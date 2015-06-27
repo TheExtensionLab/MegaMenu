@@ -104,8 +104,12 @@ $max-content-columns: 5;
 }
 
 /*----------- Featured Product ---------------*/
+
+.megamenu-featured-products{
+  padding:27px 27px 0px;
+}
+
 .featured-product{
-  padding:27px;
   text-align:center;
 
   img{
@@ -123,4 +127,22 @@ $max-content-columns: 5;
       color:#fff;
     }
   }
+
+  .secondary &{
+    @include media_object($image-margin:15px,$max-image-width:150px,$bd-padding:30px 0px 0px);
+    text-align:left;
+
+    .button{
+      float:left;
+      line-height:16px;
+    }
+  }
+}
+
+/*------------- Component Styles --------------*/
+
+.section-title{
+  font-weight:bold;
+  letter-spacing:1px;
+  margin-bottom:10px;
 }

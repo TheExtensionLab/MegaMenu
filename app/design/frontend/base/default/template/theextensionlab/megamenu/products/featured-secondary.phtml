@@ -1,0 +1,29 @@
+<?php $featuredProductsCollection = $this->getFeaturedProductsCollection();?>
+<?php $_helper = $this->helper('catalog/image');?>
+
+<div class="megamenu-featured-products secondary">
+
+    <?php if($this->hasTitle()):?>
+        <p class="section-title"><?php echo $this->getTitle();?></p>
+    <?php endif;?>
+
+    <?php foreach($featuredProductsCollection as $featuredProduct):?>
+        <div class="featured-product <?php echo $this->getDisplayClass();?>">
+            <a class="img" href="<?php echo $featuredProduct->getProductUrl();?>">
+                <?php if($featuredProduct->hasMenuImage()):?>
+                    <?php $imageUrl = $_helper->init($featuredProduct, 'menu_image') ?>
+                    <img src="<?php echo $imageUrl?>" />
+                <?php endif;?>
+            </a>
+            <div class="bd">
+                <p><?php echo $featuredProduct->getName(); ?></p>
+                <?php echo Mage::helper('core')->currency($featuredProduct->getFinalPrice(),true,true);?>
+                <div class="button-container">
+                    <a class="button" href="<?php echo $featuredProduct->getProductUrl();?>">
+                        <span><?php echo $this->__('View More'); ?></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    <?php endforeach;?>
+</div>

@@ -1,0 +1,27 @@
+@mixin media_object($image-margin:null,$bd-padding:null,$max-image-width:null){
+  overflow:hidden;
+
+  .bd{
+    overflow:hidden;
+    @if $bd-padding != null{
+      padding: $bd-padding;
+    }
+  }
+
+  .img{
+    float:left;
+    @if $image-margin != null{
+      margin-right: $image-margin;
+    }
+    @if $max-image-width != null{
+      max-width: $max-image-width;
+    }
+    img{
+      display:block;
+    }
+  }
+
+  .imgExt{
+    float:right;
+  }
+}
