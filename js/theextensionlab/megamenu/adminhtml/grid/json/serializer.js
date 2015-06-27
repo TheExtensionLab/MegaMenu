@@ -9,7 +9,11 @@ jsonSerializerController.prototype = Object.extend(serializerController.prototyp
         if(this.multidimensionalMode){
             var clone = this.gridData.clone();
             clone.each(function(pair) {
-                clone.set(pair.key, pair.value);
+                //Put the data in array to avoid "}}" which will conflict with the widget directive we now get ]}] which wont match.
+                //Not perfect but better than an unreadable base_64 string which is the default for serializer.
+                var data = [];
+                data.push(pair.value);
+                clone.set(pair.key, data);
             });
 
             var jsonString = JSON.stringify(clone.toJSON()).addSlashes();
