@@ -1,5 +1,51 @@
 <?xml version="1.0"?>
 <widgets>
+
+    <category_list_menu_block type="theextensionlab_megamenu/widget_category_list">
+        <name>MegaMenu - Category List Section</name>
+        <description>Select your categories for this menu block</description>
+        <parameters>
+            <category_json>
+                <visible>1</visible>
+                <required>1</required>
+                <label>Categories</label>
+                <type>label</type>
+                <helper_block>
+                    <type>theextensionlab_megamenu/adminhtml_catalog_category_widget_draggable_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select and order categories</open>
+                        </button>
+                    </data>
+                </helper_block>
+            </category_json>
+
+            <display_on>
+                <required>0</required>
+                <visible>1</visible>
+                <label>Display On</label>
+                <type>multiselect</type>
+                <value>small,medium,large</value>
+                <source_model>theextensionlab_megamenu/config_source_display</source_model>
+            </display_on>
+
+            <template>
+                <required>1</required>
+                <visible>1</visible>
+                <label>Template</label>
+                <type>select</type>
+                <value>theextensionlab/megamenu/categories/list.phtml</value>
+                <values>
+                    <default translate="label">
+                        <value>theextensionlab/megamenu/categories/list.phtml</value>
+                        <label>Default Categories List</label>
+                    </default>
+                </values>
+            </template>
+
+        </parameters>
+    </category_list_menu_block>
+
     <featured_category_menu_block type="theextensionlab_megamenu/widget_category_featured">
         <name>MegaMenu - Featured Category Block</name>
         <description>Add a single featured category for this menu block</description>

@@ -1,0 +1,37 @@
+.tree-container {
+    background-color: #fff;
+    float: right;
+    width: 49%;
+    border: 1px solid #eaeaea;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.tree-container.first {
+    float: left;
+}
+
+.tree-header {
+    background-color: #6f8992;
+    font-weight: bold;
+    padding: 10px;
+    color: #fff;
+}
+
+.tree-header p {
+    margin-bottom: 0px;
+}
+
+.tree-content {
+    padding: 10px;
+}
+
+.categorie-trees-box {
+    clear: both;
+    overflow: hidden;
+}
+
+#save-categories {
+    margin-top: 20px;
+    float: right;
+}

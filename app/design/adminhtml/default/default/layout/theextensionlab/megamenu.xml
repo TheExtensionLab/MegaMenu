@@ -17,4 +17,23 @@
         <block type="core/text_list" name="root" output="toHtml">
         </block>
     </adminhtml_menu_catalog_product_widget_choosergridonly>
+
+    <add_widget_override>
+        <reference name="head">
+            <action method="addJs"><script>theextensionlab/megamenu/wysiwyg/widget.js</script></action>
+            <action method="addItem"><type>skin_css</type><name>theextensionlab/megamenu/css/widget/draggable.css</name></action>
+        </reference>
+    </add_widget_override>
+
+    <editor>
+        <update handle="add_widget_override"/>
+    </editor>
+
+    <adminhtml_widget_instance_edit>
+        <update handle="add_widget_override"/>
+    </adminhtml_widget_instance_edit>
+
+    <adminhtml_mobile_edittemplate>
+        <update handle="add_widget_override"/>
+    </adminhtml_mobile_edittemplate>
 </layout>
