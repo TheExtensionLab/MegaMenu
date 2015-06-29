@@ -1,0 +1,35 @@
+<?php $childNodes = $this->getLoadedMenuNodes(); ?>
+<?php $categoryTree = $this->getCategoryTree(); ?>
+
+<div class="list-block categories-list-block megamenu-list-block <?php echo $this->getDisplayClass();?>">
+    <ul>
+        <?php foreach($categoryTree as $category):?>
+
+            <?php $categoryNodeId = 'category-node-'.$category->id;?>
+            <?php $categoryNode = $childNodes[$categoryNodeId]; ?>
+
+            <li class="section-title">
+                <span>
+                    <a href="<?php echo $categoryNode->getUrl(); ?>">
+                        <?php echo $categoryNode->getName(); ?>
+                    </a>
+                </span>
+            </li>
+
+            <?php if($category->children):?>
+                    <?php foreach($category->children as $childCategory){?>
+                        <?php $childCategoryNodeId = 'category-node-'.$childCategory->id;?>
+                        <?php $childCategoryNode = $childNodes[$childCategoryNodeId]; ?>
+                        <li><a href="<?php echo $childCategoryNode->getUrl();?>"><?php echo $childCategoryNode->getName();?></a></li>
+                    <?php } ?>
+                    <li <?php if(!empty($category->children)):echo 'class="view-all small-only-view-all"';endif;?>>
+                            <span>
+                                <a href="<?php echo $categoryNode->getUrl(); ?>">
+                                    <?php echo $this->__('View All %s',$categoryNode->getName());?>
+                                </a>
+                            </span>
+                    </li>
+            <?php endif;?>
+        <?php endforeach; ?>
+    </ul>
+</div>
