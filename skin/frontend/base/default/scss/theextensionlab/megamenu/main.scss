@@ -45,6 +45,16 @@ $dropdwon-external-border-color:#e8eaeb;
           @media #{$medium-up}{
             position:absolute;
           }
+          ul{
+            background: transparent;
+            border: 0px;
+            display: block;
+            position: relative;
+            top: auto;
+            width: auto;
+            padding-left:0px;
+            padding-right:0px;
+          }
         }
       }
     }
@@ -64,12 +74,13 @@ $dropdwon-external-border-color:#e8eaeb;
 
   a{
     float:none;
-    padding:0px;
   }
 
-  li.level0{
-    > a{
-      padding: 5px 12px 6px 8px;
+  @media #{$medium-up}{
+    li.level0 {
+      > a {
+        padding: 5px 12px 6px 8px;
+      }
     }
   }
 }
@@ -79,6 +90,10 @@ $dropdwon-external-border-color:#e8eaeb;
 #nav div.megamenu {
   background-color: $dropdown-background-color;
   border:1px solid $dropdwon-external-border-color;
+}
+
+#nav .megamenu .column:not(:last-child){
+  border-right:1px solid $dropdown-internals-border-color;
 }
 
 @media #{$medium-up}{
@@ -203,4 +218,29 @@ $max-content-columns: 5;
   font-weight:bold;
   letter-spacing:1px;
   margin-bottom:10px;
+}
+
+/*---Widget Blocks---*/
+@media #{$medium-up}{
+  .list-block {
+    padding: 10px 25px;
+    &:first-of-type {
+      padding-top: 15px;
+    }
+    &:last-of-type {
+      padding-bottom: 15px;
+    }
+  }
+}
+
+@media #{$large-up}{
+  .list-block {
+    padding: 10px 45px;
+    &:first-of-type {
+      padding-top: 35px;
+    }
+    &:last-of-type {
+      padding-bottom: 35px;
+    }
+  }
 }

@@ -27,6 +27,16 @@
     position: absolute;
   }
 }
+#nav .nav-primary li.level0 > div ul {
+  background: transparent;
+  border: 0px;
+  display: block;
+  position: relative;
+  top: auto;
+  width: auto;
+  padding-left: 0px;
+  padding-right: 0px;
+}
 #nav .nav-primary a.button {
   color: #fff;
 }
@@ -39,16 +49,21 @@
 }
 #nav a {
   float: none;
-  padding: 0px;
 }
-#nav li.level0 > a {
-  padding: 5px 12px 6px 8px;
+@media only screen and (min-width: 770px) {
+  #nav li.level0 > a {
+    padding: 5px 12px 6px 8px;
+  }
 }
 
 /*----------- Main DropDown Styling ---------------*/
 #nav div.megamenu {
   background-color: #fff;
   border: 1px solid #e8eaeb;
+}
+
+#nav .megamenu .column:not(:last-child) {
+  border-right: 1px solid #eceff1;
 }
 
 @media only screen and (min-width: 770px) {
@@ -189,4 +204,28 @@
   font-weight: bold;
   letter-spacing: 1px;
   margin-bottom: 10px;
+}
+
+/*---Widget Blocks---*/
+@media only screen and (min-width: 770px) {
+  .list-block {
+    padding: 10px 25px;
+  }
+  .list-block:first-of-type {
+    padding-top: 15px;
+  }
+  .list-block:last-of-type {
+    padding-bottom: 15px;
+  }
+}
+@media only screen and (min-width: 979px) {
+  .list-block {
+    padding: 10px 45px;
+  }
+  .list-block:first-of-type {
+    padding-top: 35px;
+  }
+  .list-block:last-of-type {
+    padding-bottom: 35px;
+  }
 }
