@@ -17,7 +17,7 @@
             </a>
             <div class="bd">
                 <p><?php echo $featuredProduct->getName(); ?></p>
-                <?php echo Mage::helper('core')->currency($featuredProduct->getFinalPrice(),true,true);?>
+                <p><?php echo Mage::helper('core')->currency($featuredProduct->getFinalPrice(),true,true);?></p>
                 <div class="button-container">
                     <a class="button" href="<?php echo $featuredProduct->getProductUrl();?>">
                         <span><?php echo $this->__('View More'); ?></span>

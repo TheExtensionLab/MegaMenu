@@ -16,9 +16,9 @@
                 <?php endif; ?>
                 <?php echo $featuredProduct->getName(); ?>
             </a>
-            <?php echo Mage::helper('core')->currency($featuredProduct->getFinalPrice(),true,true);?>
+            <p><?php echo Mage::helper('core')->currency($featuredProduct->getFinalPrice(),true,true);?></p>
             <a class="button" href="<?php echo $featuredProduct->getProductUrl(); ?>">
-                <span><?php echo $this->__('View More'); ?></span>
+                <span><span><?php echo $this->__('View More'); ?></span></span>
             </a>
         </div>
     <?php endforeach; ?>

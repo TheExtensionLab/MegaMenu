@@ -10,6 +10,7 @@
   display: none;
   position: absolute;
   width: 100%;
+  top: 27px;
 }
 #nav li.level0 .shown-sub {
   display: block;
@@ -19,26 +20,38 @@
 }
 #nav .nav-primary li.level0 > div {
   position: relative;
+  top: auto;
 }
 @media only screen and (min-width: 770px) {
   #nav .nav-primary li.level0 > div {
     position: absolute;
   }
 }
+#nav .nav-primary a.button {
+  color: #fff;
+}
 #nav div {
   position: relative;
   left: auto;
   width: auto;
   border: 0px;
+  top: auto;
+}
+#nav a {
+  float: none;
+  padding: 0px;
+}
+#nav li.level0 > a {
+  padding: 5px 12px 6px 8px;
 }
 
 /*----------- Main DropDown Styling ---------------*/
-@media only screen and (min-width: 770px) {
-  #nav div.megamenu {
-    background-color: #fff;
-    border: 1px solid #e8eaeb;
-  }
+#nav div.megamenu {
+  background-color: #fff;
+  border: 1px solid #e8eaeb;
+}
 
+@media only screen and (min-width: 770px) {
   #nav .nav-primary div.megamenu {
     border-top: 2px solid #64b5f6;
   }
@@ -117,30 +130,30 @@
 .featured-product .button {
   margin-top: 5px;
 }
-.featured-product .button span {
-  color: #fff;
-}
 .secondary .featured-product {
-  overflow: hidden;
   text-align: left;
 }
-.secondary .featured-product .bd {
+#nav .secondary .featured-product {
+  overflow: hidden;
+}
+#nav .secondary .featured-product .bd {
   overflow: hidden;
   padding: 30px 0px 0px;
 }
-.secondary .featured-product .img {
+#nav .secondary .featured-product .img {
   float: left;
   margin-right: 15px;
   max-width: 150px;
 }
-.secondary .featured-product .img img {
+#nav .secondary .featured-product .img img {
   display: block;
 }
-.secondary .featured-product .imgExt {
+#nav .secondary .featured-product .imgExt {
   float: right;
 }
-.secondary .featured-product .button {
+#nav .secondary .featured-product .button {
   float: left;
+  padding: 5px;
   line-height: 16px;
 }
 
@@ -168,6 +181,7 @@
   text-align: center;
   text-transform: uppercase;
   width: 100%;
+  box-sizing: border-box;
 }
 
 /*------------- Component Styles --------------*/

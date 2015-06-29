@@ -20,6 +20,7 @@ $dropdwon-external-border-color:#e8eaeb;
         display:none;
         position:absolute;
         width:100%;
+        top:27px;
       }
 
       .shown-sub{
@@ -40,11 +41,16 @@ $dropdwon-external-border-color:#e8eaeb;
       &.level0{
         > div {
           position:relative;
+          top:auto;
           @media #{$medium-up}{
             position:absolute;
           }
         }
       }
+    }
+
+    a.button{
+      color:#fff;
     }
   }
 
@@ -53,16 +59,29 @@ $dropdwon-external-border-color:#e8eaeb;
     left: auto;
     width: auto;
     border: 0px;
+    top:auto;
+  }
+
+  a{
+    float:none;
+    padding:0px;
+  }
+
+  li.level0{
+    > a{
+      padding: 5px 12px 6px 8px;
+    }
   }
 }
 
 /*----------- Main DropDown Styling ---------------*/
-@media #{$medium-up}{
-  #nav div.megamenu {
-    background-color: $dropdown-background-color;
-    border:1px solid $dropdwon-external-border-color;
-  }
 
+#nav div.megamenu {
+  background-color: $dropdown-background-color;
+  border:1px solid $dropdwon-external-border-color;
+}
+
+@media #{$medium-up}{
   //RWD only
   #nav .nav-primary div.megamenu {
     border-top: 2px solid #64b5f6;
@@ -122,19 +141,28 @@ $max-content-columns: 5;
 
   .button{
     margin-top:5px;
-
-    span{
-      color:#fff;
-    }
   }
 
   .secondary &{
-    @include media_object($image-margin:15px,$max-image-width:150px,$bd-padding:30px 0px 0px);
     text-align:left;
 
-    .button{
-      float:left;
-      line-height:16px;
+    #nav &{ //increase specificity due to resets
+      @include media_object($image-margin:15px,$max-image-width:150px,$bd-padding:30px 0px 0px);
+
+      .button{
+        float:left;
+        padding:5px;
+        line-height:16px;
+      }
+
+    }
+  }
+}
+
+#nav{
+  .featured-product{
+    .secondary &{
+
     }
   }
 }
@@ -164,6 +192,7 @@ $max-content-columns: 5;
       text-align: center;
       text-transform: uppercase;
       width: 100%;
+      box-sizing: border-box;
     }
   }
 }
