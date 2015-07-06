@@ -1,4 +1,4 @@
-<?php class TheExtensionLab_MegaMenu_Model_Widget_Prefetcher extends Mage_Widget_Model_Template_Filter
+<?php class TheExtensionLab_MegaMenu_Model_Prefetcher extends Mage_Widget_Model_Template_Filter
 {
     protected $_dataToPrefetch = array();
     protected $_prefetchModels = array();
@@ -13,16 +13,16 @@
     private function _preparePrefetchModels()
     {
         $this->_prefetchParsers = array(
-            'featured_product' => 'theextensionlab_megamenu/product_featured_parser',
-            'attribute_option' => 'theextensionlab_megamenu/attribute_option_parser',
-            'url_rewrite'      => 'theextensionlab_megamenu/url_rewrite_parser'
+            'featured_product' => 'theextensionlab_megamenu/parser_product_featured',
+            'attribute_option' => 'theextensionlab_megamenu/parser_attribute_option',
+            'url_rewrite'      => 'theextensionlab_megamenu/parser_url_rewrite'
         );
 
         $this->_prefetchModels = array(
-            'product' => 'theextensionlab_megamenu/product_prefetcher',
-            'attribute_option' => 'theextensionlab_megamenu/attribute_option_prefetcher',
-            'attribute' => 'theextensionlab_megamenu/attribute_prefetcher',
-            'url_rewrite' => 'theextensionlab_megamenu/url_rewrite_prefetcher'
+            'product' => 'theextensionlab_megamenu/prefetcher_product',
+            'attribute_option' => 'theextensionlab_megamenu/prefetcher_attribute_option',
+            'attribute' => 'theextensionlab_megamenu/prefetcher_attribute',
+            'url_rewrite' => 'theextensionlab_megamenu/prefetcher_url_rewrite'
         );
 
         Mage::dispatchEvent('megamenu_prepare_prefetch_models_after', array('block' => $this));

@@ -1,7 +1,7 @@
 <?php
 
-class TheExtensionLab_MegaMenu_Model_Attribute_Prefetcher
-    implements TheExtensionLab_MegaMenu_Model_Widget_Prefetcher_Interface
+class TheExtensionLab_MegaMenu_Model_Prefetcher_Attribute
+    implements TheExtensionLab_MegaMenu_Model_Prefetcher_Interface
 {
     public function prefetchWaitingData(&$waitingData)
     {

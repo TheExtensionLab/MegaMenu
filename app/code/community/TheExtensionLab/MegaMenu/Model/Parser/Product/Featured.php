@@ -1,6 +1,6 @@
 <?php
-class TheExtensionLab_MegaMenu_Model_Product_Featured_Parser
-    implements TheExtensionLab_MegaMenu_Model_Widget_Parser_Interface
+class TheExtensionLab_MegaMenu_Model_Parser_Product_Featured
+    implements TheExtensionLab_MegaMenu_Model_Parser_Interface
 {
     public function saveDataToPrefetch($params)
     {

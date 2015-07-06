@@ -1,7 +1,7 @@
 <?php
 
-class TheExtensionLab_MegaMenu_Model_Url_Rewrite_Prefetcher
-    implements TheExtensionLab_MegaMenu_Model_Widget_Prefetcher_Interface
+class TheExtensionLab_MegaMenu_Model_Prefetcher_Url_Rewrite
+    implements TheExtensionLab_MegaMenu_Model_Prefetcher_Interface
 {
     public function prefetchWaitingData(&$waitingData)
     {
