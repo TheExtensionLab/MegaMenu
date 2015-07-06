@@ -16,7 +16,6 @@ class TheExtensionLab_MegaMenu_Model_Product_Featured_Parser
             {
                 $dataToPrefetch['product_ids'][] = $featuredProductId;
             }
-
         }
 
         return $dataToPrefetch;

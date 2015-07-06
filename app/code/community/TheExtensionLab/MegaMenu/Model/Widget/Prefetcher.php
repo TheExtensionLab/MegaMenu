@@ -14,15 +14,14 @@
     {
         $this->_prefetchParsers = array(
             'featured_product' => 'theextensionlab_megamenu/product_featured_parser',
-//            'attribute_option' => 'theextensionlab_megamenu/attribute_option_parser',
-//            'attribute'        => 'theextensionlab_megamenu/attribute_parser',
+            'attribute_option' => 'theextensionlab_megamenu/attribute_option_parser',
 //            'url_rewrite'      => 'theextensionlab_megamenu/url_rewrite_parser'
         );
 
         $this->_prefetchModels = array(
             'product' => 'theextensionlab_megamenu/product_prefetcher',
-//            'attribute_option' => 'theextensionlab_megamenu/attribute_options_prefetcher',
-//            'attribute' => 'theextensionlab_megamenu/attribute_prefetcher',
+            'attribute_option' => 'theextensionlab_megamenu/attribute_option_prefetcher',
+            'attribute' => 'theextensionlab_megamenu/attribute_prefetcher',
 //            'url_rewrite' => 'theextensionlab_megamenu/url_rewrite_prefetcher'
         );
 

@@ -4,7 +4,7 @@ class TheExtensionLab_MegaMenu_Model_Product_Prefetcher
     implements TheExtensionLab_MegaMenu_Model_Widget_Prefetcher_Interface
 {
 
-    public function prefetchWaitingData($waitingData)
+    public function prefetchWaitingData(&$waitingData)
     {
         if (isset($waitingData['product_ids'])) {
             $featuredProductLimit = 20;
