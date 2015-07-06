@@ -2,9 +2,9 @@
 class TheExtensionLab_MegaMenu_Model_Parser_Product_Featured
     implements TheExtensionLab_MegaMenu_Model_Parser_Interface
 {
-    public function saveDataToPrefetch($params)
+    public function parseForPrefetchData($params)
     {
-        $dataToPrefetch = array();
+        $prefetchConfig = array();
 
         if(isset($params['megamenu_featured_product_ids']))
         {
@@ -14,10 +14,10 @@ class TheExtensionLab_MegaMenu_Model_Parser_Product_Featured
 
             foreach($featuredProductsJson as $featuredProductId => $featuredProductPosition)
             {
-                $dataToPrefetch['product_ids'][] = $featuredProductId;
+                $prefetchConfig['product_ids'][] = $featuredProductId;
             }
         }
 
-        return $dataToPrefetch;
+        return $prefetchConfig;
     }
 }

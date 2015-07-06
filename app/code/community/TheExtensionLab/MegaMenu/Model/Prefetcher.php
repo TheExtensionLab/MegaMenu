@@ -77,8 +77,8 @@
         foreach($this->_prefetchParsers as $modelAlias)
         {
             $model = Mage::getModel($modelAlias);
-            if(is_callable(array($model,'saveDataToPrefetch'))) {
-                $prefetchedData = $model->saveDataToPrefetch($params);
+            if(is_callable(array($model,'parseForPrefetchData'))) {
+                $prefetchedData = $model->parseForPrefetchData($params);
                 $this->_dataToPrefetch = array_merge($this->_dataToPrefetch, $prefetchedData);
             }
         }
@@ -91,8 +91,8 @@
         foreach($this->_prefetchModels as $modelAlias)
         {
             $model = Mage::getModel($modelAlias);
-            if(is_callable(array($model,'prefetchWaitingData'))) {
-                $model->prefetchWaitingData($this->_dataToPrefetch);
+            if(is_callable(array($model,'prefetchData'))) {
+                $model->prefetchData($this->_dataToPrefetch);
             }
         }
 

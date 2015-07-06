@@ -3,11 +3,11 @@
 class TheExtensionLab_MegaMenu_Model_Prefetcher_Attribute
     implements TheExtensionLab_MegaMenu_Model_Prefetcher_Interface
 {
-    public function prefetchWaitingData(&$waitingData)
+    public function prefetchData(&$prefetchConfig)
     {
         $attributeIdArray = array();
         $collection = Mage::getResourceModel('catalog/product_attribute_collection')
-            ->addFieldToFilter('main_table.attribute_id', array('in' => $waitingData['attribute_ids']))
+            ->addFieldToFilter('main_table.attribute_id', array('in' => $prefetchConfig['attribute_ids']))
             ->addVisibleFilter();
 
         foreach ($collection as $attribute) {
