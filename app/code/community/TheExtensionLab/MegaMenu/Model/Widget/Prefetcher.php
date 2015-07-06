@@ -1,6 +1,53 @@
 <?php class TheExtensionLab_MegaMenu_Model_Widget_Prefetcher extends Mage_Widget_Model_Template_Filter
 {
     protected $_dataToPrefetch = array();
+    protected $_prefetchModels = array();
+    protected $_prefetchParsers = array();
+
+
+    public function __construct()
+    {
+        $this->_preparePrefetchModels();
+    }
+
+    private function _preparePrefetchModels()
+    {
+        $this->_prefetchParsers = array(
+            'featured_product' => 'theextensionlab_megamenu/product_featured_parser',
+//            'attribute_option' => 'theextensionlab_megamenu/attribute_option_parser',
+//            'attribute'        => 'theextensionlab_megamenu/attribute_parser',
+//            'url_rewrite'      => 'theextensionlab_megamenu/url_rewrite_parser'
+        );
+
+        $this->_prefetchModels = array(
+            'product' => 'theextensionlab_megamenu/product_prefetcher',
+//            'attribute_option' => 'theextensionlab_megamenu/attribute_options_prefetcher',
+//            'attribute' => 'theextensionlab_megamenu/attribute_prefetcher',
+//            'url_rewrite' => 'theextensionlab_megamenu/url_rewrite_prefetcher'
+        );
+
+        Mage::dispatchEvent('megamenu_prepare_prefetch_models_after', array('block' => $this));
+    }
+
+    public function getPrefetchModels()
+    {
+        return $this->_prefetchModels;
+    }
+
+    public function setPrefetchModels($models)
+    {
+        $this->_prefetchModels = $models;
+    }
+
+    public function getPrefetchParsers()
+    {
+        return $this->_prefetchParsers;
+    }
+
+    public function setPrefetchParsers($models)
+    {
+        $this->_prefetchParsers = $models;
+    }
 
     public function prefetch($value)
     {
@@ -28,49 +75,28 @@
     {
         $params = $this->_getIncludeParameters($construction[2]);
 
-        if (isset($params['megamenu_featured_product_ids'])) {
-            $featuredProducts = json_decode($params['megamenu_featured_product_ids']);
-
-            foreach($featuredProducts as $featuredProductId => $featuredProductSettings)
-            {
-                $this->_dataToPrefetch['product_ids'][] = $featuredProductId;
-            };
+        foreach($this->_prefetchParsers as $modelAlias)
+        {
+            $model = Mage::getModel($modelAlias);
+            if(is_callable(array($model,'saveDataToPrefetch'))) {
+                $prefetchedData = $model->saveDataToPrefetch($params);
+                $this->_dataToPrefetch = array_merge($this->_dataToPrefetch, $prefetchedData);
+            }
         }
-
-        if(isset($params['option_ids'])) {
-            $optionIds = Mage::helper('adminhtml/js')->decodeGridSerializedInput($params['option_ids']);
-            foreach($optionIds as $key => $value):
-                $this->_dataToPrefetch['option_ids'][] = $key;
-
-                if(isset($params['category_id'])):
-                    $this->_dataToPrefetch['rewrite_ids'][] = 'category/'.$params['category_id'];
-                endif;
-            endforeach;
-        }
-
     }
 
     private function _prefetchWaitingData()
     {
         Varien_Profiler::start('megamenu_prefetch_and_store_data');
-        $this->_preFetchFeaturedProducts();
-        Varien_Profiler::stop('megamenu_prefetch_and_store_data');
-    }
 
-
-    private function _preFetchFeaturedProducts()
-    {
-        if (isset($this->_dataToPrefetch['product_ids'])) {
-            $featuredProductLimit = 20;
-
-            $featuredProductsCollection = Mage::getModel('catalog/product')->getCollection()
-                ->addAttributeToFilter('entity_id', array('in' => $this->_dataToPrefetch['product_ids']))
-                ->addAttributeToSelect(array('name', 'menu_image', 'price', 'special_price', 'url_key'))
-                ->setPageSize($featuredProductLimit)
-                ->load()
-            ;
-
-            Mage::register('megamenu_products_collection', $featuredProductsCollection);
+        foreach($this->_prefetchModels as $modelAlias)
+        {
+            $model = Mage::getModel($modelAlias);
+            if(is_callable(array($model,'prefetchWaitingData'))) {
+                $model->prefetchWaitingData($this->_dataToPrefetch);
+            }
         }
+
+        Varien_Profiler::stop('megamenu_prefetch_and_store_data');
     }
 }
