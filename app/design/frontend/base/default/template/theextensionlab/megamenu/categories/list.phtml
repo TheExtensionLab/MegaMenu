@@ -8,7 +8,7 @@
             <?php $categoryNodeId = 'category-node-'.$category->id;?>
             <?php $categoryNode = $childNodes[$categoryNodeId]; ?>
 
-            <li class="section-title">
+            <li <?php if(!empty($category->children)): echo 'class="section-title"';endif;?>>
                 <span>
                     <a href="<?php echo $categoryNode->getUrl(); ?>">
                         <?php echo $categoryNode->getName(); ?>
@@ -16,7 +16,7 @@
                 </span>
             </li>
 
-            <?php if($category->children):?>
+            <?php if(!empty($category->children)):?>
                     <?php foreach($category->children as $childCategory){?>
                         <?php $childCategoryNodeId = 'category-node-'.$childCategory->id;?>
                         <?php $childCategoryNode = $childNodes[$childCategoryNodeId]; ?>
