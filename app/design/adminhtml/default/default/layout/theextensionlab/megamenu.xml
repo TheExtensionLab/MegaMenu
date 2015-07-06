@@ -18,6 +18,16 @@
         </block>
     </adminhtml_menu_catalog_product_widget_choosergridonly>
 
+    <adminhtml_menu_attribute_option_widget_chooser>
+        <block type="core/text_list" name="root" output="toHtml">
+        </block>
+    </adminhtml_menu_attribute_option_widget_chooser>
+
+    <adminhtml_menu_attribute_option_widget_choosergridonly>
+        <block type="core/text_list" name="root" output="toHtml">
+        </block>
+    </adminhtml_menu_attribute_option_widget_choosergridonly>
+
     <add_widget_override>
         <reference name="head">
             <action method="addJs"><script>theextensionlab/megamenu/wysiwyg/widget.js</script></action>

@@ -1,11 +1,5 @@
 <?php class TheExtensionLab_MegaMenu_Model_Config_Source_Display
 {
-
-    /**
-     * Options getter
-     *
-     * @return array
-     */
     public function toOptionArray()
     {
         return array(

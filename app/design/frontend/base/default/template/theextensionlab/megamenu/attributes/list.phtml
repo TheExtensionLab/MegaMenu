@@ -1,0 +1,23 @@
+<?php $collection = Mage::registry('megamenu_attribute_options');?>
+<?php $attributeCollection = Mage::registry('megamenu_attributes');?>
+
+<?php $optionIds = json_decode($this->getOptionIds(),true);?>
+
+<?php $first_key = key($optionIds);?>
+
+<?php if($attributeCollection && $attributeCollection):?>
+
+    <?php $parentAttribute = $attributeCollection[$collection[$first_key]->getAttributeId()];?>
+
+    <div class="list-block shop-by-list-block megamenu-list-block <?php echo $this->getDisplayClass();?>">
+        <ul class="<?php echo $this->getClass();?>">
+            <li class="section-title"><span><?php echo $this->__('Shop By %s',$parentAttribute->getFrontendLabel());?></span></li>
+            <?php foreach($optionIds as $key => $value):?>
+                <li>
+                    <a href="<?php echo Mage::helper('theextensionlab_megamenu/attribute_url')->getFilterUrl($this->getCategoryId(),$parentAttribute->getAttributeCode(),$key)?>"><?php echo $collection[$key]->getValue();?></a>
+                </li>
+            <?php endforeach;?>
+        </ul>
+    </div>
+
+<?php endif;?>

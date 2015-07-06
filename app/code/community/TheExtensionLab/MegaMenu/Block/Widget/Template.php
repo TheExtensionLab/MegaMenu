@@ -1,7 +1,7 @@
 <?php class TheExtensionLab_MegaMenu_Block_Widget_Template
     extends Mage_Core_Block_Template
 {
-    public function getDisplayClass()
+    protected function getDisplayClass()
     {
         $screensToDisplayOn = $this->getDisplayOn();
 

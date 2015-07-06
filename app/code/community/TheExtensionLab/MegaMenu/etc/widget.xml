@@ -46,6 +46,80 @@
         </parameters>
     </category_list_menu_block>
 
+    <shop_by_attribute_menu_block type="theextensionlab_megamenu/widget_attribute_list">
+        <name>MegaMenu - Shop By Attribute List</name>
+        <description>Select an attribute to shop by</description>
+        <parameters>
+            <title translate="label">
+                <visible>1</visible>
+                <label>Title</label>
+                <type>text</type>
+            </title>
+            <category_id translate="label">
+                <visible>1</visible>
+                <required>1</required>
+                <label>Category</label>
+                <type>label</type>
+                <helper_block>
+                    <type>theextensionlab_megamenu/adminhtml_catalog_category_widget_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Category...</open>
+                        </button>
+                    </data>
+                </helper_block>
+            </category_id>
+
+            <option_ids>
+                <visible>1</visible>
+                <required>1</required>
+                <label>Select Options</label>
+                <type>label</type>
+                <helper_block>
+                    <type>theextensionlab_megamenu/adminhtml_attribute_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Attribute Options</open>
+                        </button>
+                    </data>
+                </helper_block>
+            </option_ids>
+
+            <display_on>
+                <required>0</required>
+                <visible>1</visible>
+                <label>Display On</label>
+                <type>multiselect</type>
+                <value>small,medium,large</value>
+                <source_model>theextensionlab_megamenu/config_source_display</source_model>
+            </display_on>
+
+            <list_columns>
+                <required>1</required>
+                <visible>1</visible>
+                <label>List Columns</label>
+                <type>select</type>
+                <value>1</value>
+                <source_model>theextensionlab_megamenu/config_source_list_columns</source_model>
+            </list_columns>
+
+            <template>
+                <required>1</required>
+                <visible>1</visible>
+                <label>Template</label>
+                <type>select</type>
+                <value>theextensionlab/megamenu/attributes/list.phtml</value>
+                <values>
+                    <default translate="label">
+                        <value>theextensionlab/megamenu/attributes/list.phtml</value>
+                        <label>Default Categories List</label>
+                    </default>
+                </values>
+            </template>
+
+        </parameters>
+    </shop_by_attribute_menu_block>
+
     <featured_category_menu_block type="theextensionlab_megamenu/widget_category_featured">
         <name>MegaMenu - Featured Category Block</name>
         <description>Add a single featured category for this menu block</description>
