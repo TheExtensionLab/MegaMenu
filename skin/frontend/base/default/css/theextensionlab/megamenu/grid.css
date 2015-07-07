@@ -5,6 +5,7 @@
 .column {
   float: left;
   position: relative;
+  box-sizing: border-box;
 }
 
 .xlab_grid_container {
