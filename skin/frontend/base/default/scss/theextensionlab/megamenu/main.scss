@@ -1,34 +1,34 @@
 @import "mixins/main";
 @import "settings";
 
-$dropdown-background-color:#fff;
-$dropdown-internals-border-color:#eceff1;
-$dropdwon-external-border-color:#e8eaeb;
+$dropdown-background-color: #fff;
+$dropdown-internals-border-color: #eceff1;
+$dropdwon-external-border-color: #e8eaeb;
 
 /*----------- Main DropDown Positioning ---------------*/
 //Includes some resetting of default styles.
 #nav {
 
-  position:relative;
-  z-index:1000;
+  position: relative;
+  z-index: 1000;
 
-  li{
-    position:static;
+  li {
+    position: static;
 
-    &.level0{
+    &.level0 {
       > div {
-        display:none;
-        position:absolute;
-        width:100%;
-        top:27px;
+        display: none;
+        position: absolute;
+        width: 100%;
+        top: 27px;
       }
 
-      .shown-sub{
-        display:block;
+      .shown-sub {
+        display: block;
       }
     }
 
-    &.menu-active{
+    &.menu-active {
       > div {
         display: block;
       }
@@ -36,31 +36,31 @@ $dropdwon-external-border-color:#e8eaeb;
   }
 
   //RWD specific
-  .nav-primary{
-    li{
-      &.level0{
+  .nav-primary {
+    li {
+      &.level0 {
         > div {
-          position:relative;
-          top:auto;
+          position: relative;
+          top: auto;
           @media #{$medium-up}{
-            position:absolute;
+            position: absolute;
           }
-          ul{
+          ul {
             background: transparent;
             border: 0px;
             display: block;
             position: relative;
             top: auto;
             width: auto;
-            padding-left:0px;
-            padding-right:0px;
+            padding-left: 0px;
+            padding-right: 0px;
           }
         }
       }
     }
 
-    a.button{
-      color:#fff;
+    a.button {
+      color: #fff;
     }
   }
 
@@ -69,11 +69,11 @@ $dropdwon-external-border-color:#e8eaeb;
     left: auto;
     width: auto;
     border: 0px;
-    top:auto;
+    top: auto;
   }
 
-  a{
-    float:none;
+  a {
+    float: none;
   }
 
   @media #{$medium-up}{
@@ -88,15 +88,12 @@ $dropdwon-external-border-color:#e8eaeb;
 /*----------- Main DropDown Styling ---------------*/
 
 #nav div.megamenu {
-
-  @media #{$medium-up}{
-    background-color: $dropdown-background-color;
-  }
-  border:1px solid $dropdwon-external-border-color;
+  background-color: $dropdown-background-color;
+  border: 1px solid $dropdwon-external-border-color;
 }
 
-#nav .megamenu .column:not(:last-child){
-  border-right:1px solid $dropdown-internals-border-color;
+#nav .megamenu .column:not(:last-child) {
+  border-right: 1px solid $dropdown-internals-border-color;
 }
 
 @media #{$medium-up}{
@@ -110,20 +107,20 @@ $dropdwon-external-border-color:#e8eaeb;
 #nav {
   li {
     &.level0 {
-      .absolute-center{
-        left:0px;
-        right:0px;
-        width:100% !important;
+      .absolute-center {
+        left: 0px;
+        right: 0px;
+        width: 100% !important;
       }
 
-      .absolute-left{
-        left:0px;
-        right:auto;
+      .absolute-left {
+        left: 0px;
+        right: auto;
       }
 
-      .absolute-right{
-        right:0px;
-        left:auto;
+      .absolute-right {
+        right: 0px;
+        left: auto;
       }
     }
   }
@@ -132,8 +129,7 @@ $dropdwon-external-border-color:#e8eaeb;
 /*----------- Content Columns ---------------*/
 $max-content-columns: 5;
 @for $i from 1 through $max-content-columns {
-  .content-columns-#{$i}
-  {
+  .content-columns-#{$i} {
     -webkit-column-count: $i; /* Chrome, Safari, Opera */
     -moz-column-count: $i; /* Firefox */
     column-count: $i;
@@ -142,63 +138,63 @@ $max-content-columns: 5;
 
 /*----------- Featured Product ---------------*/
 
-.megamenu-featured-products{
-  padding:27px 27px 0px;
+.megamenu-featured-products {
+  padding: 27px 27px 0px;
 }
 
-.featured-product{
-  text-align:center;
+.featured-product {
+  text-align: center;
 
-  img{
-    margin:0 auto 15px;
-    padding:10px;
-    border:1px solid $dropdown-internals-border-color;
-    box-sizing:border-box;
-    max-width:100%;
+  img {
+    margin: 0 auto 15px;
+    padding: 10px;
+    border: 1px solid $dropdown-internals-border-color;
+    box-sizing: border-box;
+    max-width: 100%;
   }
 
-  .button{
-    margin-top:5px;
+  .button {
+    margin-top: 5px;
   }
 
-  .secondary &{
-    text-align:left;
+  .secondary & {
+    text-align: left;
 
-    #nav &{ //increase specificity due to resets
-      @include media_object($image-margin:15px,$max-image-width:150px,$bd-padding:30px 0px 0px);
+    #nav & {
+      //increase specificity due to resets
+      @include media_object($image-margin: 15px, $max-image-width: 150px, $bd-padding: 30px 0px 0px);
 
-      .button{
-        float:left;
-        padding:5px;
-        line-height:16px;
+      .button {
+        float: left;
+        padding: 5px;
+        line-height: 16px;
       }
 
     }
   }
 }
 
-#nav{
-  .featured-product{
-    .secondary &{
+#nav {
+  .featured-product {
+    .secondary & {
 
     }
   }
 }
 
 /*----------- Featured Category ---------------*/
-.featured-category,.featured-category a
-{
-  position:relative;
+.featured-category, .featured-category a {
+  position: relative;
 }
 
-.featured-category{
-  padding:15px;
-  img{
-    width:100%;
+.featured-category {
+  padding: 15px;
+  img {
+    width: 100%;
   }
-  a{
-    span{
-      background-color: rgba(100,181,246,0.35);
+  a {
+    span {
+      background-color: rgba(100, 181, 246, 0.35);
       bottom: 0;
       color: #ffffff;
       font-size: 13px;
@@ -217,9 +213,9 @@ $max-content-columns: 5;
 
 /*------------- Component Styles --------------*/
 
-.section-title{
-  font-weight:bold;
-  letter-spacing:1px;
+.section-title {
+  font-weight: bold;
+  letter-spacing: 1px;
   @media #{$medium-up}{
     margin-bottom: 10px;
   }
@@ -234,8 +230,8 @@ $max-content-columns: 5;
       border-bottom: 1px solid #ccc;
 
       @media #{$medium-up}{
-        padding:0px;
-        border:0px;
+        padding: 0px;
+        border: 0px;
       }
     }
   }
@@ -261,8 +257,6 @@ $max-content-columns: 5;
   }
 }
 
-
-
 /*------------- Display Classes --------------*/
 
 @media #{$small-only}{
@@ -271,22 +265,22 @@ $max-content-columns: 5;
   }
 }
 
-.hide-on-medium{
-  display:none !important;
+.hide-on-medium {
+  display: none !important;
 }
 
-.hide-on-large{
-  display:none !important;
+.hide-on-large {
+  display: none !important;
 }
 
 @media #{$small-only} {
-  .categories-list-block .list-title{
-    display:none;
+  .categories-list-block .list-title {
+    display: none;
   }
 }
 
 @media #{$medium-up} {
-  .small-only-view-all{
+  .small-only-view-all {
     display: none;
   }
 }

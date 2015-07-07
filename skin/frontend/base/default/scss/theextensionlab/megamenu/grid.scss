@@ -2,7 +2,6 @@
 	TheExtensionLab MegaMenu Grid
 	Based on 960 Grid System - http://960.gs/ & 960 Fluid - http://www.designinfluences.com/
 */
-
 @import "settings";
 @import "mixins/main";
 @import "mixins/grid";
@@ -11,7 +10,7 @@ $class-prefix: 'xlab_';
 $grid-columns: 24;
 $container-class: '#{$class-prefix}grid_container';
 
-.column{
+.column {
   float: left;
   position: relative;
   box-sizing: border-box;
@@ -19,28 +18,33 @@ $container-class: '#{$class-prefix}grid_container';
 
 .#{$container-class} {
   width: 100%;
-  overflow:hidden;
+  overflow: hidden;
 }
 
 @for $i from 1 through $grid-columns {
-  #nav .#{$container-class} .#{$class-prefix}column_#{$i}_#{$grid-columns}{
-    @include grid_column($grid-columns);
-    @media #{$medium-up}{
-      @include grid_column($i);
+  #nav .#{$container-class} .#{$class-prefix}column_#{$i}_#{$grid-columns} {
+    @include grid_column($i);
+  }
+
+  @media #{$small-only}{
+    #nav.#{$container-class}.responsive  .#{$class-prefix}column_#{$i}_#{$grid-columns} {
+      @include grid_column($grid-columns); //if has .responsive class set columns to 100% on small screens
     }
   }
+
 }
 
 @for $i from 1 through 5 {
-  #nav .#{$container-class} .#{$class-prefix}column_#{$i}_5{
-    @include grid_column($grid-columns);
-    @media #{$medium-up}{
-      @include grid_column($i, 5);
+  #nav .#{$container-class} .#{$class-prefix}column_#{$i}_5 {
+    @include grid_column($i, 5);
+  }
+  @media #{$small-only}{
+    #nav .#{$container-class}.responsive .#{$class-prefix}column_#{$i}_5 {
+      @include grid_column($grid-columns); //if has .responsive class set columns to 100% on small screens
     }
   }
 }
 
-
-#nav .#{$container-class} div[class^="#{$class-prefix}grid_"]{
-  @include grid_column(24,24);
+#nav .#{$container-class} div[class^="#{$class-prefix}grid_"] {
+  @include grid_column(24, 24);
 }

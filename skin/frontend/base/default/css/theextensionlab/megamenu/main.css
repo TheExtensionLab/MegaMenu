@@ -58,12 +58,8 @@
 
 /*----------- Main DropDown Styling ---------------*/
 #nav div.megamenu {
+  background-color: #fff;
   border: 1px solid #e8eaeb;
-}
-@media only screen and (min-width: 770px) {
-  #nav div.megamenu {
-    background-color: #fff;
-  }
 }
 
 #nav .megamenu .column:not(:last-child) {
