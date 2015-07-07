@@ -223,7 +223,7 @@ $max-content-columns: 5;
   margin-bottom:10px;
 }
 
-/*---Widget Blocks---*/
+/*------------- Widget Blocks --------------*/
 
 .list-block {
   li {
@@ -260,5 +260,33 @@ $max-content-columns: 5;
 }
 
 
+
+/*------------- Display Classes --------------*/
+
+@media #{$small-only}{
+  .hide-on-small {
+    display: none !important;
+  }
+}
+
+.hide-on-medium{
+  display:none !important;
+}
+
+.hide-on-large{
+  display:none !important;
+}
+
+@media #{$small-only} {
+  .categories-list-block .list-title{
+    display:none;
+  }
+}
+
+@media #{$medium-up} {
+  .small-only-view-all{
+    display: none;
+  }
+}
 
 
