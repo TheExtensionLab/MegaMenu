@@ -207,7 +207,11 @@
 .section-title {
   font-weight: bold;
   letter-spacing: 1px;
-  margin-bottom: 10px;
+}
+@media only screen and (min-width: 770px) {
+  .section-title {
+    margin-bottom: 10px;
+  }
 }
 
 /*------------- Widget Blocks --------------*/
