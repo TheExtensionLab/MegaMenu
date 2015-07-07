@@ -58,8 +58,12 @@
 
 /*----------- Main DropDown Styling ---------------*/
 #nav div.megamenu {
-  background-color: #fff;
   border: 1px solid #e8eaeb;
+}
+@media only screen and (min-width: 770px) {
+  #nav div.megamenu {
+    background-color: #fff;
+  }
 }
 
 #nav .megamenu .column:not(:last-child) {
@@ -207,6 +211,16 @@
 }
 
 /*---Widget Blocks---*/
+.list-block li a {
+  padding: 0 15px 0 25px;
+  border-bottom: 1px solid #ccc;
+}
+@media only screen and (min-width: 770px) {
+  .list-block li a {
+    padding: 0px;
+    border: 0px;
+  }
+}
 @media only screen and (min-width: 770px) {
   .list-block {
     padding: 10px 25px;

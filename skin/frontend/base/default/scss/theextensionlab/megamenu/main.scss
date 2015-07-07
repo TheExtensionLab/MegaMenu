@@ -88,7 +88,10 @@ $dropdwon-external-border-color:#e8eaeb;
 /*----------- Main DropDown Styling ---------------*/
 
 #nav div.megamenu {
-  background-color: $dropdown-background-color;
+
+  @media #{$medium-up}{
+    background-color: $dropdown-background-color;
+  }
   border:1px solid $dropdwon-external-border-color;
 }
 
@@ -221,8 +224,21 @@ $max-content-columns: 5;
 }
 
 /*---Widget Blocks---*/
-@media #{$medium-up}{
-  .list-block {
+
+.list-block {
+  li {
+    a {
+      padding: 0 15px 0 25px;
+      border-bottom: 1px solid #ccc;
+
+      @media #{$medium-up}{
+        padding:0px;
+        border:0px;
+      }
+    }
+  }
+
+  @media #{$medium-up}{
     padding: 10px 25px;
     &:first-of-type {
       padding-top: 15px;
@@ -231,10 +247,8 @@ $max-content-columns: 5;
       padding-bottom: 15px;
     }
   }
-}
 
-@media #{$large-up}{
-  .list-block {
+  @media #{$large-up}{
     padding: 10px 45px;
     &:first-of-type {
       padding-top: 35px;
@@ -244,3 +258,7 @@ $max-content-columns: 5;
     }
   }
 }
+
+
+
+
