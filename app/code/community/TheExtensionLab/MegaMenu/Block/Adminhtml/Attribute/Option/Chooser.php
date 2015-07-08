@@ -141,7 +141,6 @@ class TheExtensionLab_MegaMenu_Block_Adminhtml_Attribute_Option_Chooser extends
             'index'=>'value'
         ));
 
-
         $this->addColumn(
             'position', array(
                 'header'         => Mage::helper('eav')->__('Position'),
@@ -160,15 +159,15 @@ class TheExtensionLab_MegaMenu_Block_Adminhtml_Attribute_Option_Chooser extends
 
     private function _getSelectedOptions()
     {
-        $products = array_keys($this->getCallback());
-        return $products;
+        $prevValueArray = get_object_vars($this->getCallback());
+        $optionIds = array_keys($prevValueArray);
+        return $optionIds;
     }
 
 
     public function getCallback()
     {
-        return Mage::helper('adminhtml/js')
-            ->decodeGridSerializedInput($this->getPrevValue());
+        return json_decode($this->getPrevValue());
     }
 
     public function getGridUrl()

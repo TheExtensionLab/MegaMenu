@@ -5,11 +5,8 @@ class TheExtensionLab_MegaMenu_Adminhtml_Menu_Attribute_Option_WidgetController
 {
     protected function _getAttributeIdFromFirstPrevValue($prevValue)
     {
-        $optionIds = Mage::helper('adminhtml/js')
-            ->decodeGridSerializedInput($prevValue);
-
+        $optionIds = json_decode($prevValue,1);
         $first_key = key($optionIds);
-
         $option = Mage::getModel('eav/entity_attribute_option')->load($first_key);
 
         return $option->getAttributeId();

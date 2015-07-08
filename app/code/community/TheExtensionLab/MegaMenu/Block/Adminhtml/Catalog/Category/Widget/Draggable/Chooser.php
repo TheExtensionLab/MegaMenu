@@ -57,7 +57,6 @@ class TheExtensionLab_MegaMenu_Block_Adminhtml_Catalog_Category_Widget_Draggable
         $rootArray['children']['0']['children'] = null;
         if(!empty($prevValue->categories)):
             $prevValue->categories = $this->_addCategoryNameToPrevValueCategories($prevValue->categories);
-
             $rootArray['children']['0']['children'] = $prevValue->categories;
         endif;
 
