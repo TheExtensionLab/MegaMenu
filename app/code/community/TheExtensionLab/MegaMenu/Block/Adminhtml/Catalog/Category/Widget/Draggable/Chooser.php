@@ -33,7 +33,7 @@ class TheExtensionLab_MegaMenu_Block_Adminhtml_Catalog_Category_Widget_Draggable
             $elementValue = $element->getValue();
 
             $sourceUrl = $this->getUrl(
-                '*/megamenu_catalog_category_draganddrop_widget/chooser',
+                '*/menu_catalog_category_draggable_widget/chooser',
                 array(
                     'uniq_id' => $uniqId,
                     'prev_value' => $elementValue,
@@ -56,6 +56,8 @@ class TheExtensionLab_MegaMenu_Block_Adminhtml_Catalog_Category_Widget_Draggable
         $rootArray['children']['0']['children'] = null;
         $rootArray['children']['0']['children'] = null;
         if(!empty($prevValue->categories)):
+            $prevValue->categories = $this->_addCategoryNameToPrevValueCategories($prevValue->categories);
+
             $rootArray['children']['0']['children'] = $prevValue->categories;
         endif;
 
@@ -67,6 +69,22 @@ class TheExtensionLab_MegaMenu_Block_Adminhtml_Catalog_Category_Widget_Draggable
                 ? $rootArray['children'] : array()
         );
         return $json;
+    }
+
+    private function _addCategoryNameToPrevValueCategories($categories)
+    {
+        $categoryCollection = $this->getCategoryCollection();
+        foreach($categories as $categoryNode)
+        {
+            $category = $categoryCollection->getItemById($categoryNode->id);
+            $categoryNode->text = $category->getName();
+
+            if(!empty($categoryNode->children)){
+                $this->_addCategoryNameToPrevValueCategories($categoryNode->children);
+            }
+        }
+
+        return $categories;
     }
 
     public function getNodeClickListener()
