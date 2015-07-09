@@ -15,7 +15,6 @@ class TheExtensionLab_MegaMenu_Model_Config_Source_Link_Type
 
     protected $_eventPrefix = 'link_type';
 
-    const MAX_COLUMNS = 12;
     const DEFAULT_LINK_TYPE = 0;
     const INTERNAL_LINK_TYPE = 1;
     const EXTERNAL_LINK_TYPE = 2;

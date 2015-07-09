@@ -77,7 +77,7 @@
     private function _getCategoryColumns($category)
     {
         $columns = array();
-        $maxColumns = TheExtensionLab_MegaMenu_Model_Config_Source_Columns::MAX_COLUMNS;
+        $maxColumns =  Mage::helper('theextensionlab_megamenu/column_types')->getMaxColumns();
 
         for ($i = 1; $i <= $maxColumns; $i++) {
             $columns['column_' . $i] = array(

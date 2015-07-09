@@ -38,10 +38,7 @@
 
     private function _addColumnsDependace($dependanceBlock)
     {
-        $columsType = array(
-            24,
-            5
-        );
+        $columsType = Mage::helper('theextensionlab_megamenu/column_types')->getTypes();
 
         $valuesForActive = array();
 

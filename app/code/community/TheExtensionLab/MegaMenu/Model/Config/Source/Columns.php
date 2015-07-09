@@ -13,8 +13,12 @@ class TheExtensionLab_MegaMenu_Model_Config_Source_Columns
     extends TheExtensionLab_MegaMenu_Model_Config_Source_Abstract
 {
     protected $_eventPrefix = 'columns';
-    protected $_columnTypes = array(5,24);
-    const MAX_COLUMNS = 24;
+    protected $_columnTypes = array();
+
+    public function __construct()
+    {
+        $this->_columnTypes = Mage::helper('theextensionlab_megamenu/column_types')->getTypes();
+    }
 
     public function getAllOptionsArray()
     {
