@@ -19,7 +19,7 @@
 
             $categoryData = $this->_getCategoryMenuData($category);
 
-            $categoryNode = $this->_createTreeNode($categoryData,$parentCategoryNode);
+            $categoryNode = $this->_createTreeNode($categoryData, $parentCategoryNode);
             $parentCategoryNode->addChild($categoryNode);
 
             $subcategories = $this->_getSubCategories($category);
@@ -37,16 +37,17 @@
 
         $categoryMenuData = new Varien_Object();
 
-        $categoryMenuData->setData(array(
-                'name'      => $this->_getCategoryHelper()->getMenuName($category),
-                'id'        => $nodeId,
-                'url'       => $this->_getCategoryUrlHelper()->getCategoryUrl($category),
-                'is_active' => $this->_isActiveMenuCategory($category),
-                'columns'   => $this->_getCategoryColumns($category),
-                'image'     => $category->getImage(),
-                'thumbnail_image' => $category->getThumbnail(),
+        $categoryMenuData->setData(
+            array(
+                'name'                => $this->_getCategoryHelper()->getMenuName($category),
+                'id'                  => $nodeId,
+                'url'                 => $this->_getCategoryUrlHelper()->getCategoryUrl($category),
+                'is_active'           => $this->_isActiveMenuCategory($category),
+                'columns'             => $this->_getCategoryColumns($category),
+                'image'               => $category->getImage(),
+                'thumbnail_image'     => $category->getThumbnail(),
                 'menu_dropdown_width' => $category->getMenuDropdownWidth(),
-                'menu_dropdown_type' => $category->getMenuDropdownType()
+                'menu_dropdown_type'  => $category->getMenuDropdownType()
             )
         );
 
