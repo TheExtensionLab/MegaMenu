@@ -13,11 +13,12 @@ class TheExtensionLab_MegaMenu_Model_Resource_Setup
     const MEGAMENU_SECTIONS_COUNT_PATH = 'catalog/navigation/sections_count';
 
     public function addInstallationSuccessfulNotification(){
-        $docUrl = "http://docs.theextensionlab.com/megamenu/installation.html";
-        $inboxModel = Mage::getModel('adminnotification/inbox');
-        if(!method_exists($inboxModel,'addNotice')){
+        if(!$this->magentoVersionHasAddNoticeMethod()){
             return;
         }
+
+        $docUrl = "http://docs.theextensionlab.com/megamenu/installation.html";
+        $inboxModel = $this->_getInboxModel();
         $inboxModel->addNotice(
             'You have successfully installed TheExtensionLab_MegaMenu:
             The Menu can be configured under two new tabs in for each category in the Catalog > Manage Categories section.',
@@ -25,6 +26,12 @@ class TheExtensionLab_MegaMenu_Model_Resource_Setup
             'http://docs.theextensionlab.com/megamenu/configuration.html',
             true
         );
+    }
+
+    public function magentoVersionHasAddNoticeMethod()
+    {
+        $inboxModel = $this->_getInboxModel();
+        return method_exists($inboxModel,'addNotice');
     }
 
     public function getDefaultEntities()
@@ -186,5 +193,10 @@ class TheExtensionLab_MegaMenu_Model_Resource_Setup
                 'global'     => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_STORE,
                 'group'      => 'MegaMenu Contents'
         );
+    }
+
+    private function _getInboxModel()
+    {
+        return Mage::getModel('adminnotification/inbox');
     }
 }
