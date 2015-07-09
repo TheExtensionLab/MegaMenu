@@ -5,11 +5,11 @@
     {
         $screensToDisplayOn = $this->getDisplayOn();
 
-        if(empty($screensToDisplayOn)){
+        if (empty($screensToDisplayOn)) {
             return '';
         }
 
-        $screensToDisplayOnArray = explode(',',$screensToDisplayOn);
+        $screensToDisplayOnArray = explode(',', $screensToDisplayOn);
 
         return $this->_getStylesHelper()->getDisplayClass($screensToDisplayOnArray);
     }
