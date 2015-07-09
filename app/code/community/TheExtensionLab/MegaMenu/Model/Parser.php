@@ -1,6 +1,6 @@
-<?php class TheExtensionLab_MegaMenu_Model_Prefetcher_Config_Maker extends Mage_Widget_Model_Template_Filter
+<?php class TheExtensionLab_MegaMenu_Model_Parser extends Mage_Widget_Model_Template_Filter
 {
-    protected $_prefetchConfig = array();
+    protected $_directiveValues = array();
     protected $_prefetchParsers = array();
 
     public function __construct()
@@ -8,7 +8,18 @@
         $this->prepareParsers();
     }
 
-    public function prepareConfig($value)
+    public function prepareParsers()
+    {
+        $this->setPrefetchParsers(
+            array(
+                'featured_product' => 'theextensionlab_megamenu/parser_product_featured',
+                'attribute_option' => 'theextensionlab_megamenu/parser_attribute_option',
+                'url_rewrite'      => 'theextensionlab_megamenu/parser_url_rewrite'
+            )
+        );
+    }
+
+    public function getDirectiveValues($value)
     {
         if ($constructions = $this->_matchConstructorPattern($value)) {
             foreach ($constructions as $index => $construction) {
@@ -16,7 +27,7 @@
             }
         }
 
-        return $this->_prefetchConfig;
+        return $this->_directiveValues;
     }
 
     private function _matchConstructorPattern($value)
@@ -52,7 +63,7 @@
         $parser = Mage::getModel($modelAlias);
         if ($this->parserHasRequiredMethods($parser)) {
             $prefetchedData = $parser->parseForPrefetchData($params);
-            $this->_prefetchConfig = array_merge($this->_prefetchConfig, $prefetchedData);
+            $this->_directiveValues = array_merge($this->_directiveValues, $prefetchedData);
         }
     }
 
@@ -69,16 +80,5 @@
     protected function setPrefetchParsers($models)
     {
         $this->_prefetchParsers = $models;
-    }
-
-    public function prepareParsers()
-    {
-        $this->setPrefetchParsers(
-            array(
-                'featured_product' => 'theextensionlab_megamenu/parser_product_featured',
-                'attribute_option' => 'theextensionlab_megamenu/parser_attribute_option',
-                'url_rewrite'      => 'theextensionlab_megamenu/parser_url_rewrite'
-            )
-        );
     }
 }
