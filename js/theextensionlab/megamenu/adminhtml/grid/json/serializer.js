@@ -4,7 +4,8 @@ String.prototype.addSlashes = function()
 };
 
 var jsonSerializerController = Class.create();
-jsonSerializerController.prototype = Object.extend(serializerController.prototype, {
+var clonedSerializer = Object.clone(serializerController.prototype);
+jsonSerializerController.prototype = Object.extend(clonedSerializer, {
     serializeObject: function(){
         if(this.multidimensionalMode){
             var clone = this.gridData.clone();
