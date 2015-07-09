@@ -33,14 +33,10 @@
     {
         Mage::dispatchEvent('menu_get_category_menu_data_before', array('category' => $category));
 
-        $nodeId = 'category-node-' . $category->getId();
-
-        $categoryMenuData = new Varien_Object();
-
-        $categoryMenuData->setData(
+        $categoryMenuData = new Varien_Object(
             array(
                 'name'                => $this->_getCategoryHelper()->getMenuName($category),
-                'id'                  => $nodeId,
+                'id'                  => $this->_getNodeId($category->getId()),
                 'url'                 => $this->_getCategoryUrlHelper()->getCategoryUrl($category),
                 'is_active'           => $this->_isActiveMenuCategory($category),
                 'columns'             => $this->_getCategoryColumns($category),
@@ -57,6 +53,12 @@
         );
 
         return $categoryMenuData->getData();
+    }
+
+    private function _getNodeId($categoryId)
+    {
+        $prefix = 'category-node';
+        return $prefix . '-' . $categoryId;
     }
 
     private function _getSubCategories($category)
