@@ -3,20 +3,9 @@
     protected $_directiveValues = array();
     protected $_prefetchParsers = array();
 
-    public function __construct()
+    public function __construct($defaultParsers)
     {
-        $this->prepareParsers();
-    }
-
-    public function prepareParsers()
-    {
-        $this->setPrefetchParsers(
-            array(
-                'featured_product' => 'theextensionlab_megamenu/parser_product_featured',
-                'attribute_option' => 'theextensionlab_megamenu/parser_attribute_option',
-                'url_rewrite'      => 'theextensionlab_megamenu/parser_url_rewrite'
-            )
-        );
+        $this->setPrefetchParsers($defaultParsers);
     }
 
     public function getDirectiveValues($value)

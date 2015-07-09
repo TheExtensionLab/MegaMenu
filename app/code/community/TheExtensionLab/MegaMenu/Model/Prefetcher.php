@@ -6,7 +6,7 @@
 
     public function __construct()
     {
-        $this->_preparePrefetchModels();
+        $this->_prepareModels();
     }
 
     public function prefetch($value)
@@ -36,10 +36,11 @@
         Varien_Profiler::stop('megamenu_prefetch_and_store_data');
     }
 
-    private function _preparePrefetchModels()
+    private function _prepareModels()
     {
         $this->preparePrefetchers();
-        $this->_parser = Mage::getModel('theextensionlab_megamenu/parser_container');
+        $defaultParsers = $this->_getDefaultParsers();
+        $this->_parser = Mage::getModel('theextensionlab_megamenu/parser', $defaultParsers);
 
         $this->_dispatchEventToAllowPrefetchAndParserModelUpdates();
     }
@@ -47,7 +48,7 @@
     private function _dispatchEventToAllowPrefetchAndParserModelUpdates()
     {
         Mage::dispatchEvent(
-            'megamenu_prepare_prefetch_models_after', array('block' => $this, 'config_maker' => $this->_parser)
+            'megamenu_prepare_prefetch_models_after', array('prefetcher' => $this, 'parser' => $this->_parser)
         );
     }
 
@@ -60,6 +61,15 @@
                 'attribute' => 'theextensionlab_megamenu/prefetcher_attribute',
                 'url_rewrite' => 'theextensionlab_megamenu/prefetcher_url_rewrite'
             )
+        );
+    }
+
+    private function _getDefaultParsers()
+    {
+        return array(
+            'featured_product' => 'theextensionlab_megamenu/parser_product_featured',
+            'attribute_option' => 'theextensionlab_megamenu/parser_attribute_option',
+            'url_rewrite'      => 'theextensionlab_megamenu/parser_url_rewrite'
         );
     }
 
