@@ -3,11 +3,11 @@
 class TheExtensionLab_MegaMenu_Model_Prefetcher_Url_Rewrite
     implements TheExtensionLab_MegaMenu_Model_Prefetcher_Interface
 {
-    public function prefetchData(&$prefetchConfig)
+    public function prefetchData(&$directiveValues)
     {
         Varien_Profiler::start('megamenu_url_rewrites_prefetching');
 
-        $rewritesCollection = $this->getRewritesCollection($prefetchConfig['rewrite_ids']);
+        $rewritesCollection = $this->getRewritesCollection($directiveValues['rewrite_ids']);
         $rewriteIdPaths = $this->getRewriteIdPathsFromCollection($rewritesCollection);
 
         Mage::register('megamenu_url_rewrites', $rewriteIdPaths);

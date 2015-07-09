@@ -3,9 +3,9 @@
 class TheExtensionLab_MegaMenu_Model_Prefetcher_Attribute
     implements TheExtensionLab_MegaMenu_Model_Prefetcher_Interface
 {
-    public function prefetchData(&$prefetchConfig)
+    public function prefetchData(&$directiveValues)
     {
-        $collection = $this->getAttributeCollection($prefetchConfig['attribute_ids']);
+        $collection = $this->getAttributeCollection($directiveValues['attribute_ids']);
         $attributeIdArray = $this->getAttributeIdsArrayFromCollection($collection);
 
         Mage::register('megamenu_attributes', $attributeIdArray);
