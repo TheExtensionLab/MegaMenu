@@ -26,12 +26,15 @@
             )
         );
 
-        //If you have a custom layered nav extension you may need to use this to correct to url
-        //to be consistant with other places on your website.
+        $this->_dispatchEventToAllowUrlCustomisation($urlData);
+
+        return $urlData->getUrl();
+    }
+
+    private function _dispatchEventToAllowUrlCustomisation($urlData)
+    {
         Mage::dispatchEvent(
             'megamenu_getfilterurl_after', array('url_data' => $urlData)
         );
-
-        return $urlData->getUrl();
     }
 }
