@@ -112,9 +112,23 @@ class TheExtensionLab_MegaMenu_Block_Adminhtml_Attribute_Option_Chooser extends
             ->setAttributeFilter($attributeId)
             ->setStoreFilter($storeId, false);
 
+        $this->setCollectionPositionValues($collection);
+
         $this->setCollection($collection);
 
         return parent::_prepareCollection();
+    }
+
+    private function setCollectionPositionValues($collection)
+    {
+        $prevValue = $this->getCallback();
+        foreach($collection as $item) {
+            if (isset($prevValue[$item->getOptionId()][0]['position'])) {
+                $item->setPosition((int) $prevValue[$item->getOptionId()][0]['position']);
+            }else{
+                $item->setPosition(0);
+            }
+        }
     }
 
     protected function _prepareColumns()
@@ -149,6 +163,7 @@ class TheExtensionLab_MegaMenu_Block_Adminhtml_Attribute_Option_Chooser extends
                 'validate_class' => 'validate-number',
                 'width'          => '1',
                 'editable'       => true,
+                'index'         => 'position',
                 'value'          => '0'
             )
         );
@@ -159,15 +174,18 @@ class TheExtensionLab_MegaMenu_Block_Adminhtml_Attribute_Option_Chooser extends
 
     private function _getSelectedOptions()
     {
-        $prevValueArray = get_object_vars($this->getCallback());
-        $optionIds = array_keys($prevValueArray);
+        $optionIds = array();
+        if($this->getCallback()) {
+            $prevValueArray = $this->getCallback();
+            $optionIds = array_keys($prevValueArray);
+        }
         return $optionIds;
     }
 
 
     public function getCallback()
     {
-        return json_decode($this->getPrevValue());
+        return json_decode($this->getPrevValue(),1);
     }
 
     public function getGridUrl()
