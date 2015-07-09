@@ -6,7 +6,7 @@ class TheExtensionLab_MegaMenu_Model_Prefetcher_Product
 
     public function prefetchData(&$prefetchConfig)
     {
-        if (isset($prefetchConfig['product_ids'])) {
+        if ($this->_hasProductsToLoad($prefetchConfig)) {
             $featuredProductLimit = 20;
 
             $featuredProductsCollection = Mage::getModel('catalog/product')->getCollection()
@@ -17,6 +17,11 @@ class TheExtensionLab_MegaMenu_Model_Prefetcher_Product
 
             Mage::register('megamenu_products_collection', $featuredProductsCollection);
         }
+    }
+
+    protected function _hasProductsToLoad($prefetchConfig)
+    {
+        return isset($prefetchConfig['product_ids']);
     }
 
 }
