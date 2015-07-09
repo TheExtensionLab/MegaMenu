@@ -22,7 +22,7 @@ class TheExtensionLab_MegaMenu_Model_Prefetcher_Attribute
         return $attributeIdArray;
     }
 
-    private function getAttributeCollection($attributeIds)
+    private function getAttributeCollection(array $attributeIds)
     {
         return  Mage::getResourceModel('catalog/product_attribute_collection')
             ->addFieldToFilter('main_table.attribute_id', array('in' => $attributeIds))

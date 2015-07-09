@@ -6,15 +6,29 @@ class TheExtensionLab_MegaMenu_Model_Prefetcher_Url_Rewrite
     public function prefetchData(&$prefetchConfig)
     {
         Varien_Profiler::start('megamenu_url_rewrites_prefetching');
-        $rewriteCollectionByIdPath = array();
-        $rewritesCollection = Mage::getModel('core/url_rewrite')->getCollection()
-            ->addFieldToFilter('id_path', array('in' => $prefetchConfig['rewrite_ids']));
 
-        foreach ($rewritesCollection as $rewrite) {
-            $rewriteCollectionByIdPath[$rewrite->getIdPath()] = $rewrite;
-        }
+        $rewritesCollection = $this->getRewritesCollection($prefetchConfig['rewrite_ids']);
+        $rewriteIdPaths = $this->getRewriteIdPathsFromCollection($rewritesCollection);
 
-        Mage::register('megamenu_url_rewrites', $rewriteCollectionByIdPath);
+        Mage::register('megamenu_url_rewrites', $rewriteIdPaths);
         Varien_Profiler::stop('megamenu_url_rewrites_prefetching');
     }
+
+    private function getRewritesCollection(array $rewriteIds)
+    {
+        return Mage::getModel('core/url_rewrite')->getCollection()
+            ->addFieldToFilter('id_path', array('in' => $rewriteIds));
+    }
+
+    private function getRewriteIdPathsFromCollection($collection)
+    {
+        $rewriteIdPaths = array();
+
+        foreach ($collection as $rewrite) {
+            $rewriteIdPaths[$rewrite->getIdPath()] = $rewrite;
+        }
+
+        return $rewriteIdPaths;
+    }
+
 }
