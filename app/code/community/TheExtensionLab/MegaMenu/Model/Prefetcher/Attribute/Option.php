@@ -3,28 +3,48 @@
 class TheExtensionLab_MegaMenu_Model_Prefetcher_Attribute_Option
     implements TheExtensionLab_MegaMenu_Model_Prefetcher_Interface
 {
-    public function prefetchData(&$prefetchConfig)
+    public function prefetchData(&$directiveValues)
     {
-        $optionIdArray = array();
-        $storeId = Mage::app()->getStore()->getStoreId();
+        $collection = $this->getAttributeOptionCollection($directiveValues['option_ids']);
 
-        $collection = Mage::getResourceModel('eav/entity_attribute_option_collection')
-            ->addFieldToFilter('main_table.option_id', array('in' => $prefetchConfig['option_ids']))
-            ->setStoreFilter($storeId, true);
-
-        if(!isset($prefetchConfig['attribute_ids']))
+        if(!isset($directiveValues['attribute_ids']))
         {
-            $prefetchConfig['attribute_ids'] = array();
+            $directiveValues['attribute_ids'] = array();
         }
 
+        $optionIdArray = $this->getOptionIds($collection);
+        $directiveValues = $this->storeOptionParentAttributeIds($collection, $directiveValues);
+
+        Mage::register('megamenu_attribute_options', $optionIdArray);
+    }
+
+    private function getAttributeOptionCollection(array $optionIds)
+    {
+        $storeId = Mage::app()->getStore()->getStoreId();
+
+        return Mage::getResourceModel('eav/entity_attribute_option_collection')
+            ->addFieldToFilter('main_table.option_id', array('in' => $optionIds))
+            ->setStoreFilter($storeId, true);
+    }
+
+    private function getOptionIds($collection)
+    {
+        $optionIdArray = array();
         foreach ($collection as $option) {
             $optionIdArray[$option->getOptionId()] = $option;
+        }
 
-            if (!in_array($option->getAttributeId(), $prefetchConfig['attribute_ids'])) {
-                $prefetchConfig['attribute_ids'][] = $option->getAttributeId();
+        return $optionIdArray;
+    }
+
+    private function storeOptionParentAttributeIds($collection, $directiveValues)
+    {
+        foreach ($collection as $option) {
+            if (!in_array($option->getAttributeId(), $directiveValues['attribute_ids'])) {
+                $directiveValues['attribute_ids'][] = $option->getAttributeId();
             }
         }
 
-        Mage::register('megamenu_attribute_options', $optionIdArray);
+        return $directiveValues;
     }
 }
