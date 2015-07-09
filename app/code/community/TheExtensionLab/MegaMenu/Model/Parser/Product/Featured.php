@@ -6,7 +6,7 @@ class TheExtensionLab_MegaMenu_Model_Parser_Product_Featured
     public function parse($params)
     {
         $prefetchConfig = array();
-        if ($this->_hasFeaturedProductOption($params)) {
+        if ($this->_hasValuesRequiredForFeaturedProducts($params)) {
             $prefetchConfig['product_ids'] = array_keys($this->_getFeaturedProductIdsAsArray($params));
         }
 
@@ -20,7 +20,7 @@ class TheExtensionLab_MegaMenu_Model_Parser_Product_Featured
         return $featuredProductData;
     }
 
-    private function _hasFeaturedProductOption($params)
+    private function _hasValuesRequiredForFeaturedProducts($params)
     {
         return isset($params['megamenu_featured_product_ids']);
     }
