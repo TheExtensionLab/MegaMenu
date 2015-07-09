@@ -36,7 +36,9 @@ class TheExtensionLab_MegaMenu_Adminhtml_Menu_Attribute_Option_WidgetController
 
         $this->getLayout()->getBlock('root')->append($grid);
 
-        $serializer = $this->getLayout()->createBlock('adminhtml/widget_grid_serializer','grouped_grid_serializer');
+        $serializer = $this->getLayout()->createBlock('adminhtml/widget_grid_serializer','grouped_grid_serializer')
+            ->setTemplate('theextensionlab/megamenu/widget/grid/json/serializer.phtml')
+        ;
         $serializer->initSerializerBlock(
             'adminhtml.megamenu.attribute.option.widget.grid',
             'getCallback',
