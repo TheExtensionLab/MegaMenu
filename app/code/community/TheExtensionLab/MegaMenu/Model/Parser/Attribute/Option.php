@@ -3,7 +3,7 @@
 class TheExtensionLab_MegaMenu_Model_Parser_Attribute_Option
     implements TheExtensionLab_MegaMenu_Model_Parser_Interface
 {
-    public function parseForPrefetchData($params)
+    public function parse($params)
     {
         $prefetchConfig = array();
         if(isset($params['option_ids'])) {

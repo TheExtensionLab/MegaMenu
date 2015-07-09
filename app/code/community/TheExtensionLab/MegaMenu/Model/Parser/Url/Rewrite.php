@@ -3,7 +3,7 @@
 class TheExtensionLab_MegaMenu_Model_Parser_Url_Rewrite
     implements TheExtensionLab_MegaMenu_Model_Parser_Interface
 {
-    public function parseForPrefetchData($params)
+    public function parse($params)
     {
         $prefetchConfig = array();
         if(isset($params['option_ids']) && isset($params['category_id'])) {

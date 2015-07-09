@@ -1,11 +1,11 @@
 <?php class TheExtensionLab_MegaMenu_Model_Parser extends Mage_Widget_Model_Template_Filter
 {
     protected $_directiveValues = array();
-    protected $_prefetchParsers = array();
+    protected $_parsers = array();
 
     public function __construct($defaultParsers)
     {
-        $this->setPrefetchParsers($defaultParsers);
+        $this->setParsers($defaultParsers);
     }
 
     public function getDirectiveValues($value)
@@ -42,7 +42,7 @@
     {
         $params = $this->_getIncludeParameters($construction[2]);
 
-        foreach ($this->_prefetchParsers as $modelAlias) {
+        foreach ($this->_parsers as $modelAlias) {
             $this->getConfigDataToPrefetchFromConstruction($modelAlias, $params);
         }
     }
@@ -50,24 +50,24 @@
     private function getConfigDataToPrefetchFromConstruction($modelAlias, $params)
     {
         $parser = Mage::getModel($modelAlias);
-        if ($this->parserHasRequiredMethods($parser)) {
-            $prefetchedData = $parser->parseForPrefetchData($params);
-            $this->_directiveValues = array_merge($this->_directiveValues, $prefetchedData);
+        if ($this->isMegaMenuParserInstance($parser)) {
+            $directiveValues = $parser->parse($params);
+            $this->_directiveValues = array_merge($this->_directiveValues, $directiveValues);
         }
     }
 
-    private function parserHasRequiredMethods($parser)
+    private function isMegaMenuParserInstance($parser)
     {
-        return is_callable(array($parser, 'parseForPrefetchData'));
+        return $parser instanceof TheExtensionLab_MegaMenu_Model_Parser_Interface;
     }
 
-    protected function getPrefetchParsers()
+    protected function getParsers()
     {
-        return $this->_prefetchParsers;
+        return $this->_parsers;
     }
 
-    protected function setPrefetchParsers($models)
+    protected function setParsers($models)
     {
-        $this->_prefetchParsers = $models;
+        $this->_parsers = $models;
     }
 }

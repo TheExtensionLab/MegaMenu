@@ -2,7 +2,7 @@
 class TheExtensionLab_MegaMenu_Model_Parser_Product_Featured
     implements TheExtensionLab_MegaMenu_Model_Parser_Interface
 {
-    public function parseForPrefetchData($params)
+    public function parse($params)
     {
         $prefetchConfig = array();
 
