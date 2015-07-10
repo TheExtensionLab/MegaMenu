@@ -8,7 +8,9 @@ extends Mage_Adminhtml_Block_Catalog_Product_Widget_Chooser
     {
         parent::__construct($arguments);
         $this->setSkipGenerateContent(true);
-        $this->setDefaultFilter(array('in_products' => 1));
+        if($this->getCallback()) {
+            $this->setDefaultFilter(array('in_products' => 1));
+        }
     }
 
     protected function _prepareLayout()
@@ -79,7 +81,7 @@ extends Mage_Adminhtml_Block_Catalog_Product_Widget_Chooser
     public function prepareElementHtml(Varien_Data_Form_Element_Abstract $element)
     {
         $uniqId = Mage::helper('core')->uniqHash($element->getId());
-        $chooser = $this->_getChooserWithCustomSourceUrl($element);
+        $chooser = $this->_getChooserWithCustomSourceUrl($element,$uniqId);
 
         if($element->hasValue())
         {
@@ -95,9 +97,8 @@ extends Mage_Adminhtml_Block_Catalog_Product_Widget_Chooser
         return $element;
     }
 
-    private function _getChooserWithCustomSourceUrl(Varien_Data_Form_Element_Abstract $element)
+    private function _getChooserWithCustomSourceUrl(Varien_Data_Form_Element_Abstract $element,$uniqId)
     {
-        $uniqId = Mage::helper('core')->uniqHash($element->getId());
         $sourceUrl = $this->getUrl(
             '*/menu_catalog_product_widget/chooser', array(
                 'uniq_id'        => $uniqId
@@ -212,6 +213,10 @@ extends Mage_Adminhtml_Block_Catalog_Product_Widget_Chooser
 
     public function getCallback()
     {
+        if(!is_string($this->getSelectedProducts()))
+        {
+            return false;
+        }
         return json_decode($this->getSelectedProducts(),1);
     }
 }
