@@ -8,6 +8,7 @@ extends Mage_Adminhtml_Block_Catalog_Product_Widget_Chooser
     {
         parent::__construct($arguments);
         $this->setSkipGenerateContent(true);
+        $this->setDefaultFilter(array('in_products' => 1));
     }
 
     protected function _prepareLayout()
@@ -24,25 +25,72 @@ extends Mage_Adminhtml_Block_Catalog_Product_Widget_Chooser
         return parent::_prepareLayout();
     }
 
+
+    protected function _afterLoadCollection()
+    {
+        foreach($this->getCollection() as $item) {
+            if (isset($prevValue[$item->getEntityId()][0]['position'])) {
+                $item->setPosition((int) $prevValue[$item->getEntityId()][0]['position']);
+            }else{
+                $item->setPosition(0);
+            }
+        }
+        return $this;
+    }
+
+
+    protected function _setCollectionPositionValues($collection)
+    {
+        $prevValue = $this->getCallback();
+        foreach($collection as $item) {
+            if (isset($prevValue[$item->getEntityId()][0]['position'])) {
+                $item->setPosition((int) $prevValue[$item->getEntityId()][0]['position']);
+            }else{
+                $item->setPosition(0);
+            }
+        }
+    }
+
+    protected function _addColumnFilterToCollection($column)
+    {
+        if ($column->getId() == 'in_products') {
+            $this->_setCustomFilterForInProductFlag($column);
+        } else {
+            parent::_addColumnFilterToCollection($column);
+        }
+        return $this;
+    }
+
+    private function _setCustomFilterForInProductFlag($column)
+    {
+        $productIds = $this->_getSelectedProducts();
+        if (empty($productIds)) {
+            $productIds = 0;
+        }
+        if ($column->getFilter()->getValue()) {
+            $this->getCollection()->addFieldToFilter('entity_id', array('in' => $productIds));
+        } else {
+            if($productIds) {
+                $this->getCollection()->addFieldToFilter('entity_id', array('nin' => $productIds));
+            }
+        }
+    }
+
     public function prepareElementHtml(Varien_Data_Form_Element_Abstract $element)
     {
+        $uniqId = Mage::helper('core')->uniqHash($element->getId());
         $chooser = $this->_getChooserWithCustomSourceUrl($element);
 
-        if ($element->getValue()) {
-
-            $productId = false;
-            if ($element->hasValue()) {
-                $productId = $element->getValue();
-            }
-            $label = '';
-
-            if ($productId) {
-                $label .= Mage::getResourceSingleton('catalog/product')
-                    ->getAttributeRawValue($productId, 'name', Mage::app()->getStore());
-            }
+        if($element->hasValue())
+        {
+            $label = 'Selected Products';
             $chooser->setLabel($label);
-        }
 
+            $elementValue = $element->getValue();
+
+            $sourceUrl = $this->getUrl('*/menu_catalog_product_widget/chooser', array('uniq_id' => $uniqId,'selected_products' => $elementValue));
+            $chooser->setSourceUrl($sourceUrl);
+        }
         $element->setData('after_element_html', $chooser->toHtml());
         return $element;
     }
@@ -74,7 +122,7 @@ extends Mage_Adminhtml_Block_Catalog_Product_Widget_Chooser
             'type'      => 'checkbox',
             'name'      => 'in_products',
             'inline_css' => 'checkbox entities',
-            'values'    => $this->getSelectedProducts(),
+            'values'    => $this->_getSelectedProducts(),
             'align'     => 'center',
             'index'     => 'entity_id'
         ));
@@ -87,13 +135,20 @@ extends Mage_Adminhtml_Block_Catalog_Product_Widget_Chooser
                 'validate_class' => 'validate-number',
                 'width'          => '1',
                 'editable'       => true,
-                'value'          => '0'
+                'index'          => 'position'
             ),'chooser_name'
         );
 
         parent::_prepareColumns();
     }
 
+    public function getSelectedProducts()
+    {
+        if ($selectedProducts = $this->getRequest()->getParam('selected_products', null)) {
+            $this->setSelectedProducts($selectedProducts);
+        }
+        return $this->_selectedProducts;
+    }
 
     public function getNewButtonHtml()
     {
@@ -142,5 +197,21 @@ extends Mage_Adminhtml_Block_Catalog_Product_Widget_Chooser
     public function getRowClickCallback()
     {
         return '';
+    }
+
+    private function _getSelectedProducts()
+    {
+        $productIds = array();
+        if($this->getCallback()) {
+            $prevValueArray = $this->getCallback();
+            $productIds = array_keys($prevValueArray);
+        }
+        return $productIds;
+    }
+
+
+    public function getCallback()
+    {
+        return json_decode($this->getSelectedProducts(),1);
     }
 }

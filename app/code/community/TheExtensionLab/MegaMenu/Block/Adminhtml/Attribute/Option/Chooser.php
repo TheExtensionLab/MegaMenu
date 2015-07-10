@@ -119,7 +119,7 @@ class TheExtensionLab_MegaMenu_Block_Adminhtml_Attribute_Option_Chooser extends
         return parent::_prepareCollection();
     }
 
-    private function setCollectionPositionValues($collection)
+    private function _setCollectionPositionValues($collection)
     {
         $prevValue = $this->getCallback();
         foreach($collection as $item) {

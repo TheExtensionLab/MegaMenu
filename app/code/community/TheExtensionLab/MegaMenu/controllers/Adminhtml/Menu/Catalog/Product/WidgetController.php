@@ -40,13 +40,13 @@ class TheExtensionLab_MegaMenu_Adminhtml_Menu_Catalog_Product_WidgetController
     private function _initGrid()
     {
         $uniqId = $this->getRequest()->getParam('uniq_id');
-        $prevValue = $this->getRequest()->getParam('prev_value');
+        $selectedProducts = $this->getRequest()->getParam('selected_products');
 
         $grid = $this->getLayout()->createBlock(
             'theextensionlab_megamenu/adminhtml_catalog_product_widget_chooser',
             'adminhtml.megamenu.catalog.product.widget.grid', array(
                 'id'         => $uniqId,
-                'prev_value' => $prevValue
+                'selected_products' => $selectedProducts
             )
         );
 
