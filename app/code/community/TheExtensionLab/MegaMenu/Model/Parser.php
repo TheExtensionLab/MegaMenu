@@ -1,16 +1,17 @@
-<?php class TheExtensionLab_MegaMenu_Model_Parser extends Mage_Widget_Model_Template_Filter
+<?php
+class TheExtensionLab_MegaMenu_Model_Parser extends Mage_Widget_Model_Template_Filter
 {
-    protected $_directiveValues = array();
-    protected $_parsers = array();
+    private $_directiveValues = array();
+    private $_parsers = array();
 
     public function __construct($defaultParsers)
     {
-        $this->setParsers($defaultParsers);
+        $this->_parsers = $defaultParsers;
     }
 
     public function getDirectiveValues($value)
     {
-        if ($constructions = $this->_matchConstructorPattern($value)) {
+        if ($constructions = $this->_matchConstructionPattern($value)) {
             foreach ($constructions as $index => $construction) {
                 $this->_callPrefetchDirective($construction);
             }
@@ -19,7 +20,7 @@
         return $this->_directiveValues;
     }
 
-    private function _matchConstructorPattern($value)
+    public function _matchConstructionPattern($value)
     {
         preg_match_all(self::CONSTRUCTION_PATTERN, $value, $constructions, PREG_SET_ORDER);
         return $constructions;
@@ -59,15 +60,5 @@
     private function isMegaMenuParserInstance($parser)
     {
         return $parser instanceof TheExtensionLab_MegaMenu_Model_Parser_Interface;
-    }
-
-    protected function getParsers()
-    {
-        return $this->_parsers;
-    }
-
-    protected function setParsers($models)
-    {
-        $this->_parsers = $models;
     }
 }
