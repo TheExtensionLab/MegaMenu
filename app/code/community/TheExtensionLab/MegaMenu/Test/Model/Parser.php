@@ -35,16 +35,16 @@
     public function testConstructonMatcherGetsCorrectShortcodeType()
     {
         $exampleValue = '{{widget type="someBlock"}}';
-        $match = $this->parser->_matchConstructionPattern($exampleValue);
+        $match = $this->_getMatches($exampleValue);
         $this->assertEquals('widget', $match['0']['1']);
     }
 
     public function testConstructionMatcherGetsParamString()
     {
         $exampleValue = '{{widget type="theextensionlab_megamenu/widget_category_featured" menu_featured_category_id="4" }}';
-        $match = $this->parser->_matchConstructionPattern($exampleValue);
+        $match = $this->_getMatches($exampleValue);
         $matchedParamString = trim($match[0][2]);
-        $this->assertEquals($matchedParamString,'type="theextensionlab_megamenu/widget_category_featured" menu_featured_category_id="4"');
+        $this->assertEquals('type="theextensionlab_megamenu/widget_category_featured" menu_featured_category_id="4"',$matchedParamString);
     }
 
     public function testGetDirectiveValuesStoresSomeData()
@@ -58,8 +58,13 @@
 
     private function _isValueAMatch($value)
     {
-        $exampleValue = $value;
-        $isMatchEmpty = empty($this->parser->_matchConstructionPattern($exampleValue));
+        $isMatchEmpty = empty($this->_getMatches($value));
         return $isMatchEmpty;
+    }
+
+    private function _getMatches($value){
+        $exampleValue = $value;
+        $match = $this->parser->_matchConstructionPattern($exampleValue);
+        return $match;
     }
 }
