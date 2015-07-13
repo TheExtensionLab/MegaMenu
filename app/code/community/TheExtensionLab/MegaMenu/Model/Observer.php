@@ -36,17 +36,11 @@
         $this->_getMenuAttributesModel()->addExtraAttributesToSelect($categoryCollection);
     }
 
-    /**
-     * @return TheExtensionLab_MegaMenu_Model_Config_Dependancy
-     */
     private function _getConfigDependancyModel()
     {
         return Mage::getModel('theextensionlab_megamenu/config_dependancy');
     }
 
-    /**
-     * @return TheExtensionLab_MegaMenu_Model_Menu_Populator
-     */
     private function _getMenuPopulator()
     {
 

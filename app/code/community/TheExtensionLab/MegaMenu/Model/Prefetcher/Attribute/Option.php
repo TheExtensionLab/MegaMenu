@@ -5,17 +5,24 @@ class TheExtensionLab_MegaMenu_Model_Prefetcher_Attribute_Option
 {
     public function prefetchData(&$directiveValues)
     {
-        $collection = $this->getAttributeOptionCollection($directiveValues['option_ids']);
+        if(isset($directiveValues['option_ids'])){
+            $collection = $this->getAttributeOptionCollection($directiveValues['option_ids']);
 
-        if(!isset($directiveValues['attribute_ids']))
-        {
-            $directiveValues['attribute_ids'] = array();
+            if(!isset($directiveValues['attribute_ids']))
+            {
+                $directiveValues['attribute_ids'] = array();
+            }
+
+            $optionIdArray = $this->getOptionIds($collection);
+            $directiveValues = $this->storeOptionParentAttributeIds($collection, $directiveValues);
+
+            Mage::register('megamenu_attribute_options', $optionIdArray);
         }
+    }
 
-        $optionIdArray = $this->getOptionIds($collection);
-        $directiveValues = $this->storeOptionParentAttributeIds($collection, $directiveValues);
+    public function test()
+    {
 
-        Mage::register('megamenu_attribute_options', $optionIdArray);
     }
 
     private function getAttributeOptionCollection(array $optionIds)

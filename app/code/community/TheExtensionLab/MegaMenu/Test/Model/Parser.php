@@ -30,6 +30,7 @@
         $exampleValue = '{/;}}{[{A None Matching String }}[[';
         $isMatchEmpty = $this->_isValueAMatch($exampleValue);
         $this->assertTrue($isMatchEmpty);
+        $this->assertTrue($isMatchEmpty);
     }
 
     public function testConstructonMatcherGetsCorrectShortcodeType()

@@ -5,6 +5,7 @@
     public function __construct()
     {
         $this->_getExtraAttributesFromConfiguration();
+        parent::__construct();
     }
 
     public function addExtraAttributesToSelect($categoryCollection)

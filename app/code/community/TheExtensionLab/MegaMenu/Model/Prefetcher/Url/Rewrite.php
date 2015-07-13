@@ -7,10 +7,13 @@ class TheExtensionLab_MegaMenu_Model_Prefetcher_Url_Rewrite
     {
         Varien_Profiler::start('megamenu_url_rewrites_prefetching');
 
-        $rewritesCollection = $this->getRewritesCollection($directiveValues['rewrite_ids']);
-        $rewriteIdPaths = $this->getRewriteIdPathsFromCollection($rewritesCollection);
+        if(isset($directiveValues['rewrite_ids'])){
+            $rewritesCollection = $this->getRewritesCollection($directiveValues['rewrite_ids']);
+            $rewriteIdPaths = $this->getRewriteIdPathsFromCollection($rewritesCollection);
 
-        Mage::register('megamenu_url_rewrites', $rewriteIdPaths);
+            Mage::register('megamenu_url_rewrites', $rewriteIdPaths);
+        }
+
         Varien_Profiler::stop('megamenu_url_rewrites_prefetching');
     }
 

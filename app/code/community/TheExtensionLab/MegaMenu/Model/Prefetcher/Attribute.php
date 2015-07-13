@@ -5,10 +5,12 @@ class TheExtensionLab_MegaMenu_Model_Prefetcher_Attribute
 {
     public function prefetchData(&$directiveValues)
     {
-        $collection = $this->getAttributeCollection($directiveValues['attribute_ids']);
-        $attributeIdArray = $this->getAttributeIdsArrayFromCollection($collection);
+        if(isset($directiveValues['attribute_ids'])) {
+            $collection = $this->getAttributeCollection($directiveValues['attribute_ids']);
+            $attributeIdArray = $this->getAttributeIdsArrayFromCollection($collection);
 
-        Mage::register('megamenu_attributes', $attributeIdArray);
+            Mage::register('megamenu_attributes', $attributeIdArray);
+        }
     }
 
     private function getAttributeIdsArrayFromCollection($collection)
