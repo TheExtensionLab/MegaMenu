@@ -39,7 +39,7 @@
         $this->assertEventDispatched('megamenu_prepare_prefetch_models_after');
     }
 
-    public function testChildPrefetchDataMethodsCalledAndPassedAnArray()
+    public function testChildPrefetchDataMethodsCalled()
     {
         $defaultPrefetchersArray = array(
             'url_rewrite' => 'theextensionlab_megamenu/prefetcher_url_rewrite'
@@ -47,15 +47,13 @@
 
         $this->_prefetcher = new TheExtensionLab_MegaMenu_Model_Prefetcher($defaultPrefetchersArray);
 
-        $spy = new TheExtensionLab_MegaMenu_Test_Model_Prefetcher_Url_Rewrite_Stub;
-        $this->app()->getConfig()->replaceInstanceCreation(
-            'model', 'theextensionlab_megamenu/prefetcher_url_rewrite', $spy
-        );
+        $mock = $this->getModelMock('theextensionlab_megamenu/prefetcher_url_rewrite',array('prefetchData'));
+        $mock
+            ->expects($this->once())
+            ->method('prefetchData');
+        $this->replaceByMock('model', 'theextensionlab_megamenu/prefetcher_url_rewrite',$mock);
 
         $this->_prefetcher->prefetch('Some Content');
-
-        $this->assertEquals(1, $spy->getQtyCalled());
-        $this->assertTrue(is_array($spy->getValuePassed()));
     }
 
 }
