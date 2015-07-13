@@ -14,7 +14,7 @@ class TheExtensionLab_MegaMenu_Adminhtml_Menu_Catalog_Product_WidgetController
         ;
         $serializer->initSerializerBlock(
             'adminhtml.megamenu.catalog.product.widget.grid',
-            'getSelectedProducts',
+            'getCallback',
             'megamenu_featured_products',
             'selected_products'
         );
