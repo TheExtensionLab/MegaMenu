@@ -25,13 +25,13 @@ class TheExtensionLab_MegaMenu_Model_Menu_Attributes
     {
         $extraAttributes = Mage::getConfig()->getNode('global/theextensionlab_megamenu/extra_attributes')->asArray();
         foreach ($extraAttributes as $attributeCode => $value) {
-            if (!$this->_isDisabled($value)) {
+            if (!$this->_isAttributeDisabled($value)) {
                 $this->_extraAttributes[] = $attributeCode;
             }
         }
     }
 
-    private function _isDisabled($value)
+    private function _isAttributeDisabled($value)
     {
         if (isset($value['disabled'])) {
             if ($value['disabled'] == true) {
