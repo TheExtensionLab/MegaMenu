@@ -42,15 +42,3 @@ class TheExtensionLab_MegaMenu_Model_Menu_Attributes
         return false;
     }
 }
-
-
-
-
-
-
-
-//class TheExtensionLab_MegaMenu_Model_Menu_Attributes extends Mage_Core_Model_Abstract
-//{
-
-//
-//}
