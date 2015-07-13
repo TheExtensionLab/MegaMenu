@@ -1,11 +1,12 @@
-<?php class TheExtensionLab_MegaMenu_Model_Menu_Attributes extends Mage_Core_Model_Abstract
+<?php
+
+class TheExtensionLab_MegaMenu_Model_Menu_Attributes
 {
-    protected $_extraAttributes = array();
+    private $_extraAttributes = array();
 
     public function __construct()
     {
-        $this->_getExtraAttributesFromConfiguration();
-        parent::__construct();
+        $this->_getExtraAttributesFromConfig();
     }
 
     public function addExtraAttributesToSelect($categoryCollection)
@@ -20,14 +21,36 @@
         $select->columns($this->_extraAttributes);
     }
 
-    private function _getExtraAttributesFromConfiguration()
+    private function _getExtraAttributesFromConfig()
     {
         $extraAttributes = Mage::getConfig()->getNode('global/theextensionlab_megamenu/extra_attributes')->asArray();
         foreach ($extraAttributes as $attributeCode => $value) {
-            if ($value != 'disabled') {
+            if (!$this->_isDisabled($value)) {
                 $this->_extraAttributes[] = $attributeCode;
             }
         }
     }
 
+    private function _isDisabled($value)
+    {
+        if (isset($value['disabled'])) {
+            if ($value['disabled'] == true) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
+
+
+
+
+
+
+
+//class TheExtensionLab_MegaMenu_Model_Menu_Attributes extends Mage_Core_Model_Abstract
+//{
+
+//
+//}
