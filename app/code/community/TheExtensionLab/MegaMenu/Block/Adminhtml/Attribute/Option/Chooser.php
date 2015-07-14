@@ -8,6 +8,9 @@ class TheExtensionLab_MegaMenu_Block_Adminhtml_Attribute_Option_Chooser extends
         parent::__construct($arguments);
         $this->setUseAjax(true);
         $this->setSkipGenerateContent(true);
+        if($this->getCallback()) {
+            $this->setDefaultFilter(array('use_options' => 1));
+        }
     }
 
     protected function _prepareLayout()
@@ -32,6 +35,33 @@ class TheExtensionLab_MegaMenu_Block_Adminhtml_Attribute_Option_Chooser extends
 
         return parent::_prepareLayout();
     }
+
+
+    protected function _addColumnFilterToCollection($column)
+    {
+        if ($column->getId() == 'use_options') {
+            $this->_setCustomFilterForInProductFlag($column);
+        } else {
+            parent::_addColumnFilterToCollection($column);
+        }
+        return $this;
+    }
+
+    private function _setCustomFilterForInProductFlag($column)
+    {
+        $optionIds = $this->_getSelectedOptions();
+        if (empty($optionIds)) {
+            $optionIds = 0;
+        }
+        if ($column->getFilter()->getValue()) {
+            $this->getCollection()->addFieldToFilter('tsv.option_id', array('in' => $optionIds));
+        } else {
+            if($optionIds) {
+                $this->getCollection()->addFieldToFilter('tsv.option_id', array('nin' => $optionIds));
+            }
+        }
+    }
+
 
     private function getBackCallback()
     {
