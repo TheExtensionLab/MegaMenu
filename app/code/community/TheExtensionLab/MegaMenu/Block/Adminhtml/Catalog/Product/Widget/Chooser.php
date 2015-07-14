@@ -15,7 +15,7 @@ extends Mage_Adminhtml_Block_Catalog_Product_Widget_Chooser
 
     protected function _prepareLayout()
     {
-        $this->setChild('new_button',
+        $this->setChild('submit_products_button',
             $this->getLayout()->createBlock('adminhtml/widget_button')
                 ->setData(array(
                     'label'     => Mage::helper('adminhtml')->__('Submit Products'),
@@ -151,9 +151,9 @@ extends Mage_Adminhtml_Block_Catalog_Product_Widget_Chooser
         return $this->_selectedProducts;
     }
 
-    public function getNewButtonHtml()
+    public function getSubmitProductsButtonHtml()
     {
-        return $this->getChildHtml('new_button');
+        return $this->getChildHtml('submit_products_button');
     }
 
 
@@ -166,7 +166,7 @@ extends Mage_Adminhtml_Block_Catalog_Product_Widget_Chooser
             $html.= $this->getSearchButtonHtml();
         }
 
-        $html.= $this->getNewButtonHtml();
+        $html.= $this->getSubmitProductsButtonHtml();
 
         return $html;
     }
