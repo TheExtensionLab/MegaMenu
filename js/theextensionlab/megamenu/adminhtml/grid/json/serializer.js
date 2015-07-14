@@ -18,9 +18,7 @@ jsonSerializerController.prototype = Object.extend(Object.clone(serializerContro
                 }
             });
 
-            var jsonString = JSON.stringify(clone.toJSON()).addSlashes();
-
-            return jsonString;
+            return JSON.stringify(clone.toJSON()).addSlashes();
         }
         else{
             return this.gridData.values().join('&');
