@@ -142,24 +142,26 @@ class TheExtensionLab_MegaMenu_Block_Adminhtml_Attribute_Option_Chooser extends
             ->setAttributeFilter($attributeId)
             ->setStoreFilter($storeId, false);
 
-        $this->setCollectionPositionValues($collection);
+//        $this->_setCollectionPositionValues($collection);
 
         $this->setCollection($collection);
 
         return parent::_prepareCollection();
     }
 
-    private function _setCollectionPositionValues($collection)
+    protected function _afterLoadCollection()
     {
         $prevValue = $this->getCallback();
-        foreach($collection as $item) {
+        foreach($this->getCollection() as $item) {
             if (isset($prevValue[$item->getOptionId()][0]['position'])) {
                 $item->setPosition((int) $prevValue[$item->getOptionId()][0]['position']);
             }else{
                 $item->setPosition(0);
             }
         }
+        return $this;
     }
+
 
     protected function _prepareColumns()
     {
