@@ -33,7 +33,17 @@ class TheExtensionLab_MegaMenu_Block_Adminhtml_Attribute_Option_Chooser extends
                 ))
         );
 
-        return parent::_prepareLayout();
+        parent::_prepareLayout();
+
+        $this->setChild('reset_filter_button',
+            $this->getLayout()->createBlock('adminhtml/widget_button')
+                ->setData(array(
+                    'label'     => Mage::helper('adminhtml')->__('Reset Filter'),
+                    'onclick'   => $this->getJsObjectName().'.addVarToUrl(\'attribute_id\',\''.$this->getAttributeId().'\');'.$this->getJsObjectName().'.resetFilter()',
+                ))
+        );
+
+        return $this;
     }
 
 

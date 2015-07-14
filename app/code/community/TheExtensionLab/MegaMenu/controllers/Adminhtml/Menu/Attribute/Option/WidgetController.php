@@ -29,10 +29,9 @@ class TheExtensionLab_MegaMenu_Adminhtml_Menu_Attribute_Option_WidgetController
 
         $grid = $this->getLayout()->createBlock('theextensionlab_megamenu/adminhtml_attribute_option_chooser', 'adminhtml.megamenu.attribute.option.widget.grid', array(
             'id' => $uniqId,
-            'prev_value' => $prevValue
+            'prev_value' => $prevValue,
+            'attribute_id' => $attributeId
         ));
-
-        $grid->setAttributeId($attributeId);
 
         $this->getLayout()->getBlock('root')->append($grid);
 
@@ -63,9 +62,8 @@ class TheExtensionLab_MegaMenu_Adminhtml_Menu_Attribute_Option_WidgetController
 
         $grid = $this->getLayout()->createBlock('theextensionlab_megamenu/adminhtml_attribute_option_chooser', 'adminhtml.megamenu.attribute.option.widget.grid', array(
             'id' => $uniqId,
+            'attribute_id' => $attributeId
         ))->setSelectedOptions($this->getRequest()->getPost('selected_options', null));
-
-        $grid->setAttributeId($attributeId);
 
         $this->getLayout()->getBlock('root')->append($grid);
 
