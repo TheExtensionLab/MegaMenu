@@ -170,6 +170,53 @@
         </parameters>
     </featured_category_menu_block>
 
+    <featured_cms_page_menu_block type="theextensionlab_megamenu/widget_cms_page_featured">
+        <name>MegaMenu - Featured Cms Section</name>
+        <parameters>
+            <title translate="label">
+                <visible>1</visible>
+                <label>Title</label>
+                <type>text</type>
+            </title>
+            <menu_featured_cms_id type="complex" translate="label">
+                <visible>1</visible>
+                <required>1</required>
+                <label>CMS Page</label>
+                <type>label</type>
+                <helper_block>
+                    <type>adminhtml/cms_page_widget_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Page...</open>
+                        </button>
+                    </data>
+                </helper_block>
+                <sort_order>10</sort_order>
+            </menu_featured_cms_id>
+            <display_on>
+                <required>0</required>
+                <visible>1</visible>
+                <label>Display On</label>
+                <type>multiselect</type>
+                <value>small,medium,large</value>
+                <source_model>theextensionlab_megamenu/config_source_display</source_model>
+            </display_on>
+            <template>
+                <required>1</required>
+                <visible>1</visible>
+                <label>Template</label>
+                <type>select</type>
+                <value>theextensionlab/megamenu/cms/page/featured.phtml</value>
+                <values>
+                    <default translate="label">
+                        <value>theextensionlab/megamenu/cms/page/featured.phtml</value>
+                        <label>Default Featured Category Template</label>
+                    </default>
+                </values>
+            </template>
+        </parameters>
+    </featured_cms_page_menu_block>
+
     <featured_product_menu_block type="theextensionlab_megamenu/widget_product_featured">
         <name>MegaMenu - Featured Product Section</name>
         <description>Add a featured product</description>
