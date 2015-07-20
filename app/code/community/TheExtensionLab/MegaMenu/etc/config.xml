@@ -82,15 +82,6 @@
                 </observers>
             </catalog_category_flat_loadnodes_before>
 
-            <adminhtml_block_html_before>
-                <observers>
-                    <theextensionlab_megamenu>
-                        <class>theextensionlab_megamenu/observer</class>
-                        <method>addCategoryFieldDependancys</method>
-                    </theextensionlab_megamenu>
-                </observers>
-            </adminhtml_block_html_before>
-
             <cms_wysiwyg_config_prepare>
                 <observers>
                     <theextensionlab_megamenu>
@@ -99,6 +90,15 @@
                     </theextensionlab_megamenu>
                 </observers>
             </cms_wysiwyg_config_prepare>
+
+            <cms_page_prepare_save>
+                <observers>
+                    <theextensionlab_megamenu>
+                        <class>theextensionlab_megamenu/observer</class>
+                        <method>cmsPagePrepareSave</method>
+                    </theextensionlab_megamenu>
+                </observers>
+            </cms_page_prepare_save>
         </events>
 
         <theextensionlab_megamenu>
@@ -135,6 +135,19 @@
         </theextensionlab_megamenu>
 
     </global>
+
+    <adminhtml>
+        <events>
+            <adminhtml_block_html_before>
+                <observers>
+                    <theextensionlab_megamenu>
+                        <class>theextensionlab_megamenu/observer</class>
+                        <method>adminhtmlBlockHtmlBefore</method>
+                    </theextensionlab_megamenu>
+                </observers>
+            </adminhtml_block_html_before>
+        </events>
+    </adminhtml>
 
     <frontend>
         <layout>

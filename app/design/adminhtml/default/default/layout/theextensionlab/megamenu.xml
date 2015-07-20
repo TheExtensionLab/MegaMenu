@@ -49,7 +49,7 @@
 
     <adminhtml_cms_page_edit>
         <reference name="cms_page_edit_tabs">
-            <block type="theextensionlab_megamenu/cms_page_edit_tab_menu" name="cms_page_edit_tab_menu"/>
+            <block type="theextensionlab_megamenu/adminhtml_cms_page_edit_tab_menu" name="cms_page_edit_tab_menu"/>
             <action method="addTab"><name>menu_section</name><block>cms_page_edit_tab_menu</block></action>
         </reference>
     </adminhtml_cms_page_edit>

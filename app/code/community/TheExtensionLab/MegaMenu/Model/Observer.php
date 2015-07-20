@@ -12,14 +12,6 @@
         Mage::register('current_menu', $menu);
     }
 
-    public function addCategoryFieldDependancys(Varien_Event_Observer $observer)
-    {
-        $block = $observer->getBlock();
-        if($block instanceof Mage_Adminhtml_Block_Catalog_Category_Tab_Attributes) {
-            $this->_getConfigDependancyModel()->addCategoryFieldDependancys($block);
-        }
-    }
-
     public function enableWysiwygInWysiwygConfig(Varien_Event_Observer $observer)
     {
         $wysiwygConfig = $observer->getEvent()->getConfig();
@@ -34,6 +26,39 @@
     public function catalogCategoryCollectionLoadBefore(Varien_Event_Observer $observer){
         $categoryCollection = $observer->getEvent()->getCategoryCollection();
         $this->_getMenuAttributesModel()->addExtraAttributesToSelect($categoryCollection);
+    }
+
+    public function cmsPagePrepareSave(Varien_Event_Observer $observer)
+    {
+        $pageModel = $observer->getPage();
+
+        try {
+            $path = Mage::getBaseDir('media') . DS . 'cms' . DS . 'menu' . DS;
+            if (isset($_FILES['menu_image'])) {
+                $uploader = new Mage_Core_Model_File_Uploader('menu_image');
+                $uploader->setAllowedExtensions(array('jpg', 'jpeg', 'gif', 'png'));
+                $uploader->setAllowRenameFiles(true);
+                $result = $uploader->save($path);
+
+                $pageModel->setMenuImage($result['file']);
+            }
+        } catch (Exception $e) {
+            Mage::logException($e);
+        }
+    }
+
+    public function adminhtmlBlockHtmlBefore(Varien_Event_Observer $observer)
+    {
+        $block = $observer->getBlock();
+        if($block instanceof Mage_Adminhtml_Block_Catalog_Category_Tab_Attributes) {
+            $this->_getConfigDependancyModel()->addCategoryFieldDependancys($block);
+        }
+
+        if($block instanceof Mage_Adminhtml_Block_Cms_Page_Edit_Form)
+        {
+            $form = $block->getForm();
+            $form->setEnctype('multipart/form-data');
+        }
     }
 
     private function _getConfigDependancyModel()

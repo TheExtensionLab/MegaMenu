@@ -12,8 +12,9 @@ class TheExtensionLab_MegaMenu_Model_Resource_Setup
 {
     const MEGAMENU_SECTIONS_COUNT_PATH = 'catalog/navigation/sections_count';
 
-    public function addInstallationSuccessfulNotification(){
-        if(!$this->magentoVersionHasAddNoticeMethod()){
+    public function addInstallationSuccessfulNotification()
+    {
+        if (!$this->magentoVersionHasAddNoticeMethod()) {
             return;
         }
 
@@ -22,7 +23,7 @@ class TheExtensionLab_MegaMenu_Model_Resource_Setup
         $inboxModel->addNotice(
             'You have successfully installed TheExtensionLab_MegaMenu:
             The Menu can be configured under two new tabs in for each category in the Catalog > Manage Categories section.',
-            'For full up to date documenation see <a href="'.$docUrl.'" target="_blank">'.$docUrl.'</a>',
+            'For full up to date documenation see <a href="' . $docUrl . '" target="_blank">' . $docUrl . '</a>',
             'http://docs.theextensionlab.com/megamenu/configuration.html',
             true
         );
@@ -31,7 +32,7 @@ class TheExtensionLab_MegaMenu_Model_Resource_Setup
     public function magentoVersionHasAddNoticeMethod()
     {
         $inboxModel = $this->_getInboxModel();
-        return method_exists($inboxModel,'addNotice');
+        return method_exists($inboxModel, 'addNotice');
     }
 
     public function getDefaultEntities()
@@ -40,7 +41,7 @@ class TheExtensionLab_MegaMenu_Model_Resource_Setup
         $menuSectionsAttributes = $this->_getMenuSectionsAttributes();
         $menuProductAttributes = $this->_getMenuProductAttributes();
 
-        $attributes = array_merge($menuMainAttributes,$menuSectionsAttributes);
+        $attributes = array_merge($menuMainAttributes, $menuSectionsAttributes);
 
         return array(
             'catalog_category' => array(
@@ -51,13 +52,13 @@ class TheExtensionLab_MegaMenu_Model_Resource_Setup
                 'entity_attribute_collection' => 'catalog/category_attribute_collection',
                 'attributes'                  => $attributes
             ),
-            'catalog_product'                => array(
-                'entity_model'                   => 'catalog/product',
-                'attribute_model'                => 'catalog/resource_eav_attribute',
-                'table'                          => 'catalog/product',
-                'additional_attribute_table'     => 'catalog/eav_attribute',
-                'entity_attribute_collection'    => 'catalog/product_attribute_collection',
-                'attributes'                     => $menuProductAttributes
+            'catalog_product'  => array(
+                'entity_model'                => 'catalog/product',
+                'attribute_model'             => 'catalog/resource_eav_attribute',
+                'table'                       => 'catalog/product',
+                'additional_attribute_table'  => 'catalog/eav_attribute',
+                'entity_attribute_collection' => 'catalog/product_attribute_collection',
+                'attributes'                  => $menuProductAttributes
             )
         );
     }
@@ -65,16 +66,16 @@ class TheExtensionLab_MegaMenu_Model_Resource_Setup
     private function _getMenuProductAttributes()
     {
         $productAttributes = array(
-            'menu_image'          => array(
-                'type'                       => 'varchar',
-                'label'                      => 'Menu_Image',
-                'input'                      => 'media_image',
-                'frontend'                   => 'catalog/product_attribute_frontend_image',
-                'required'                   => false,
-                'sort_order'                 => 4,
-                'global'                     => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_STORE,
-                'used_in_product_listing'    => true,
-                'group'                      => 'Images',
+            'menu_image' => array(
+                'type'                    => 'varchar',
+                'label'                   => 'Menu_Image',
+                'input'                   => 'media_image',
+                'frontend'                => 'catalog/product_attribute_frontend_image',
+                'required'                => false,
+                'sort_order'              => 4,
+                'global'                  => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_STORE,
+                'used_in_product_listing' => true,
+                'group'                   => 'Images',
             )
         );
 
@@ -84,7 +85,7 @@ class TheExtensionLab_MegaMenu_Model_Resource_Setup
     private function _getMenuMainAttributes()
     {
         $menuMainAttributes = array(
-            'menu_name' => array(
+            'menu_name'           => array(
                 'type'                     => 'text',
                 'label'                    => 'Menu Name',
                 'input'                    => 'text',
@@ -96,14 +97,14 @@ class TheExtensionLab_MegaMenu_Model_Resource_Setup
                 'group'                    => 'MegaMenu Settings',
                 'note'                     => 'If set this will override the default category name within the menu only.'
             ),
-            'menu_dropdown_type'          => array(
-                'type'                       => 'int',
-                'label'                      => 'Menu DropDown Type',
-                'input'                      => 'select',
-                'source'                     => 'theextensionlab_megamenu/config_source_dropdown_type',
-                'sort_order'                 => 20,
-                'global'                     => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_STORE,
-                'group'                      => 'MegaMenu Settings',
+            'menu_dropdown_type'  => array(
+                'type'       => 'int',
+                'label'      => 'Menu DropDown Type',
+                'input'      => 'select',
+                'source'     => 'theextensionlab_megamenu/config_source_dropdown_type',
+                'sort_order' => 20,
+                'global'     => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_STORE,
+                'group'      => 'MegaMenu Settings',
             ),
             'menu_dropdown_width' => array(
                 'type'                     => 'text',
@@ -117,7 +118,7 @@ class TheExtensionLab_MegaMenu_Model_Resource_Setup
                 'group'                    => 'MegaMenu Settings',
                 'note'                     => 'Width of dropdown, leave empty for default width. Enter with units e.g "800px" or "80%"'
             ),
-            'menu_link_type'   => array(
+            'menu_link_type'      => array(
                 'type'       => 'int',
                 'label'      => 'Link Type',
                 'input'      => 'select',
@@ -127,7 +128,7 @@ class TheExtensionLab_MegaMenu_Model_Resource_Setup
                 'global'     => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_STORE,
                 'group'      => 'MegaMenu Settings',
             ),
-            'menu_link'   => array(
+            'menu_link'           => array(
                 'type'                     => 'text',
                 'label'                    => 'Link',
                 'input'                    => 'text',
@@ -147,10 +148,9 @@ class TheExtensionLab_MegaMenu_Model_Resource_Setup
     private function _getMenuSectionsAttributes()
     {
         $sectionsConfig = array();
-        $columnsCount = (int) Mage::getConfig()->getNode(self::MEGAMENU_SECTIONS_COUNT_PATH,'default');
+        $columnsCount = (int)Mage::getConfig()->getNode(self::MEGAMENU_SECTIONS_COUNT_PATH, 'default');
 
-        for($i = 1;$i <= $columnsCount;$i++)
-        {
+        for ($i = 1; $i <= $columnsCount; $i++) {
             $sectionsConfig["menu_section_{$i}_content"] = $this->_getMenuSectionsContentAttribute($i);
             $sectionsConfig["menu_section_{$i}_column_width"] = $this->_getMenuSectionsWidthAttribute($i);
         }
@@ -165,15 +165,15 @@ class TheExtensionLab_MegaMenu_Model_Resource_Setup
         $sortOrder = ($sortIncrement * $columnNumber) + $offset;
 
         return array(
-                'type'                     => 'text',
-                'label'                    => "Section {$columnNumber} Content",
-                'input'                    => 'textarea',
-                'required'                 => false,
-                'sort_order'               => $sortOrder,
-                'global'                   => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_STORE,
-                'wysiwyg_enabled'          => true,
-                'is_html_allowed_on_front' => true,
-                'group'                    => 'MegaMenu Contents'
+            'type'                     => 'text',
+            'label'                    => "Section {$columnNumber} Content",
+            'input'                    => 'textarea',
+            'required'                 => false,
+            'sort_order'               => $sortOrder,
+            'global'                   => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_STORE,
+            'wysiwyg_enabled'          => true,
+            'is_html_allowed_on_front' => true,
+            'group'                    => 'MegaMenu Contents'
         );
     }
 
@@ -184,14 +184,14 @@ class TheExtensionLab_MegaMenu_Model_Resource_Setup
         $sortOrder = ($sortIncrement * $columnNumber) + $offset;
 
         return array(
-                'type'       => 'varchar',
-                'label'      => "Section {$columnNumber} Columns",
-                'input'      => 'select',
-                'source'     => 'theextensionlab_megamenu/config_source_columns',
-                'required'   => false,
-                'sort_order' => $sortOrder,
-                'global'     => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_STORE,
-                'group'      => 'MegaMenu Contents'
+            'type'       => 'varchar',
+            'label'      => "Section {$columnNumber} Columns",
+            'input'      => 'select',
+            'source'     => 'theextensionlab_megamenu/config_source_columns',
+            'required'   => false,
+            'sort_order' => $sortOrder,
+            'global'     => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_STORE,
+            'group'      => 'MegaMenu Contents'
         );
     }
 
