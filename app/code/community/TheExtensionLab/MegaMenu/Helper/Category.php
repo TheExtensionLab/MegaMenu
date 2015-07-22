@@ -15,7 +15,7 @@
     {
         $url = false;
         if ($image) {
-            $url = Mage::getBaseUrl('media').'catalog/category/'.$image;
+            $url = Mage::getBaseUrl('media').'catalog' . DS . 'category' . DS .$image;
         }
         return $url;
     }
