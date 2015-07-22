@@ -1,7 +1,7 @@
 <?php /** @var $this TheExtensionLab_MegaMenu_Block_Widget_Category_Featured */
 $featuredCategoryNode = $this->getFeaturedCategoryNode();?>
 
-<div class="featured-category <?php echo $this->getDisplayClass();?>">
+<div class="featured-category featured-section <?php echo $this->getDisplayClass();?>">
     <a href="<?php echo $featuredCategoryNode->getUrl();?>">
         <?php $imagePath = $featuredCategoryNode->getThumbnailImage();?>
         <?php $imageUrl = Mage::helper('theextensionlab_megamenu/category')->getFullImageUrl($imagePath); ?>

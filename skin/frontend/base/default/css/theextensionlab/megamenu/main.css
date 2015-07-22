@@ -173,17 +173,17 @@
 }
 
 /*----------- Featured Category ---------------*/
-.featured-category, .featured-category a {
+.featured-section, .featured-section a {
   position: relative;
 }
 
-.featured-category {
+.featured-section {
   padding: 15px;
 }
-.featured-category img {
+.featured-section img {
   width: 100%;
 }
-.featured-category a span {
+.featured-section a span {
   background-color: rgba(100, 181, 246, 0.35);
   bottom: 0;
   color: #ffffff;

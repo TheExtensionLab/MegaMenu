@@ -35,7 +35,8 @@
             'product' => 'theextensionlab_megamenu/prefetcher_product',
             'attribute_option' => 'theextensionlab_megamenu/prefetcher_attribute_option',
             'attribute' => 'theextensionlab_megamenu/prefetcher_attribute',
-            'url_rewrite' => 'theextensionlab_megamenu/prefetcher_url_rewrite'
+            'url_rewrite' => 'theextensionlab_megamenu/prefetcher_url_rewrite',
+            'cms_page' => 'theextensionlab_megamenu/prefetcher_cms_page'
         );
     }
 
@@ -44,7 +45,8 @@
         return array(
             'featured_product' => 'theextensionlab_megamenu/parser_product_featured',
             'attribute_option' => 'theextensionlab_megamenu/parser_attribute_option',
-            'url_rewrite'      => 'theextensionlab_megamenu/parser_url_rewrite'
+            'url_rewrite'      => 'theextensionlab_megamenu/parser_url_rewrite',
+            'featured_cms_page'     => 'theextensionlab_megamenu/parser_cms_page_featured'
         );
     }
 
