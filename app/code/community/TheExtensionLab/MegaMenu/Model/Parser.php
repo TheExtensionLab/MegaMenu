@@ -53,7 +53,7 @@ class TheExtensionLab_MegaMenu_Model_Parser extends Mage_Widget_Model_Template_F
         $parser = Mage::getModel($modelAlias);
         if ($this->isMegaMenuParserInstance($parser)) {
             $directiveValues = $parser->parse($params);
-            $this->_directiveValues = array_merge($this->_directiveValues, $directiveValues);
+            $this->_directiveValues = array_merge_recursive($this->_directiveValues, $directiveValues);
         }
     }
 
