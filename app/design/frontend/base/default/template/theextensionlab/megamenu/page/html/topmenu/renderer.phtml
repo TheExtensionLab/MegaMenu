@@ -6,35 +6,36 @@
 <?php $children = $menuTree->getChildren();?>
 
 <?php foreach($children as $child):?>
-    <?php $this->setCategoryData($child,$menuTree->getLevel());?>
+    <?php if($child->getIncludeInMenu()):?>
+        <?php $this->setCategoryData($child,$menuTree->getLevel());?>
+        <li <?php echo $this->_getRenderedMenuItemAttributes($child);?>>
+            <a href="<?php echo $child->getUrl();?>" class="<?php echo $this->getCategoryLiClass($child)?>">
+                <?php echo $this->escapeHtml($this->__($child->getName()))?>
+            </a>
 
-    <li <?php echo $this->_getRenderedMenuItemAttributes($child);?>>
-        <a href="<?php echo $child->getUrl();?>" class="<?php echo $this->getCategoryLiClass($child)?>">
-            <?php echo $this->escapeHtml($this->__($child->getName()))?>
-        </a>
+            <?php if(!empty($childrenWrapClass)) :?>
+                <div class="<?php echo $childrenWrapClass?>">
+            <?php endif;?>
 
-        <?php if(!empty($childrenWrapClass)) :?>
-            <div class="<?php echo $childrenWrapClass?>">
-        <?php endif;?>
+            <?php if ($child->getHasDropDownContent()):?>
 
-        <?php if ($child->getHasDropDownContent()):?>
+                <?php $inlineStyle = $this->getDropDownInlineStyle($child);?>
 
-            <?php $inlineStyle = $this->getDropDownInlineStyle($child);?>
+                <div class="<?php echo $this->getMenuDropDownTypeClass($child);?>" <?php if(!empty($inlineStyle)): echo 'style="'.$inlineStyle.'"'; endif; ?>>
+                    <?php foreach($child->getColumns() as $column):?>
+                        <?php if(!empty($column['content']) && $column['col_width'] != 0):?>
+                            <div class="column xlab_column_<?php echo $column['col_width'];?>">
+                                <?php echo $column['content'];?>
+                            </div>
+                        <?php endif;?>
+                    <?php endforeach;?>
+                </div>
+            <?php endif;?>
 
-            <div class="<?php echo $this->getMenuDropDownTypeClass($child);?>" <?php if(!empty($inlineStyle)): echo 'style="'.$inlineStyle.'"'; endif; ?>>
-                <?php foreach($child->getColumns() as $column):?>
-                    <?php if(!empty($column['content']) && $column['col_width'] != 0):?>
-                        <div class="column xlab_column_<?php echo $column['col_width'];?>">
-                            <?php echo $column['content'];?>
-                        </div>
-                    <?php endif;?>
-                <?php endforeach;?>
-            </div>
-        <?php endif;?>
+            <?php if(!empty($childrenWrapClass)) :?>
+                </div>
+            <?php endif;?>
 
-        <?php if(!empty($childrenWrapClass)) :?>
-            </div>
-        <?php endif;?>
-
-    </li>
+        </li>
+    <?php endif;?>
 <?php endforeach;?>

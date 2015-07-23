@@ -43,7 +43,8 @@
                 'image'               => $category->getImage(),
                 'thumbnail_image'     => $category->getThumbnail(),
                 'menu_dropdown_width' => $category->getMenuDropdownWidth(),
-                'menu_dropdown_type'  => $category->getMenuDropdownType()
+                'menu_dropdown_type'  => $category->getMenuDropdownType(),
+                'include_in_menu'     => $category->getIncludeInMenu()
             )
         );
 

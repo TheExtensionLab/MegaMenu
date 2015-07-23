@@ -33,9 +33,9 @@
                 <resourceModel>theextensionlab_megamenu_resource</resourceModel>
             </theextensionlab_megamenu>
 
-            <theextensionlab_megamenu_resourec>
+            <theextensionlab_megamenu_resource>
                 <class>TheExtensionLab_MegaMenu_Model_Resource</class>
-            </theextensionlab_megamenu_resourec>
+            </theextensionlab_megamenu_resource>
         </models>
 
         <resources>
@@ -103,6 +103,7 @@
 
         <theextensionlab_megamenu>
             <extra_attributes>
+                <include_in_menu/>
                 <menu_section_1_column_width/>
                 <menu_section_2_column_width/>
                 <menu_section_3_column_width/>
