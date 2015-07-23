@@ -193,6 +193,21 @@
                 </helper_block>
                 <sort_order>10</sort_order>
             </menu_featured_cms_id>
+            <featured_image>
+                <visible>1</visible>
+                <required>0</required>
+                <label>CMS Image</label>
+                <type>label</type>
+                <helper_block>
+                    <type>theextensionlab_megamenu/adminhtml_widget_image_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Image...</open>
+                        </button>
+                    </data>
+                </helper_block>
+                <sort_order>10</sort_order>
+            </featured_image>
             <display_on>
                 <required>0</required>
                 <visible>1</visible>
