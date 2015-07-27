@@ -114,10 +114,6 @@ class TheExtensionLab_MegaMenu_Block_Page_Html_Topmenu_Renderer
         $dropdownClass .= ' level'.$category->getLevel();
         $dropdownClass .= ' xlab_grid_container';
 
-        if(Mage::getStoreConfigFlag('catalog/navigation/use_responsive_dropdown_grid')) {
-            $dropdownClass .= ' responsive';
-        }
-
         return $dropdownClass;
     }
 

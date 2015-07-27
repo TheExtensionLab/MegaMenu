@@ -1,0 +1,11 @@
+<?php /* Copy of RWD topmenu.phtml file apart from with out own ID and class so we
+        can start the styles from scratch without specificity wars */ ?>
+<?php $_menu = $this->getHtml('level-top') ?>
+
+<?php if($_menu): ?>
+    <nav id="megamenu-nav" class="megamenu-nav">
+        <ol class="megamenu-nav-primary" id="megamenu-nav-main">
+            <?php echo $_menu ?>
+        </ol>
+    </nav>
+<?php endif ?>

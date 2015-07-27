@@ -1,6 +1,13 @@
 <?xml version="1.0"?>
 <layout>
     <default>
+        <!-- Replace default js files with our own to ensure our new Nav Id is used-->
+        <reference name="head">
+            <action method="removeItem"><type>js</type><name>varien/menu.js</name></action>
+            <action method="addItem"><type>skin_js</type><name>js/theextensionlab/megamenu/menu.js</name></action>
+        </reference>
+
+        <!-- Add our styling -->
         <reference name="head">
             <action method="addCss">
                 <stylesheet>css/theextensionlab/megamenu/grid.css</stylesheet>
@@ -8,11 +15,14 @@
             <action method="addCss">
                 <stylesheet>css/theextensionlab/megamenu/main.css</stylesheet>
             </action>
-            <action method="addItem"><type>skin_js</type><name>js/theextensionlab/megamenu/menu.js</name></action>
+            <action method="addCss" ifconfig="catalog/navigation/include_responsive_styles">
+                <stylesheet>css/theextensionlab/megamenu/responsive.css</stylesheet>
+            </action>
         </reference>
 
-
+        <!-- Set the menu renderer and own own menu template (so that we can set our custom menu ID) -->
         <reference name="catalog.topnav">
+            <action method="setTemplate"><template>theextensionlab/megamenu/page/html/topmenu.phtml</template></action>
             <block type="theextensionlab_megamenu/page_html_topmenu_renderer" name="catalog.topnav.renderer"
                    template="theextensionlab/megamenu/page/html/topmenu/renderer.phtml"/>
         </reference>

@@ -5,6 +5,7 @@ app/design/adminhtml/default/default/template/theextensionlab/megamenu/ app/desi
 app/design/frontend/base/default/layout/theextensionlab/megamenu.xml   app/design/frontend/base/default/layout/theextensionlab/megamenu.xml
 app/design/frontend/base/default/template/theextensionlab/megamenu/ app/design/frontend/base/default/template/theextensionlab/megamenu/
 skin/frontend/base/default/css/theextensionlab/megamenu/    skin/frontend/base/default/css/theextensionlab/megamenu/
+skin/frontend/default/default/css/theextensionlab/megamenu/    skin/frontend/default/default/css/theextensionlab/megamenu/
 skin/frontend/base/default/js/theextensionlab/megamenu/    skin/frontend/base/default/js/theextensionlab/megamenu/
 skin/adminhtml/default/default/theextensionlab/megamenu/    skin/adminhtml/default/default/theextensionlab/megamenu/
 js/theextensionlab/megamenu js/theextensionlab/megamenu

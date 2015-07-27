@@ -1,0 +1,208 @@
+@media only screen and (max-width: 769px) {
+  /*------------- Widget Blocks --------------*/
+  .list-block {
+    margin-left: 0px;
+    padding: 10px 25px;
+  }
+  .list-block:first-of-type {
+    padding-top: 15px;
+  }
+  .list-block:last-of-type {
+    padding-bottom: 15px;
+  }
+}
+@media only screen and (max-width: 769px) {
+  .megamenu-nav-primary li.level0 {
+    display: block;
+  }
+  .megamenu-nav-primary li.level0 > a {
+    display: block;
+  }
+  .megamenu-nav-primary a.level0 {
+    border-bottom: 1px solid #cccccc;
+  }
+  .megamenu-nav-primary .megamenu {
+    position: relative;
+    width: 100% !important;
+  }
+  .megamenu-nav-primary .megamenu > div {
+    width: 100%;
+  }
+
+  .megamenu-nav-primary li.parent > a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    display: block;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid #cccccc;
+    border-right: none;
+    top: 50%;
+    left: 10px;
+    right: auto;
+    margin-top: -5px;
+  }
+
+  .megamenu-nav-primary li.parent.menu-active > a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    display: block;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-top: 5px solid #cccccc;
+    border-bottom: none;
+    top: 50%;
+    left: 10px;
+    right: auto;
+    margin-top: -5p;
+  }
+
+  /*----------- Main DropDown Styling ---------------*/
+  .megamenu-nav .megamenu-nav-primary div.megamenu {
+    border-top: 0px;
+  }
+
+  /*------------- Component Styles --------------*/
+  .section-title {
+    margin-bottom: 0px;
+  }
+
+  /*------------- Widget Blocks --------------*/
+  li a {
+    padding: 0 15px 0 25px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  /*------------- Display Classes --------------*/
+  .hide-on-small {
+    display: none !important;
+  }
+
+  .categories-list-block .list-title {
+    display: none;
+  }
+
+  .small-only-view-all {
+    display: block;
+  }
+
+  .xlab_grid_container .xlab_column_1_24 {
+    width: 100%;
+  }
+
+  .xlab_grid_container .xlab_column_2_24 {
+    width: 100%;
+  }
+
+  .xlab_grid_container .xlab_column_3_24 {
+    width: 100%;
+  }
+
+  .xlab_grid_container .xlab_column_4_24 {
+    width: 100%;
+  }
+
+  .xlab_grid_container .xlab_column_5_24 {
+    width: 100%;
+  }
+
+  .xlab_grid_container .xlab_column_6_24 {
+    width: 100%;
+  }
+
+  .xlab_grid_container .xlab_column_7_24 {
+    width: 100%;
+  }
+
+  .xlab_grid_container .xlab_column_8_24 {
+    width: 100%;
+  }
+
+  .xlab_grid_container .xlab_column_9_24 {
+    width: 100%;
+  }
+
+  .xlab_grid_container .xlab_column_10_24 {
+    width: 100%;
+  }
+
+  .xlab_grid_container .xlab_column_11_24 {
+    width: 100%;
+  }
+
+  .xlab_grid_container .xlab_column_12_24 {
+    width: 100%;
+  }
+
+  .xlab_grid_container .xlab_column_13_24 {
+    width: 100%;
+  }
+
+  .xlab_grid_container .xlab_column_14_24 {
+    width: 100%;
+  }
+
+  .xlab_grid_container .xlab_column_15_24 {
+    width: 100%;
+  }
+
+  .xlab_grid_container .xlab_column_16_24 {
+    width: 100%;
+  }
+
+  .xlab_grid_container .xlab_column_17_24 {
+    width: 100%;
+  }
+
+  .xlab_grid_container .xlab_column_18_24 {
+    width: 100%;
+  }
+
+  .xlab_grid_container .xlab_column_19_24 {
+    width: 100%;
+  }
+
+  .xlab_grid_container .xlab_column_20_24 {
+    width: 100%;
+  }
+
+  .xlab_grid_container .xlab_column_21_24 {
+    width: 100%;
+  }
+
+  .xlab_grid_container .xlab_column_22_24 {
+    width: 100%;
+  }
+
+  .xlab_grid_container .xlab_column_23_24 {
+    width: 100%;
+  }
+
+  .xlab_grid_container .xlab_column_24_24 {
+    width: 100%;
+  }
+
+  .xlab_grid_container .xlab_column_1_5 {
+    width: 100%;
+  }
+
+  .xlab_grid_container .xlab_column_2_5 {
+    width: 100%;
+  }
+
+  .xlab_grid_container .xlab_column_3_5 {
+    width: 100%;
+  }
+
+  .xlab_grid_container .xlab_column_4_5 {
+    width: 100%;
+  }
+
+  .xlab_grid_container .xlab_column_5_5 {
+    width: 100%;
+  }
+}
