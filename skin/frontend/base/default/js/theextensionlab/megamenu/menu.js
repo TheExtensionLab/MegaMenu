@@ -19,13 +19,14 @@ var getWindowSize = function() {
     windowSize.width = document.viewport.getWidth();
 };
 
-getWindowSize();
 
 Event.observe(window, "delayed:resize", function() {
     getWindowSize();
 });
 
 var mainNav = function() {
+
+    getWindowSize();
 
     var main = {
         obj_nav :   $(arguments[0]) || $("megamenu-nav-main"),
