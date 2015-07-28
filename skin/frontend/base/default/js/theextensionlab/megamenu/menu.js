@@ -67,7 +67,7 @@ megaMenuManager.prototype = {
             });
 
             list.on('mouseover', function(){
-                if(menu.windowSize.width < bp.medium && main.nav.hasClassName('responsive')) {
+                if(menu.windowSize.width < bp.medium && menu.nav.hasClassName('responsive')) {
 
                 }else{
                     menu.fireNavEvent(this, true);
@@ -75,7 +75,7 @@ megaMenuManager.prototype = {
             });
 
             list.on('mouseout', function(){
-                if(menu.windowSize.width < bp.medium && main.nav.hasClassName('responsive')) {
+                if(menu.windowSize.width < bp.medium && menu.nav.hasClassName('responsive')) {
 
                 }else{
                     menu.fireNavEvent(this, false);
@@ -84,7 +84,7 @@ megaMenuManager.prototype = {
 
             list.onclick = function(e){
                 if(menu.windowSize.width < bp.medium || list.readAttribute('was-touch')) {
-                    if(this.hasClassName('parent') && main.nav.hasClassName('responsive')) {
+                    if(this.hasClassName('parent') && menu.nav.hasClassName('responsive')) {
                         e.stop();
                         menu.fireNavEvent(this, 'toggle');
                     }
