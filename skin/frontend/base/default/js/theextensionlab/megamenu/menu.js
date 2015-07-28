@@ -54,6 +54,10 @@ megaMenuManager.prototype = {
         }
     },
 
+    isSmallScreenAndResponsiveSite : function(menu){
+          return menu.windowSize.width < bp.medium && menu.nav.hasClassName('responsive');
+    },
+
     handleNavElement : function(list){
 
         newChildren = list.select('div,ul,section');
@@ -67,17 +71,13 @@ megaMenuManager.prototype = {
             });
 
             list.on('mouseover', function(){
-                if(menu.windowSize.width < bp.medium && menu.nav.hasClassName('responsive')) {
-
-                }else{
+                if(!menu.isSmallScreenAndResponsiveSite(menu)) {
                     menu.fireNavEvent(this, true);
                 }
             });
 
             list.on('mouseout', function(){
-                if(menu.windowSize.width < bp.medium && menu.nav.hasClassName('responsive')) {
-
-                }else{
+                if(!menu.isSmallScreenAndResponsiveSite(menu)) {
                     menu.fireNavEvent(this, false);
                 }
             });
@@ -90,7 +90,6 @@ megaMenuManager.prototype = {
                     }
                 }
 
-                //cleanup
                 menu.cleanUpTouchData(list);
             }
         }
