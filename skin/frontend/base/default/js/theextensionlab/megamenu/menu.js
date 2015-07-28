@@ -80,6 +80,7 @@ var mainNav = function() {
 
         handlNavElement :   function(list) {
             if(list !== undefined){
+
                 list.onmouseover = function(){
                     if(windowSize.width < bp.medium && main.obj_nav.hasClassName('responsive')) {
 
