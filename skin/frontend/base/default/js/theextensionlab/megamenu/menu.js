@@ -21,15 +21,18 @@ megaMenuManager.prototype = {
         this.initWindowSize();
         this.initMenu();
     },
+
     initWindowSize : function(){
         this.windowSize.height = document.viewport.getHeight();
         this.windowSize.width = document.viewport.getWidth();
     },
+
     initMenu : function(){
         this.initDelayedResizingEvent();
         this.lists = this.nav.childElements();
         this.lists.each(this.handleNavElement.bind(this));
     },
+
     initDelayedResizingEvent : function(){
         menu = this;
         Event.observe(window, "resize", function() {
@@ -40,6 +43,7 @@ megaMenuManager.prototype = {
             }
         });
     },
+
     resizeEnd : function(){
         if(new Date() - rtime < this.settings.window_resize_delay) {
             setTimeout(this.resizeEnd, this.settings.window_resize_delay);
@@ -48,22 +52,11 @@ megaMenuManager.prototype = {
             Event.fire(window,"delayed:resize");
         }
     },
-    handleNavEventBubbling : function(child){
-        child.onclick = function(e){
-            e.stopPropagation();
-        }
-    },
-
-    isSmallScreenAndResponsiveSite : function(menu){
-          return menu.windowSize.width < bp.medium && menu.nav.hasClassName('responsive');
-    },
 
     handleNavElement : function(list){
-
-        newChildren = list.select('div,ul,section');
-        newChildren.each(this.handleNavEventBubbling.bind(this));
-
         menu = this;
+
+        this.preventEventBubbling(list);
 
         if(list !== undefined){
             list.on('touchstart',function(){
@@ -83,7 +76,7 @@ megaMenuManager.prototype = {
             });
 
             list.onclick = function(e){
-                if(menu.windowSize.width < bp.medium || list.readAttribute('was-touch')) {
+                if(this.isSmallScreenOrLinkWasTouched(menu,list)) {
                     if(this.hasClassName('parent') && menu.nav.hasClassName('responsive')) {
                         e.stop();
                         menu.fireNavEvent(this, 'toggle');
@@ -93,6 +86,14 @@ megaMenuManager.prototype = {
                 menu.cleanUpTouchData(list);
             }
         }
+    },
+
+    isSmallScreenAndResponsiveSite : function(menu){
+        return menu.windowSize.width < bp.medium && menu.nav.hasClassName('responsive');
+    },
+
+    isSmallScreenOrLinkWasTouched : function(menu,list){
+        return menu.windowSize.width < bp.medium || list.readAttribute('was-touch')
     },
 
     cleanUpTouchData : function(element){
@@ -109,6 +110,17 @@ megaMenuManager.prototype = {
         } else if(active == "toggle"){
             element.toggleClassName("menu-active");
             element.down("a").toggleClassName("menu-active");
+        }
+    },
+
+    preventEventBubbling : function(list){
+        newChildren = list.select('div,ul,section');
+        newChildren.each(this.handleNavEventBubbling.bind(this));
+    },
+
+    handleNavEventBubbling : function(child){
+        child.onclick = function(e){
+            e.stopPropagation();
         }
     }
 };
