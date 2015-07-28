@@ -62,20 +62,20 @@ megaMenuManager.prototype = {
         menu = this;
 
         if(list !== undefined){
-            list.on('touchstart',function(e){
+            list.on('touchstart',function(){
                 list.writeAttribute('was-touch',true);
             });
 
-            list.on('mouseover', function(e){
-                if(menu.windowSize.width < bp.medium && main.obj_nav.hasClassName('responsive')) {
+            list.on('mouseover', function(){
+                if(menu.windowSize.width < bp.medium && main.nav.hasClassName('responsive')) {
 
                 }else{
                     menu.fireNavEvent(this, true);
                 }
             });
 
-            list.on('mouseout', function(e){
-                if(menu.windowSize.width < bp.medium && main.obj_nav.hasClassName('responsive')) {
+            list.on('mouseout', function(){
+                if(menu.windowSize.width < bp.medium && main.nav.hasClassName('responsive')) {
 
                 }else{
                     menu.fireNavEvent(this, false);
@@ -84,7 +84,7 @@ megaMenuManager.prototype = {
 
             list.onclick = function(e){
                 if(menu.windowSize.width < bp.medium || list.readAttribute('was-touch')) {
-                    if(this.hasClassName('parent') && main.obj_nav.hasClassName('responsive')) {
+                    if(this.hasClassName('parent') && main.nav.hasClassName('responsive')) {
                         e.stop();
                         menu.fireNavEvent(this, 'toggle');
                     }

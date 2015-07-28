@@ -4,7 +4,7 @@
         <!-- Replace default js files with our own to ensure our new Nav Id is used-->
         <reference name="head">
             <action method="removeItem"><type>js</type><name>varien/menu.js</name></action>
-            <action method="addItem"><type>skin_js</type><name>js/theextensionlab/megamenu/menu-manager.js</name></action>
+            <action method="addItem"><type>skin_js</type><name>js/theextensionlab/megamenu/menu.js</name></action>
         </reference>
 
         <!-- Add our styling -->
