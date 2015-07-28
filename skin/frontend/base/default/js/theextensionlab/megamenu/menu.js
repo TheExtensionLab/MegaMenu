@@ -81,6 +81,10 @@ var mainNav = function() {
         handlNavElement :   function(list) {
             if(list !== undefined){
 
+                list.on('touchstart',function(e){
+                    list.writeAttribute('was-touch',true);
+                });
+
                 list.onmouseover = function(){
                     if(windowSize.width < bp.medium && main.obj_nav.hasClassName('responsive')) {
 
@@ -98,15 +102,19 @@ var mainNav = function() {
                 };
 
                 list.onclick = function(e){
-                    if(windowSize.width < bp.medium) {
+
+                    if(windowSize.width < bp.medium || list.readAttribute('was-touch')) {
                         if(this.hasClassName('parent') && main.obj_nav.hasClassName('responsive')) {
                             e.stop();
                             main.fireNavEvent(this, 'toggle');
                         }
                     }
+
+                    list.writeAttribute('was-touch',false);//cleanup
                 }
             }
         },
+
 
         fireNavEvent :  function(element,active) {
             if(active == true){
