@@ -68,7 +68,7 @@ class TheExtensionLab_MegaMenu_Model_Resource_Setup
         $productAttributes = array(
             'menu_image' => array(
                 'type'                    => 'varchar',
-                'label'                   => 'Menu_Image',
+                'label'                   => 'Menu Image',
                 'input'                   => 'media_image',
                 'frontend'                => 'catalog/product_attribute_frontend_image',
                 'required'                => false,
