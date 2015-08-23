@@ -14,14 +14,16 @@
 .megamenu-nav-primary li.level0 {
   display: inline-block;
 }
-.megamenu-nav-primary li.level0 > a {
+.megamenu-nav-primary li.level0 > a, .megamenu-nav-primary li.level0 > span {
   text-transform: uppercase;
   display: inline-block;
   position: relative;
   padding: 0 12px 0 8px;
   text-decoration: none;
+  display: block;
+  cursor: pointer;
 }
-.megamenu-nav-primary a.level0 {
+.megamenu-nav-primary a.level0, .megamenu-nav-primary span.level0 {
   padding: 0 25px;
   border-bottom: 0px;
 }
@@ -33,12 +35,12 @@
 .megamenu-nav-primary .menu-active .megamenu {
   display: block;
 }
-.megamenu-nav-primary a {
+.megamenu-nav-primary a, .megamenu-nav-primary span {
   line-height: 30px;
   color: #636363;
   display: block;
 }
-.megamenu-nav-primary a:hover {
+.megamenu-nav-primary a:hover, .megamenu-nav-primary span:hover {
   color: #3399cc;
   text-decoration: none;
 }

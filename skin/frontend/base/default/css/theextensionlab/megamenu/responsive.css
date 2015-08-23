@@ -15,10 +15,10 @@
   .megamenu-nav-primary li.level0 {
     display: block;
   }
-  .megamenu-nav-primary li.level0 > a {
+  .megamenu-nav-primary li.level0 > a, .megamenu-nav-primary li.level0 > span {
     display: block;
   }
-  .megamenu-nav-primary a.level0 {
+  .megamenu-nav-primary a.level0, .megamenu-nav-primary span.level0 {
     border-bottom: 1px solid #cccccc;
   }
   .megamenu-nav-primary .megamenu {
@@ -204,5 +204,15 @@
 
   .xlab_grid_container .xlab_column_5_5 {
     width: 100%;
+  }
+}
+@media only screen and (min-width: 770px) and (max-width: 979px) {
+  .hide-on-medium {
+    display: none !important;
+  }
+}
+@media only screen and (min-width: 979px) {
+  .hide-on-large {
+    display: none !important;
   }
 }

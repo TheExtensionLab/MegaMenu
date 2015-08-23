@@ -20,16 +20,18 @@ $dropdwon-external-border-color: #e8eaeb;
   margin-top: 15px;
   li.level0{
     display: inline-block;
-    & > a{
+    & > a, & > span{
       text-transform: uppercase;
       display: inline-block;
       position:relative;
       padding: 0 12px 0 8px;
       text-decoration: none;
+      display:block;
+      cursor:pointer;
     }
   }
 
-  a.level0{
+  a.level0,span.level0{
     padding: 0 25px;
     border-bottom:0px;
   }
@@ -46,7 +48,7 @@ $dropdwon-external-border-color: #e8eaeb;
     }
   }
 
-  a {
+  a,span {
     line-height:30px;
     color: #636363;
     display:block;

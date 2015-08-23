@@ -21,11 +21,11 @@
   .megamenu-nav-primary{
     li.level0{
       display: block;
-      & > a{
+      & > a,& > span{
         display:block;
       }
     }
-    a.level0{
+    a.level0,span.level0{
       border-bottom: 1px solid #cccccc;
     }
     .megamenu{
@@ -113,5 +113,17 @@
       .#{$container-class} .#{$class-prefix}column_#{$i}_5 {
         @include grid_column($grid-columns);
       }
+  }
+}
+
+@media #{$medium-only} {
+  .hide-on-medium{
+    display:none !important;
+  }
+}
+
+@media #{$large-only} {
+  .hide-on-large{
+    display:none !important;
   }
 }
