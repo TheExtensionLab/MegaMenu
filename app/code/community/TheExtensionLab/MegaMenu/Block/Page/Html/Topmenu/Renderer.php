@@ -129,7 +129,7 @@ class TheExtensionLab_MegaMenu_Block_Page_Html_Topmenu_Renderer
         return $style;
     }
 
-    protected function isCategoryPlaceholder($category){
+    protected function _isCategoryPlaceholder($category){
         return $category->getMenuLinkType() == TheExtensionLab_MegaMenu_Model_Config_Source_Link_Type::NO_LINK;
     }
 

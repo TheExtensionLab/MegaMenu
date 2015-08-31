@@ -115,7 +115,7 @@
 
     private function _canAddToMenu($category)
     {
-        return ($category->getIsActive() || $category->getMenuLinkType() == 1 || $category->getMenuLinkType() == 2);
+        return ($category->getIsActive() || $category->getMenuLinkType() == 1 || $category->getMenuLinkType() == 2 || $category->getMenuLinkType() == 3);
     }
 
     /**

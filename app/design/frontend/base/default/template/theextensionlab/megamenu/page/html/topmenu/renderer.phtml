@@ -9,7 +9,7 @@
     <?php if($child->getIncludeInMenu()):?>
         <?php $this->setCategoryData($child,$menuTree->getLevel());?>
         <li <?php echo $this->_getRenderedMenuItemAttributes($child);?>>
-            <?php if(!$this->isCategoryPlaceholder($child)):?>
+            <?php if(!$this->_isCategoryPlaceholder($child)):?>
                 <a href="<?php echo $child->getUrl();?>" class="<?php echo $this->getCategoryLiClass($child)?>">
                     <?php echo $this->escapeHtml($this->__($child->getName()))?>
                 </a>
