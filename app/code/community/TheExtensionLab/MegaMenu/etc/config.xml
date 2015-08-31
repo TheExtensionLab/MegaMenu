@@ -173,7 +173,7 @@
     <default>
         <catalog>
             <navigation>
-                <use_responsive_dropdown_grid>1</use_responsive_dropdown_grid>
+                <include_responsive_styles>1</include_responsive_styles>
                 <sections_count>7</sections_count>
             </navigation>
         </catalog>

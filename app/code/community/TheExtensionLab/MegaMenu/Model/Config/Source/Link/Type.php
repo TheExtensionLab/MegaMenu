@@ -18,6 +18,7 @@ class TheExtensionLab_MegaMenu_Model_Config_Source_Link_Type
     const DEFAULT_LINK_TYPE = 0;
     const INTERNAL_LINK_TYPE = 1;
     const EXTERNAL_LINK_TYPE = 2;
+    const NO_LINK = 3;
 
     public function getAllOptionsArray()
     {
@@ -34,6 +35,10 @@ class TheExtensionLab_MegaMenu_Model_Config_Source_Link_Type
                 array(
                     'label' => $this->_getHelper()->__('External Link'),
                     'value' => self::EXTERNAL_LINK_TYPE
+                ),
+                array(
+                    'label' => $this->_getHelper()->__('No Link'),
+                    'value' => self::NO_LINK
                 )
             );
         }

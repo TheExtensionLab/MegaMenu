@@ -6,105 +6,103 @@ $dropdown-internals-border-color: #eceff1;
 $dropdwon-external-border-color: #e8eaeb;
 
 /*----------- Main DropDown Positioning ---------------*/
-//Includes some resetting of default styles.
-#nav {
-
+.megamenu-nav{
   position: relative;
-  z-index: 1000;
+  z-index: 150;
 
-  li {
+  li{
     position: static;
+  }
+}
 
-    &.level0 {
-      > div {
-        display: none;
-        position: absolute;
-        width: 100%;
-        top: 27px;
-      }
-
-      .shown-sub {
-        display: block;
-      }
-    }
-
-    &.menu-active {
-      > div {
-        display: block;
-      }
+.megamenu-nav-primary {
+  display: block;
+  margin-top: 15px;
+  li.level0{
+    display: inline-block;
+    & > a, & > span{
+      text-transform: uppercase;
+      display: inline-block;
+      position:relative;
+      padding: 0 12px 0 8px;
+      text-decoration: none;
+      display:block;
+      cursor:pointer;
     }
   }
 
-  //RWD specific
-  .nav-primary {
-    li {
-      &.level0 {
-        > div {
-          position: relative;
-          top: auto;
-          @media #{$medium-up}{
-            position: absolute;
-          }
-          ul {
-            background: transparent;
-            border: 0px;
-            display: block;
-            position: relative;
-            top: auto;
-            width: auto;
-            padding-left: 0px;
-            padding-right: 0px;
-          }
-        }
-      }
-    }
+  a.level0,span.level0{
+    padding: 0 25px;
+    border-bottom:0px;
+  }
 
-    a.button {
-      color: #fff;
+  .megamenu{
+    position: absolute;
+    display:none;
+    z-index: 10;
+  }
+
+  .menu-active{
+    .megamenu{
+      display:block;
     }
   }
 
-  div {
-    position: relative;
-    left: auto;
-    width: auto;
-    border: 0px;
-    top: auto;
+  a,span.level0 {
+    line-height:30px;
+    color: #636363;
+    display:block;
+    &:hover{
+      color:#3399cc;
+      text-decoration:none;
+    }
   }
 
-  a {
-    float: none;
-  }
-
-  @media #{$medium-up}{
-    li.level0 {
-      > a {
-        padding: 5px 12px 6px 8px;
+  li{
+    &:hover{
+      > a{
+        color:#3399cc;
+        text-decoration:none;
       }
     }
   }
+}
+
+//Designed to target default theme.
+.page > .megamenu-nav{
+  background: #0a263d url("../images/bkg_nav0.jpg") repeat-y scroll 50% 0;
+  width:950px;
+  text-align:left;
+  margin:0 auto;
+}
+
+.page > .megamenu-nav a.level0{
+color:#a7c6dd;
+font-weight:bold;
+  text-transform:none;
+}
+
+.page > .megamenu-nav .megamenu-nav-primary{
+  margin-top:0px;
 }
 
 /*----------- Main DropDown Styling ---------------*/
 
-#nav div.megamenu {
+.megamenu-nav div.megamenu {
   background-color: $dropdown-background-color;
   border: 1px solid $dropdwon-external-border-color;
 }
 
-#nav .megamenu .column:not(:last-child) {
+.megamenu-nav .megamenu .column:not(:last-child) {
   border-right: 1px solid $dropdown-internals-border-color;
 }
 
-@media #{$medium-up}{
-  //RWD only
-  #nav .nav-primary div.megamenu {
-    border-top: 2px solid #64b5f6;
-  }
+.megamenu-nav .megamenu-nav-primary div.megamenu {
+  border-top: 2px solid #64b5f6;
 }
 
 /*----------- Dropdown Types ---------------*/
-#nav {
+.megamenu-nav {
   li {
     &.level0 {
       .absolute-center {
@@ -160,7 +158,7 @@ $max-content-columns: 5;
   .secondary & {
     text-align: left;
 
-    #nav & {
+    .megamenu-nav & {
       //increase specificity due to resets
       @include media_object($image-margin: 15px, $max-image-width: 150px, $bd-padding: 30px 0px 0px);
 
@@ -169,14 +167,6 @@ $max-content-columns: 5;
         padding: 5px;
         line-height: 16px;
       }
-
-    }
-  }
-}
-
-#nav {
-  .featured-product {
-    .secondary & {
 
     }
   }
@@ -216,73 +206,31 @@ $max-content-columns: 5;
 .section-title {
   font-weight: bold;
   letter-spacing: 1px;
-  @media #{$medium-up}{
-    margin-bottom: 10px;
-  }
+  margin-bottom: 10px;
 }
+
 
 /*------------- Widget Blocks --------------*/
 
 .list-block {
+  margin-left:20px;
+  padding: 10px 45px;
+  &:first-of-type {
+    padding-top: 35px;
+  }
+  &:last-of-type {
+    padding-bottom: 35px;
+  }
+
   li {
     a {
-      padding: 0 15px 0 25px;
-      border-bottom: 1px solid #ccc;
-
-      @media #{$medium-up}{
-        padding: 0px;
-        border: 0px;
-      }
-    }
-  }
-
-  @media #{$medium-up}{
-    padding: 10px 25px;
-    &:first-of-type {
-      padding-top: 15px;
-    }
-    &:last-of-type {
-      padding-bottom: 15px;
-    }
-  }
-
-  @media #{$large-up}{
-    padding: 10px 45px;
-    &:first-of-type {
-      padding-top: 35px;
-    }
-    &:last-of-type {
-      padding-bottom: 35px;
+      padding: 0px;
+      border: 0px;
     }
   }
 }
 
 /*------------- Display Classes --------------*/
-
-@media #{$small-only}{
-  .hide-on-small {
-    display: none !important;
-  }
+.small-only-view-all{
+  display:none;
 }
-
-.hide-on-medium {
-  display: none !important;
-}
-
-.hide-on-large {
-  display: none !important;
-}
-
-@media #{$small-only} {
-  .categories-list-block .list-title {
-    display: none;
-  }
-}
-
-@media #{$medium-up} {
-  .small-only-view-all {
-    display: none;
-  }
-}
-
-

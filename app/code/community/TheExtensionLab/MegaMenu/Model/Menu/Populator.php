@@ -44,7 +44,8 @@
                 'thumbnail_image'     => $category->getThumbnail(),
                 'menu_dropdown_width' => $category->getMenuDropdownWidth(),
                 'menu_dropdown_type'  => $category->getMenuDropdownType(),
-                'include_in_menu'     => $category->getIncludeInMenu()
+                'include_in_menu'     => $category->getIncludeInMenu(),
+                'menu_link_type'      => $category->getMenuLinkType()
             )
         );
 
@@ -114,7 +115,7 @@
 
     private function _canAddToMenu($category)
     {
-        return ($category->getIsActive() || $category->getMenuLinkType() == 1 || $category->getMenuLinkType() == 2);
+        return ($category->getIsActive() || $category->getMenuLinkType() == 1 || $category->getMenuLinkType() == 2 || $category->getMenuLinkType() == 3);
     }
 
     /**

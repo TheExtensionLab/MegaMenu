@@ -10,3 +10,10 @@ $small-only: "only screen and (max-width: 769px)";
 $medium-only: "only screen and (min-width:770px) and (max-width: 979px)";
 $large-only: "only screen and (min-width:979px)";
 $large-up: "only screen and (min-width:979px)";
+
+$medium-down: "only screen and (max-width: 769px)";
+$small-down:"only screen and (max-width: 769px)";
+
+$class-prefix: 'xlab_';
+$grid-columns: 24;
+$container-class: '#{$class-prefix}grid_container';

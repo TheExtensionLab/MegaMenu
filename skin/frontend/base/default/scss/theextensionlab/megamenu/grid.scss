@@ -6,10 +6,6 @@
 @import "mixins/main";
 @import "mixins/grid";
 
-$class-prefix: 'xlab_';
-$grid-columns: 24;
-$container-class: '#{$class-prefix}grid_container';
-
 .column {
   float: left;
   position: relative;
@@ -22,29 +18,27 @@ $container-class: '#{$class-prefix}grid_container';
 }
 
 @for $i from 1 through $grid-columns {
-  #nav .#{$container-class} .#{$class-prefix}column_#{$i}_#{$grid-columns} {
+  .#{$container-class} .#{$class-prefix}column_#{$i}_#{$grid-columns} {
     @include grid_column($i);
   }
-
-  @media #{$small-only}{
-    #nav.#{$container-class}.responsive  .#{$class-prefix}column_#{$i}_#{$grid-columns} {
-      @include grid_column($grid-columns); //if has .responsive class set columns to 100% on small screens
-    }
-  }
-
+  //@media #{$small-only}{
+  //  .#{$container-class}.responsive  .#{$class-prefix}column_#{$i}_#{$grid-columns} {
+  //    @include grid_column($grid-columns); //if has .responsive class set columns to 100% on small screens
+  //  }
+  //}
 }
 
 @for $i from 1 through 5 {
-  #nav .#{$container-class} .#{$class-prefix}column_#{$i}_5 {
+  .#{$container-class} .#{$class-prefix}column_#{$i}_5 {
     @include grid_column($i, 5);
   }
-  @media #{$small-only}{
-    #nav .#{$container-class}.responsive .#{$class-prefix}column_#{$i}_5 {
-      @include grid_column($grid-columns); //if has .responsive class set columns to 100% on small screens
-    }
-  }
+  //@media #{$small-only}{
+  //  .#{$container-class}.responsive .#{$class-prefix}column_#{$i}_5 {
+  //    @include grid_column($grid-columns); //if has .responsive class set columns to 100% on small screens
+  //  }
+  //}
 }
 
-#nav .#{$container-class} div[class^="#{$class-prefix}grid_"] {
+.#{$container-class} div[class^="#{$class-prefix}grid_"] {
   @include grid_column(24, 24);
 }

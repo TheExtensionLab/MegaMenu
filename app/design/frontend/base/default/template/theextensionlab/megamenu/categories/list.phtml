@@ -17,18 +17,18 @@
             </li>
 
             <?php if(!empty($category->children)):?>
-                    <?php foreach($category->children as $childCategory){?>
-                        <?php $childCategoryNodeId = 'category-node-'.$childCategory->id;?>
-                        <?php $childCategoryNode = $childNodes[$childCategoryNodeId]; ?>
-                        <li><a href="<?php echo $childCategoryNode->getUrl();?>"><?php echo $childCategoryNode->getName();?></a></li>
-                    <?php } ?>
-                    <li <?php if(!empty($category->children)):echo 'class="view-all small-only-view-all"';endif;?>>
-                            <span>
-                                <a href="<?php echo $categoryNode->getUrl(); ?>">
-                                    <?php echo $this->__('View All %s',$categoryNode->getName());?>
-                                </a>
-                            </span>
-                    </li>
+                <?php foreach($category->children as $childCategory){?>
+                    <?php $childCategoryNodeId = 'category-node-'.$childCategory->id;?>
+                    <?php $childCategoryNode = $childNodes[$childCategoryNodeId]; ?>
+                    <li><a href="<?php echo $childCategoryNode->getUrl();?>"><?php echo $childCategoryNode->getName();?></a></li>
+                <?php } ?>
+                <li <?php if(!empty($category->children)):echo 'class="view-all small-only-view-all"';endif;?>>
+                    <span>
+                        <a href="<?php echo $categoryNode->getUrl(); ?>">
+                            <?php echo $this->__('View All %s',$categoryNode->getName());?>
+                        </a>
+                    </span>
+                </li>
             <?php endif;?>
         <?php endforeach; ?>
     </ul>
