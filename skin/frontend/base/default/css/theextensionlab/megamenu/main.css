@@ -1,7 +1,7 @@
 /*----------- Main DropDown Positioning ---------------*/
 .megamenu-nav {
   position: relative;
-  z-index: 1000;
+  z-index: 150;
 }
 .megamenu-nav li {
   position: static;
@@ -35,12 +35,12 @@
 .megamenu-nav-primary .menu-active .megamenu {
   display: block;
 }
-.megamenu-nav-primary a, .megamenu-nav-primary span {
+.megamenu-nav-primary a, .megamenu-nav-primary span.level0 {
   line-height: 30px;
   color: #636363;
   display: block;
 }
-.megamenu-nav-primary a:hover, .megamenu-nav-primary span:hover {
+.megamenu-nav-primary a:hover, .megamenu-nav-primary span.level0:hover {
   color: #3399cc;
   text-decoration: none;
 }

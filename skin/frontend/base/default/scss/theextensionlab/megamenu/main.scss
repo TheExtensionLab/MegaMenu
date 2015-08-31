@@ -8,7 +8,7 @@ $dropdwon-external-border-color: #e8eaeb;
 /*----------- Main DropDown Positioning ---------------*/
 .megamenu-nav{
   position: relative;
-  z-index: 1000;
+  z-index: 150;
 
   li{
     position: static;
@@ -48,7 +48,7 @@ $dropdwon-external-border-color: #e8eaeb;
     }
   }
 
-  a,span {
+  a,span.level0 {
     line-height:30px;
     color: #636363;
     display:block;
