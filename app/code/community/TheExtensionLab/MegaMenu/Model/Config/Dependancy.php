@@ -22,7 +22,7 @@ class TheExtensionLab_MegaMenu_Model_Config_Dependancy
             $this->_defineSettingsFieldDependancies($dependanceBlock, $groupId);
         }
 
-        if($groupName == "MegaMenu Settings") {
+        if($groupName == "MegaMenu Contents") {
             $this->_defineContentsFieldDependancies($dependanceBlock, $groupId);
         }
 
@@ -43,10 +43,10 @@ class TheExtensionLab_MegaMenu_Model_Config_Dependancy
 
     private function _defineContentsFieldDependancies(Mage_Adminhtml_Block_Widget_Form_Element_Dependence $dependanceBlock, $groupId)
     {
-        $this->_addColumnsDependace($dependanceBlock);
+        $this->_addColumnsDependace($dependanceBlock, $groupId);
     }
 
-    private function _addColumnsDependace($dependanceBlock)
+    private function _addColumnsDependace($dependanceBlock, $groupId)
     {
         $columsType = Mage::helper('theextensionlab_megamenu/column_types')->getTypes();
 
@@ -61,8 +61,8 @@ class TheExtensionLab_MegaMenu_Model_Config_Dependancy
         $totalColumnFeilds = (int) 7;
 
         for($i = 1;$i <= $totalColumnFeilds;$i++){
-            $dependanceBlock->addFieldMap("group_108menu_section_{$i}_column_width","menu_section_{$i}_column_width")
-                ->addFieldMap("group_108menu_section_{$i}_content","menu_section_{$i}_content")
+            $dependanceBlock->addFieldMap("group_{$groupId}menu_section_{$i}_column_width","menu_section_{$i}_column_width")
+                ->addFieldMap("group_{$groupId}menu_section_{$i}_content","menu_section_{$i}_content")
                 ->addFieldDependence("menu_section_{$i}_content","menu_section_{$i}_column_width", $valuesForActive);
         }
     }

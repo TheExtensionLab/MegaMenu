@@ -71,6 +71,13 @@ class TheExtensionLab_MegaMenu_Model_Observer
         }
     }
 
+    public function updateTabs(Varien_Event_Observer $observer){
+        if(!$this->_getProtectorHelper()->checkExtension()) {
+            $tabs = $observer->getTabs();
+            $this->_getConfigUpdater()->updateTabs($tabs);
+        }
+    }
+
     private function _getConfigDependancyModel()
     {
         return Mage::getModel('theextensionlab_megamenu/config_dependancy');
@@ -78,12 +85,21 @@ class TheExtensionLab_MegaMenu_Model_Observer
 
     private function _getMenuPopulator()
     {
-
         return Mage::getModel('theextensionlab_megamenu/menu_populator');
     }
 
     private function _getMenuAttributesModel()
     {
         return Mage::getModel('theextensionlab_megamenu/menu_attributes');
+    }
+
+    private function _getConfigUpdater()
+    {
+        return Mage::getModel('theextensionlab_megamenu/config_updater');
+    }
+
+    private function _getProtectorHelper()
+    {
+        return Mage::helper('theextensionlab_megamenu/protector');
     }
 }

@@ -146,6 +146,14 @@
                     </theextensionlab_megamenu>
                 </observers>
             </adminhtml_block_html_before>
+            <adminhtml_catalog_category_tabs>
+                <observers>
+                    <theextensionlab_megamenu>
+                        <class>theextensionlab_megamenu/observer</class>
+                        <method>updateTabs</method>
+                    </theextensionlab_megamenu>
+                </observers>
+            </adminhtml_catalog_category_tabs>
         </events>
     </adminhtml>
 
