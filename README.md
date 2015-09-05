@@ -30,7 +30,7 @@ James Anelay - TheExtensionLab
 
 License
 -------
-http://www.theextensionlab.lab/license/license.txt - commercial license.
+http://www.theextensionlab.com/license/license.txt - commercial license.
 
 Copyright
 ---------
