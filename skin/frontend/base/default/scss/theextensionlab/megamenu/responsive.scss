@@ -81,10 +81,12 @@
   }
 
   /*------------- Widget Blocks --------------*/
-  li {
-    a {
-      padding: 0 15px 0 25px;
-      border-bottom: 1px solid #ccc;
+  .list-block {
+    li {
+      a {
+        padding: 0 15px 0 25px;
+        border-bottom: 1px solid #ccc;
+      }
     }
   }
 
