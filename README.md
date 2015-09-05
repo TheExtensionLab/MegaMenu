@@ -28,6 +28,10 @@ James Anelay - TheExtensionLab
 
 [@JamesAnelay](https://twitter.com/jamesanelay) - [@TheExtensionLab](https://twitter.com/TheExtensionLab)
 
+License
+-------
+http://www.theextensionlab.lab/license/license.txt - commercial license.
+
 Copyright
 ---------
 (c) TheExtensionLab
