@@ -1,4 +1,14 @@
-<?php class TheExtensionLab_MegaMenu_Block_Widget_Template
+<?php
+
+/**
+ * @category    TheExtensionLab
+ * @package     TheExtensionLab_MegaMenu
+ * @copyright   Copyright (c) TheExtensionLab (http://www.theextensionlab.com)
+ * @license     http://www.theextensionlab.lab/license/license.txt - Commercial License
+ * @author      James Anelay @ TheExtensionLab <james@theextensionlab.com>
+ */
+
+class TheExtensionLab_MegaMenu_Block_Widget_Template
     extends Mage_Core_Block_Template
 {
     protected function getDisplayClass()

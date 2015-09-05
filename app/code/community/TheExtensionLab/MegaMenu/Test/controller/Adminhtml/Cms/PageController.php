@@ -1,10 +1,20 @@
-<?php class TheExtensionLab_MegaMenu_Test_controller_Adminhtml_Cms_PageController
+<?php
+
+/**
+ * @category    TheExtensionLab
+ * @package     TheExtensionLab_MegaMenu
+ * @copyright   Copyright (c) TheExtensionLab (http://www.theextensionlab.com)
+ * @license     http://www.theextensionlab.lab/license/license.txt - Commercial License
+ * @author      James Anelay @ TheExtensionLab <james@theextensionlab.com>
+ */
+
+class TheExtensionLab_MegaMenu_Test_controller_Adminhtml_Cms_PageController
     extends EcomDev_PHPUnit_Test_Case_Controller
 {
 
     public function testMenuCmsTabAdded()
     {
-//        Too slow to run everytime.
+//        Too slow.
 //        $this->mockAdminUserSession();
 //        $this->dispatch('adminhtml/cms_page/edit',array('page_id' => '3'));
 //        $this->assertLayoutBlockCreated('cms_page_edit_tab_menu');

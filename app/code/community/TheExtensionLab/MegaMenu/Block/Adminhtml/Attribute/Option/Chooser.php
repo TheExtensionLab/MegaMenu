@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * @category    TheExtensionLab
+ * @package     TheExtensionLab_MegaMenu
+ * @copyright   Copyright (c) TheExtensionLab (http://www.theextensionlab.com)
+ * @license     http://www.theextensionlab.lab/license/license.txt - Commercial License
+ * @author      James Anelay @ TheExtensionLab <james@theextensionlab.com>
+ */
+
 class TheExtensionLab_MegaMenu_Block_Adminhtml_Attribute_Option_Chooser extends
     Mage_Adminhtml_Block_Widget_Grid
 {

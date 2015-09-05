@@ -1,3 +1,11 @@
+/**
+ * @category    TheExtensionLab
+ * @package     TheExtensionLab_MegaMenu
+ * @copyright   Copyright (c) TheExtensionLab (http://www.theextensionlab.com)
+ * @license     http://www.theextensionlab.lab/license/license.txt - Commercial License
+ * @author      James Anelay @ TheExtensionLab <james@theextensionlab.com>
+ */
+
 String.prototype.addSlashes = function()
 {
     return this.replace(/[\\"']/g, '\\$&').replace(/\u0000/g, '\\0');

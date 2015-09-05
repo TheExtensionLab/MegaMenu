@@ -1,4 +1,14 @@
-<?php class TheExtensionLab_MegaMenu_Test_Model_Parser_Cms_Page_Featured extends EcomDev_PHPUnit_Test_Case
+<?php
+
+/**
+ * @category    TheExtensionLab
+ * @package     TheExtensionLab_MegaMenu
+ * @copyright   Copyright (c) TheExtensionLab (http://www.theextensionlab.com)
+ * @license     http://www.theextensionlab.lab/license/license.txt - Commercial License
+ * @author      James Anelay @ TheExtensionLab <james@theextensionlab.com>
+ */
+
+class TheExtensionLab_MegaMenu_Test_Model_Parser_Cms_Page_Featured extends EcomDev_PHPUnit_Test_Case
 {
     private $_featuredCmsParser;
 

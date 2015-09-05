@@ -1,5 +1,16 @@
-/*
- * This file extends from ../menu-original.js which is Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com) under http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
+/**
+ * Derivative work based on js/varien/menu.js created by:
+ * X.commerce, Inc. (http://www.magento.com)
+ *
+ * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ *
+ * Changes by:  TheExtensionLab
+ * @package     TheExtensionLab_MegaMenu
+ * @copyright   Copyright (c) TheExtensionLab (http://www.theextensionlab.com)
+ * @license     http://www.theextensionlab.lab/license/license.txt - Commercial License
+ * @author      James Anelay @ TheExtensionLab <james@theextensionlab.com>
+ *
  */
 
 var bp = {

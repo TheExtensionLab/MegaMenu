@@ -1,4 +1,14 @@
-<?php class TheExtensionLab_MegaMenu_Model_Observer
+<?php
+
+/**
+ * @category    TheExtensionLab
+ * @package     TheExtensionLab_MegaMenu
+ * @copyright   Copyright (c) TheExtensionLab (http://www.theextensionlab.com)
+ * @license     http://www.theextensionlab.lab/license/license.txt - Commercial License
+ * @author      James Anelay @ TheExtensionLab <james@theextensionlab.com>
+ */
+
+class TheExtensionLab_MegaMenu_Model_Observer
 {
     public function pageBlockHtmlTopmenGethtmlBefore(Varien_Event_Observer $observer)
     {

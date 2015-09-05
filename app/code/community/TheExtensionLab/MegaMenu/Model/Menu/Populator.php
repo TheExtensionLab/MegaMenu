@@ -1,4 +1,14 @@
-<?php class TheExtensionLab_MegaMenu_Model_Menu_Populator
+<?php
+
+/**
+ * @category    TheExtensionLab
+ * @package     TheExtensionLab_MegaMenu
+ * @copyright   Copyright (c) TheExtensionLab (http://www.theextensionlab.com)
+ * @license     http://www.theextensionlab.lab/license/license.txt - Commercial License
+ * @author      James Anelay @ TheExtensionLab <james@theextensionlab.com>
+ */
+
+class TheExtensionLab_MegaMenu_Model_Menu_Populator
     extends Mage_Catalog_Model_Observer
 {
 
@@ -79,7 +89,7 @@
     private function _getCategoryColumns($category)
     {
         $columns = array();
-        $maxColumns =  Mage::helper('theextensionlab_megamenu/column_types')->getMaxColumns();
+        $maxColumns = Mage::helper('theextensionlab_megamenu/column_types')->getMaxColumns();
 
         for ($i = 1; $i <= $maxColumns; $i++) {
             $columns['column_' . $i] = array(
@@ -115,7 +125,8 @@
 
     private function _canAddToMenu($category)
     {
-        return ($category->getIsActive() || $category->getMenuLinkType() == 1 || $category->getMenuLinkType() == 2 || $category->getMenuLinkType() == 3);
+        return ($category->getIsActive() || $category->getMenuLinkType() == 1 || $category->getMenuLinkType() == 2
+            || $category->getMenuLinkType() == 3);
     }
 
     /**

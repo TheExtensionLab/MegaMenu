@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * @category    TheExtensionLab
+ * @package     TheExtensionLab_MegaMenu
+ * @copyright   Copyright (c) TheExtensionLab (http://www.theextensionlab.com)
+ * @license     http://www.theextensionlab.lab/license/license.txt - Commercial License
+ * @author      James Anelay @ TheExtensionLab <james@theextensionlab.com>
+ */
+
 class TheExtensionLab_MegaMenu_Adminhtml_Menu_Catalog_Product_WidgetController
     extends Mage_Adminhtml_Controller_Action
 {

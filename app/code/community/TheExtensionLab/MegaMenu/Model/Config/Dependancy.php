@@ -1,4 +1,14 @@
-<?php class TheExtensionLab_MegaMenu_Model_Config_Dependancy
+<?php
+
+/**
+ * @category    TheExtensionLab
+ * @package     TheExtensionLab_MegaMenu
+ * @copyright   Copyright (c) TheExtensionLab (http://www.theextensionlab.com)
+ * @license     http://www.theextensionlab.lab/license/license.txt - Commercial License
+ * @author      James Anelay @ TheExtensionLab <james@theextensionlab.com>
+ */
+
+class TheExtensionLab_MegaMenu_Model_Config_Dependancy
 {
     public function addCategoryFieldDependancys(Mage_Adminhtml_Block_Catalog_Category_Tab_Attributes $block)
     {

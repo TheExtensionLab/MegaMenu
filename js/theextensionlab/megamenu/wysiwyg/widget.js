@@ -1,3 +1,11 @@
+/**
+ * @category    TheExtensionLab
+ * @package     TheExtensionLab_MegaMenu
+ * @copyright   Copyright (c) TheExtensionLab (http://www.theextensionlab.com)
+ * @license     http://www.theextensionlab.lab/license/license.txt - Commercial License
+ * @author      James Anelay @ TheExtensionLab <james@theextensionlab.com>
+ */
+
 WysiwygWidget.chooser.prototype.chooseNew = function(newUrl) {
     // Show or hide chooser content if it was already loaded
     var responseContainerId = this.getResponseContainerId();

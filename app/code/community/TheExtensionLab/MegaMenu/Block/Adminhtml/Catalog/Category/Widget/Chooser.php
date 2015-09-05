@@ -1,4 +1,21 @@
-<?php class TheExtensionLab_MegaMenu_Block_Adminhtml_Catalog_Category_Widget_Chooser
+<?php
+
+/**
+ * Derivative work based on Mage_Adminhtml_Block_Catalog_Category_Widget_Chooser created by:
+ * X.commerce, Inc. (http://www.magento.com)
+ *
+ * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ *
+ * Changes by:  TheExtensionLab
+ * @package     TheExtensionLab_MegaMenu
+ * @copyright   Copyright (c) TheExtensionLab (http://www.theextensionlab.com)
+ * @license     http://www.theextensionlab.lab/license/license.txt - Commercial License
+ * @author      James Anelay @ TheExtensionLab <james@theextensionlab.com>
+ *
+ */
+
+class TheExtensionLab_MegaMenu_Block_Adminhtml_Catalog_Category_Widget_Chooser
 extends Mage_Adminhtml_Block_Catalog_Category_Widget_Chooser
 {
     public function prepareElementHtml(Varien_Data_Form_Element_Abstract $element)

@@ -1,11 +1,13 @@
 <?php
+
 /**
  * @category    TheExtensionLab
  * @package     TheExtensionLab_MegaMenu
  * @copyright   Copyright (c) TheExtensionLab (http://www.theextensionlab.com)
- * @license
+ * @license     http://www.theextensionlab.lab/license/license.txt - Commercial License
  * @author      James Anelay @ TheExtensionLab <james@theextensionlab.com>
  */
+
 class TheExtensionLab_MegaMenu_Test_Model_Resource_Setup
     extends EcomDev_PHPUnit_Test_Case_Config
 {

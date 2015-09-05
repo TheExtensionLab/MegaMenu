@@ -4,9 +4,10 @@
  * @category    TheExtensionLab
  * @package     TheExtensionLab_MegaMenu
  * @copyright   Copyright (c) TheExtensionLab (http://www.theextensionlab.com)
- * @license
+ * @license     http://www.theextensionlab.lab/license/license.txt - Commercial License
  * @author      James Anelay @ TheExtensionLab <james@theextensionlab.com>
  */
+
 abstract class TheExtensionLab_MegaMenu_Model_Config_Source_Abstract
     extends Mage_Eav_Model_Entity_Attribute_Source_Abstract
     implements TheExtensionLab_MegaMenu_Model_Config_Source_Interface

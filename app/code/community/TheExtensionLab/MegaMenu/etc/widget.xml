@@ -1,4 +1,11 @@
 <?xml version="1.0"?>
+<!--
+* @category    TheExtensionLab
+* @package     TheExtensionLab_MegaMenu
+* @copyright   Copyright (c) TheExtensionLab (http://www.theextensionlab.com)
+* @license     http://www.theextensionlab.lab/license/license.txt - Commercial License
+* @author      James Anelay @ TheExtensionLab <james@theextensionlab.com>
+-->
 <widgets>
 
     <category_list_menu_block type="theextensionlab_megamenu/widget_category_list">

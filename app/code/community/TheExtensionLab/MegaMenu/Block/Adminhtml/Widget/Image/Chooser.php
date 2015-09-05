@@ -1,4 +1,14 @@
-<?php class TheExtensionLab_MegaMenu_Block_Adminhtml_Widget_Image_Chooser extends Mage_Adminhtml_Block_Template
+<?php
+
+/**
+ * @category    TheExtensionLab
+ * @package     TheExtensionLab_MegaMenu
+ * @copyright   Copyright (c) TheExtensionLab (http://www.theextensionlab.com)
+ * @license     http://www.theextensionlab.lab/license/license.txt - Commercial License
+ * @author      James Anelay @ TheExtensionLab <james@theextensionlab.com>
+ */
+
+class TheExtensionLab_MegaMenu_Block_Adminhtml_Widget_Image_Chooser extends Mage_Adminhtml_Block_Template
 {
     public function prepareElementHtml(Varien_Data_Form_Element_Abstract $element)
     {

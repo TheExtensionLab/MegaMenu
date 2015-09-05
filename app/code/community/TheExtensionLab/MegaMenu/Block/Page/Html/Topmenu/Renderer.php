@@ -4,9 +4,10 @@
  * @category    TheExtensionLab
  * @package     TheExtensionLab_MegaMenu
  * @copyright   Copyright (c) TheExtensionLab (http://www.theextensionlab.com)
- * @license     Open Software License (OSL 3.0)
+ * @license     http://www.theextensionlab.lab/license/license.txt - Commercial License
  * @author      James Anelay @ TheExtensionLab <james@theextensionlab.com>
  */
+
 class TheExtensionLab_MegaMenu_Block_Page_Html_Topmenu_Renderer
     extends Mage_Page_Block_Html_Topmenu_Renderer
 {

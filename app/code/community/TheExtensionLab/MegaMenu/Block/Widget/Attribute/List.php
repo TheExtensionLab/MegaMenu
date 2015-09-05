@@ -1,4 +1,14 @@
-<?php class TheExtensionLab_MegaMenu_Block_Widget_Attribute_List
+<?php
+
+/**
+ * @category    TheExtensionLab
+ * @package     TheExtensionLab_MegaMenu
+ * @copyright   Copyright (c) TheExtensionLab (http://www.theextensionlab.com)
+ * @license     http://www.theextensionlab.lab/license/license.txt - Commercial License
+ * @author      James Anelay @ TheExtensionLab <james@theextensionlab.com>
+ */
+
+class TheExtensionLab_MegaMenu_Block_Widget_Attribute_List
     extends TheExtensionLab_MegaMenu_Block_Widget_Template
     implements Mage_Widget_Block_Interface
 {

@@ -1,4 +1,14 @@
-<?php class TheExtensionLab_MegaMenu_Block_Adminhtml_Widget_Images_Content extends Mage_Adminhtml_Block_Cms_Wysiwyg_Images_Content
+<?php
+
+/**
+ * @category    TheExtensionLab
+ * @package     TheExtensionLab_MegaMenu
+ * @copyright   Copyright (c) TheExtensionLab (http://www.theextensionlab.com)
+ * @license     http://www.theextensionlab.lab/license/license.txt - Commercial License
+ * @author      James Anelay @ TheExtensionLab <james@theextensionlab.com>
+ */
+
+class TheExtensionLab_MegaMenu_Block_Adminhtml_Widget_Images_Content extends Mage_Adminhtml_Block_Cms_Wysiwyg_Images_Content
 {
     /**
      * Block construction

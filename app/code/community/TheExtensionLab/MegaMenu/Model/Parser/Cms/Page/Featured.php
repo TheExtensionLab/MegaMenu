@@ -1,4 +1,14 @@
-<?php class TheExtensionLab_MegaMenu_Model_Parser_Cms_Page_Featured
+<?php
+
+/**
+ * @category    TheExtensionLab
+ * @package     TheExtensionLab_MegaMenu
+ * @copyright   Copyright (c) TheExtensionLab (http://www.theextensionlab.com)
+ * @license     http://www.theextensionlab.lab/license/license.txt - Commercial License
+ * @author      James Anelay @ TheExtensionLab <james@theextensionlab.com>
+ */
+
+class TheExtensionLab_MegaMenu_Model_Parser_Cms_Page_Featured
     implements TheExtensionLab_MegaMenu_Model_Parser_Interface
 {
     public function parse($params)
