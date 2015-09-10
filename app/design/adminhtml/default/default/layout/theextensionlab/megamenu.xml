@@ -12,9 +12,6 @@
             <action method="addJs">
                 <script>theextensionlab/megamenu/adminhtml/grid/json/serializer.js</script>
             </action>
-            <action method="addJs">
-                <script>theextensionlab/megamenu/adminhtml/wysiwyg/tiny_mce/setup-override.js</script>
-            </action>
         </reference>
     </default>
 
