@@ -10,7 +10,7 @@ For up to date installation & configuration instructions please check out the do
 
 Extension Overview
 ------------------
-Modman: Yes
+Modman: Yes (However this extension has other Magento Extension dependencies composer is therefore the recommend installation option)
 
 Composer: Yes
 

@@ -11,7 +11,8 @@
     }
   ],
   "require":{
-    "magento-hackathon/magento-composer-installer":"*"
+    "magento-hackathon/magento-composer-installer":"*",
+    "theextensionlab/tinymceconfig":"*"
   },
   "require-dev": {
     "ecomdev/ecomdev_phpunit": "~0.3.7"
@@ -20,6 +21,10 @@
     {
       "type": "composer",
       "url": "http://packages.firegento.com"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/TheExtensionLab/TinyMceConfig.git"
     }
   ]
 }
