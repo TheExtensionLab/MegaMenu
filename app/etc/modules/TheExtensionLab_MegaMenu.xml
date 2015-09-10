@@ -15,6 +15,7 @@
                 <Mage_Catalog/>
                 <Mage_Widget/>
                 <TheExtensionLab_TinyMceConfig/>
+                <TheExtensionLab_WidgetImage/>
             </depends>
         </TheExtensionLab_MegaMenu>
     </modules>

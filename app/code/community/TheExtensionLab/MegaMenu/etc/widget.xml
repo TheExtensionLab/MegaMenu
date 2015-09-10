@@ -206,7 +206,7 @@
                 <label>CMS Image</label>
                 <type>label</type>
                 <helper_block>
-                    <type>theextensionlab_megamenu/adminhtml_widget_image_chooser</type>
+                    <type>theextensionlab_widgetimage/adminhtml_widget_image_chooser</type>
                     <data>
                         <button translate="open">
                             <open>Select Image...</open>

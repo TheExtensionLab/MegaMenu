@@ -27,42 +27,6 @@ WysiwygWidget.chooser.prototype.chooseNew = function(newUrl) {
     );
 };
 
-Mediabrowser.prototype.getValueToInsertIntoWidget = function(event) {
-    var div;
-
-    $$('div.selected').each(function (e) {
-        div = $(e.id);
-    });
-
-    if ($(div.id) == undefined) {
-        return false;
-    }
-
-    var params = {filename:div.id, node:this.currentNode.id, store:this.storeId};
-
-    params.as_is = 1;
-
-    new Ajax.Request(this.onInsertUrl, {
-        parameters: params,
-        onSuccess: function(transport) {
-            try {
-                this.onAjaxSuccess(transport);
-                if (this.getMediaBrowserOpener()) {
-                    self.blur();
-                }
-                Windows.close('browser_window');
-                event.setElementValue(transport.responseText);
-                event.setElementLabel('selected');
-                event.close();
-                return transport.responseText;
-            } catch (e) {
-                alert(e.message);
-            }
-        }.bind(this)
-    });
-},
-
-
 //This override replaces the regex because the default version doesn't allow escaped quotes in the
 //widget option value (Such as what we have with escaped category JSON)
 WysiwygWidget.Widget.prototype.initOptionValues = function() {

@@ -12,7 +12,8 @@
   ],
   "require":{
     "magento-hackathon/magento-composer-installer":"*",
-    "theextensionlab/tinymceconfig":"*"
+    "theextensionlab/tinymceconfig":"*",
+    "theextensionlab/widgetimage":"*"
   },
   "require-dev": {
     "ecomdev/ecomdev_phpunit": "~0.3.7"
@@ -25,6 +26,10 @@
     {
       "type": "vcs",
       "url": "https://github.com/TheExtensionLab/TinyMceConfig.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/TheExtensionLab/WidgetImage.git"
     }
   ]
 }
