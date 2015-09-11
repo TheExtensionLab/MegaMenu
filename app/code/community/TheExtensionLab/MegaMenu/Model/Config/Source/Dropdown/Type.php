@@ -20,7 +20,6 @@ class TheExtensionLab_MegaMenu_Model_Config_Source_Dropdown_Type
     const RELATIVE_CENTER = 4;
     const HANG_RIGHT = 5;
     const HANG_LEFT = 6;
-    const DEFAULT_MAGENTO = 7;
 
     public function getAllOptionsArray()
     {
@@ -49,10 +48,6 @@ class TheExtensionLab_MegaMenu_Model_Config_Source_Dropdown_Type
                 array(
                     'label' => $this->_getHelper()->__('Hang Left'),
                     'value' => self::HANG_LEFT
-                ),
-                array(
-                    'label' => $this->_getHelper()->__('Default Magento Style'),
-                    'value' => self::DEFAULT_MAGENTO
                 )
             );
         }
