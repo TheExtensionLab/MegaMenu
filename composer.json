@@ -12,8 +12,8 @@
   ],
   "require":{
     "magento-hackathon/magento-composer-installer":"*",
-    "theextensionlab/tinymceconfig":"dev-master",
-    "theextensionlab/widgetimage":"dev-master"
+    "theextensionlab/tinymceconfig":"~1.0.0",
+    "theextensionlab/widgetimage":"*"
   },
   "require-dev": {
     "ecomdev/ecomdev_phpunit": "~0.3.7"
