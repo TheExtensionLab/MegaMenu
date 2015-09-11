@@ -32,6 +32,9 @@
   display: none;
   z-index: 10;
 }
+.megamenu-nav-primary .megamenu .button {
+  color: #fff;
+}
 .megamenu-nav-primary .menu-active .megamenu {
   display: block;
 }

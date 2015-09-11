@@ -40,6 +40,10 @@ $dropdwon-external-border-color: #e8eaeb;
     position: absolute;
     display:none;
     z-index: 10;
+
+    .button{
+      color:#fff;
+    }
   }
 
   .menu-active{
