@@ -29,8 +29,10 @@
             <?php if(!empty($category->children)):?>
                 <?php foreach($category->children as $childCategory){?>
                     <?php $childCategoryNodeId = 'category-node-'.$childCategory->id;?>
-                    <?php $childCategoryNode = $childNodes[$childCategoryNodeId]; ?>
-                    <li><a href="<?php echo $childCategoryNode->getUrl();?>"><?php echo $childCategoryNode->getName();?></a></li>
+                    <?php if(isset($childNodes[$childCategoryNodeId])):?>
+                        <?php $childCategoryNode = $childNodes[$childCategoryNodeId]; ?>
+                        <li><a href="<?php echo $childCategoryNode->getUrl();?>"><?php echo $childCategoryNode->getName();?></a></li>
+                    <?php endif;?>
                 <?php } ?>
                 <li <?php if(!empty($category->children)):echo 'class="view-all small-only-view-all"';endif;?>>
                     <span>

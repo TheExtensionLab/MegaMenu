@@ -75,13 +75,13 @@ class TheExtensionLab_MegaMenu_Model_Menu_Populator
 
     private function _getSubCategories($category)
     {
-        $flatHelper = Mage::helper('catalog/category_flat');
+//        $flatHelper = Mage::helper('catalog/category_flat');
 
-        if ($flatHelper->isEnabled() && $flatHelper->isBuilt(true)) {
-            $subcategories = (array)$category->getChildrenNodes();
-        } else {
+//        if ($flatHelper->isEnabled() && $flatHelper->isBuilt(true)) {
+//            $subcategories = (array)$category->getChildrenNodes();
+//        } else {
             $subcategories = $category->getChildren();
-        }
+//        }
 
         return $subcategories;
     }
