@@ -13,14 +13,6 @@
  *
  */
 
-var bp = {
-    xsmall: 479,
-    small: 599,
-    medium: 770,
-    large: 979,
-    xlarge: 1199
-};
-
 var windowSize = {};
 
 var rtime;
@@ -97,7 +89,7 @@ var mainNav = function() {
                 });
 
                 list.onmouseover = function(){
-                    if(windowSize.width < bp.medium && main.obj_nav.hasClassName('responsive')) {
+                    if(windowSize.width < menubp.medium && main.obj_nav.hasClassName('responsive')) {
 
                     }else{
                         main.fireNavEvent(this, true);
@@ -105,7 +97,7 @@ var mainNav = function() {
 
                 };
                 list.onmouseout = function(){
-                    if(windowSize.width < bp.medium && main.obj_nav.hasClassName('responsive')) {
+                    if(windowSize.width < menubp.medium && main.obj_nav.hasClassName('responsive')) {
 
                     }else{
                         main.fireNavEvent(this, false);
@@ -114,7 +106,7 @@ var mainNav = function() {
 
                 list.onclick = function(e){
 
-                    if(windowSize.width < bp.medium || list.readAttribute('was-touch')) {
+                    if(windowSize.width < menubp.medium || list.readAttribute('was-touch')) {
                         if(this.hasClassName('parent') && main.obj_nav.hasClassName('responsive')) {
                             e.stop();
                             main.fireNavEvent(this, 'toggle');
@@ -128,15 +120,17 @@ var mainNav = function() {
 
 
         fireNavEvent :  function(element,active) {
-            if(active == true){
-                element.addClassName("menu-active");
-                element.down("a").addClassName("menu-active");
-            } else if(active == false) {
-                element.removeClassName("menu-active");
-                element.down("a").removeClassName("menu-active");
-            } else if(active == "toggle"){
-                element.toggleClassName("menu-active");
-                element.down("a").toggleClassName("menu-active");
+            if(element) {
+                if (active == true) {
+                    element.addClassName("menu-active");
+                    element.down("a").addClassName("menu-active");
+                } else if (active == false) {
+                    element.removeClassName("menu-active");
+                    element.down("a").removeClassName("menu-active");
+                } else if (active == "toggle") {
+                    element.toggleClassName("menu-active");
+                    element.down("a").toggleClassName("menu-active");
+                }
             }
         }
     };
