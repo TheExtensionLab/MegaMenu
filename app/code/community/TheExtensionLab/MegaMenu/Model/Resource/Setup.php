@@ -25,7 +25,7 @@ class TheExtensionLab_MegaMenu_Model_Resource_Setup
             'You have successfully installed TheExtensionLab_MegaMenu:
             The Menu can be configured under two new tabs in for each category in the Catalog > Manage Categories section.',
             'For full up to date documenation see <a href="' . $docUrl . '" target="_blank">' . $docUrl . '</a>',
-            'http://docs.theextensionlab.com/megamenu/configuration.html',
+            'http://docs.theextensionlab.com/mega-menu/configuration.html',
             true
         );
     }
