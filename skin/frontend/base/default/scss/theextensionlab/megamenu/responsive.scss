@@ -37,6 +37,11 @@
     }
   }
 
+  .megamenu-nav-primary li.level0 > a,
+  .megamenu-nav-primary li.level0 > span{
+    padding-left:25px;
+  }
+
   .megamenu-nav-primary li.parent > a:after {
     content: '';
     position: absolute;
@@ -66,7 +71,7 @@
     top: 50%;
     left: 10px;
     right: auto;
-    margin-top: -5p
+    margin-top: -5px;
   }
 
   /*----------- Main DropDown Styling ---------------*/
@@ -76,8 +81,20 @@
 
   /*------------- Component Styles --------------*/
 
-  .section-title {
+  li.section-title {
     margin-bottom:0px;
+
+    span{
+      display:block;
+      border-bottom: 1px solid #ccc;
+      padding:0 15px 0 25px;
+      line-height:30px;
+
+      > a {
+        padding:0px;
+        border-bottom:0px;
+      }
+    }
   }
 
   /*------------- Widget Blocks --------------*/

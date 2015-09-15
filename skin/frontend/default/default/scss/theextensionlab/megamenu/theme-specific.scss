@@ -1,0 +1,17 @@
+//Designed to target default theme.
+.page > .megamenu-nav{
+  background: #0a263d url("../images/bkg_nav0.jpg") repeat-y scroll 50% 0;
+  width:950px;
+  text-align:left;
+  margin:0 auto;
+}
+
+.page > .megamenu-nav a.level0{
+  color:#a7c6dd;
+  font-weight:bold;
+  text-transform:none;
+}
+
+.page > .megamenu-nav .megamenu-nav-primary{
+  margin-top:0px;
+}

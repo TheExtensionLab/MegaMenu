@@ -26,6 +26,9 @@
             <action method="addCss" ifconfig="catalog/navigation/include_responsive_styles">
                 <stylesheet>css/theextensionlab/megamenu/responsive.css</stylesheet>
             </action>
+            <action method="addCss">
+                <stylesheet>css/theextensionlab/megamenu/theme-specific.css</stylesheet>
+            </action>
         </reference>
 
         <!-- Set the menu renderer and own own menu template (so that we can set our custom menu ID) -->
