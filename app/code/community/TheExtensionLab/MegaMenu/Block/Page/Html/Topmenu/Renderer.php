@@ -104,9 +104,6 @@ class TheExtensionLab_MegaMenu_Block_Page_Html_Topmenu_Renderer
             case 6:
                 $dropdownClass = 'megamenu hang-left';
                 break;
-            case 7:
-                $dropdownClass = '';
-                break;
             default:
                 $dropdownClass = 'megamenu absolute-center';
                 break;
