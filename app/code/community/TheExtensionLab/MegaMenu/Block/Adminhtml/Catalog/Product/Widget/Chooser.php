@@ -42,6 +42,40 @@ extends Mage_Adminhtml_Block_Catalog_Product_Widget_Chooser
         return parent::_prepareLayout();
     }
 
+    protected function _prepareCollection()
+    {
+        /* @var $collection Mage_Catalog_Model_Resource_Eav_Mysql4_Product_Collection */
+        $collection = Mage::getResourceModel('catalog/product_collection')
+            ->setStoreId(0)
+            ->addAttributeToSelect('name');
+
+        if ($categoryId = $this->getCategoryId()) {
+            $category = Mage::getModel('catalog/category')->load($categoryId);
+            if ($category->getId()) {
+                // $collection->addCategoryFilter($category);
+                $productIds = $category->getProductsPosition();
+                $productIds = array_keys($productIds);
+                if (empty($productIds)) {
+                    $productIds = 0;
+                }
+                $collection->addFieldToFilter('entity_id', array('in' => $productIds));
+            }
+        }
+
+        if ($productTypeId = $this->getProductTypeId()) {
+            $collection->addAttributeToFilter('type_id', $productTypeId);
+        }
+
+
+        $collection->addAttributeToFilter('status', Mage_Catalog_Model_Product_Status::STATUS_ENABLED);
+        $collection->addAttributeToFilter('visibility', array('neq' => array(
+            Mage_Catalog_Model_Product_Visibility::VISIBILITY_NOT_VISIBLE
+        )));
+
+
+        $this->setCollection($collection);
+        return Mage_Adminhtml_Block_Widget_Grid::_prepareCollection();
+    }
 
     protected function _afterLoadCollection()
     {
