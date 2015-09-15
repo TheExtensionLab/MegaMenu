@@ -22,7 +22,6 @@ var getWindowSize = function() {
     windowSize.width = document.viewport.getWidth();
 };
 
-
 Event.observe(window, "delayed:resize", function() {
     getWindowSize();
 });
@@ -120,16 +119,13 @@ var mainNav = function() {
 
 
         fireNavEvent :  function(element,active) {
-            if(element) {
+            if(element != undefined) {
                 if (active == true) {
                     element.addClassName("menu-active");
-                    element.down("a").addClassName("menu-active");
                 } else if (active == false) {
                     element.removeClassName("menu-active");
-                    element.down("a").removeClassName("menu-active");
                 } else if (active == "toggle") {
                     element.toggleClassName("menu-active");
-                    element.down("a").toggleClassName("menu-active");
                 }
             }
         }
