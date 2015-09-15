@@ -37,6 +37,10 @@ class TheExtensionLab_MegaMenu_Block_Page_Html_Topmenu_Renderer
             $classes[] = $item->getClass();
         }
 
+        if($item->getId()){
+            $classes[] = $item->getId();
+        }
+
         if ($this->getHasDropdownContent($item)) {
             $classes[] = 'parent';
         }
