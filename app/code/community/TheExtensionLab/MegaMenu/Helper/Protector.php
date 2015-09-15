@@ -10,7 +10,7 @@
         }
 
         $serverName = $_SERVER['SERVER_NAME'];
-        $serverName = $this->_stripSubdomainsFromServerName($serverName);
+        $serverName = $this->stripSubdomainsFromServerName($serverName);
 
         if ($this->_checkServerName($serverName)) {
             Mage::getConfig()->saveConfig('catalog/navigation/checked', 1);
@@ -21,7 +21,7 @@
 
     }
 
-    private function _stripSubdomainsFromServerName($serverName)
+    public function stripSubdomainsFromServerName($serverName)
     {
         $parts = explode( '.', $serverName );
         $slicedArray = array_slice( $parts, -2, 1 );
