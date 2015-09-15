@@ -13,10 +13,8 @@ $featuredCategoryNode = $this->getFeaturedCategoryNode();?>
 
 <div class="featured-category featured-section <?php echo $this->getDisplayClass();?>">
     <a href="<?php echo $featuredCategoryNode->getUrl();?>">
-        <?php $imagePath = $featuredCategoryNode->getThumbnailImage();?>
-        <?php $imageUrl = Mage::helper('theextensionlab_megamenu/category')->getFullImageUrl($imagePath); ?>
-        <?php if($imageUrl):?>
-            <img src="<?php echo $imageUrl?>" />
+        <?php if($this->hasFeaturedImage()):?>
+            <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).$this->getFeaturedImage();?>" />
         <?php endif;?>
         <?php if($this->hasTitle()):?>
             <span><?php echo $this->getTitle();?></span>

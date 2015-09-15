@@ -135,6 +135,7 @@
                 <visible>1</visible>
                 <label>Title</label>
                 <type>text</type>
+                <sort_order>10</sort_order>
             </title>
 
             <menu_featured_category_id>
@@ -150,7 +151,24 @@
                         </button>
                     </data>
                 </helper_block>
+                <sort_order>20</sort_order>
             </menu_featured_category_id>
+
+            <featured_image>
+                <visible>1</visible>
+                <required>0</required>
+                <label>Category Image</label>
+                <type>label</type>
+                <helper_block>
+                    <type>theextensionlab_widgetimage/adminhtml_widget_image_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Image...</open>
+                        </button>
+                    </data>
+                </helper_block>
+                <sort_order>30</sort_order>
+            </featured_image>
 
             <display_on>
                 <required>0</required>
@@ -159,6 +177,7 @@
                 <type>multiselect</type>
                 <value>small,medium,large</value>
                 <source_model>theextensionlab_megamenu/config_source_display</source_model>
+                <sort_order>40</sort_order>
             </display_on>
 
             <template>
@@ -173,6 +192,7 @@
                         <label>Default Featured Category Template</label>
                     </default>
                 </values>
+                <sort_order>50</sort_order>
             </template>
         </parameters>
     </featured_category_menu_block>
