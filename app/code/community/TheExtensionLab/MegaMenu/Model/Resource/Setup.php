@@ -19,12 +19,12 @@ class TheExtensionLab_MegaMenu_Model_Resource_Setup
             return;
         }
 
-        $docUrl = "http://docs.theextensionlab.com/megamenu/installation.html";
+        $docUrl = "http://docs.theextensionlab.com/mega-menu/configuration.html";
         $inboxModel = $this->_getInboxModel();
         $inboxModel->addNotice(
             'You have successfully installed TheExtensionLab_MegaMenu:
-            The Menu can be configured under two new tabs in for each category in the Catalog > Manage Categories section.',
-            'For full up to date documenation see <a href="' . $docUrl . '" target="_blank">' . $docUrl . '</a>',
+            The Menu can be configured under two new tabs for each category at Catalog > Manage categories.',
+            'For full up to date documentation please see <a href="' . $docUrl . '" target="_blank">' . $docUrl . '</a>',
             'http://docs.theextensionlab.com/mega-menu/configuration.html',
             true
         );
