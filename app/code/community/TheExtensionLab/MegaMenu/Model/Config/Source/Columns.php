@@ -30,9 +30,10 @@ class TheExtensionLab_MegaMenu_Model_Config_Source_Columns
 
             foreach($this->_columnTypes as $columnType) {
                 for ($i = 1; $i <= $columnType; $i++) {
+                    $width = $this->_calculatePercentage($i,$columnType);
                     $this->_options[] = array(
                         'label' => Mage::helper('theextensionlab_megamenu')->__(
-                            '%s of %s columns', $i, $columnType
+                            '%s of %s columns (%s)', $i, $columnType, $width
                         ),
                         'value' => $i . '_' . $columnType
                     );
@@ -41,5 +42,9 @@ class TheExtensionLab_MegaMenu_Model_Config_Source_Columns
         }
 
         return $this->_options;
+    }
+
+    private function _calculatePercentage($numerator,$denominator){
+        return round(($numerator / $denominator) * 100,2) . '%';
     }
 }

@@ -186,7 +186,7 @@ class TheExtensionLab_MegaMenu_Model_Resource_Setup
 
         return array(
             'type'       => 'varchar',
-            'label'      => "Section {$columnNumber} Columns",
+            'label'      => "Section {$columnNumber} Width",
             'input'      => 'select',
             'source'     => 'theextensionlab_megamenu/config_source_columns',
             'required'   => false,
