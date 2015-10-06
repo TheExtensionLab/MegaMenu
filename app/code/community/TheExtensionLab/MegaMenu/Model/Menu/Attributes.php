@@ -31,7 +31,7 @@ class TheExtensionLab_MegaMenu_Model_Menu_Attributes
 
     private function _getExtraAttributesFromConfig()
     {
-        $extraAttributes = Mage::getConfig()->getNode('global/theextensionlab_megamenu/extra_attributes')->asArray();
+        $extraAttributes = Mage::getConfig()->getNode('theextensionlab_megamenu/extra_attributes')->asArray();
         foreach ($extraAttributes as $attributeCode => $value) {
             if (!$this->_isAttributeDisabled($value)) {
                 $this->_extraAttributes[] = $attributeCode;

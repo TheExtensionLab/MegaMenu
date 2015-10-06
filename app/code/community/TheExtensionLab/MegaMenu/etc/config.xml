@@ -101,33 +101,6 @@
         </events>
 
         <theextensionlab_megamenu>
-            <extra_attributes>
-                <include_in_menu/>
-                <menu_section_1_column_width/>
-                <menu_section_2_column_width/>
-                <menu_section_3_column_width/>
-                <menu_section_4_column_width/>
-                <menu_section_5_column_width/>
-                <menu_section_6_column_width/>
-                <menu_section_7_column_width/>
-                <menu_section_1_content/>
-                <menu_section_2_content/>
-                <menu_section_3_content/>
-                <menu_section_4_content/>
-                <menu_section_5_content/>
-                <menu_section_6_content/>
-                <menu_section_7_content/>
-                <menu_link_type/>
-                <menu_link/>
-                <menu_name/>
-                <image/>
-                <thumbnail/>
-                <menu_dropdown_width/>
-                <menu_dropdown_type/>
-            </extra_attributes>
-        </theextensionlab_megamenu>
-
-        <theextensionlab_megamenu>
             <menu>
                 <tempate_filter>widget/template_filter</tempate_filter>
                 <widget_prefetcher>theextensionlab_megamenu/prefetcher</widget_prefetcher>
@@ -135,6 +108,33 @@
         </theextensionlab_megamenu>
 
     </global>
+
+    <theextensionlab_megamenu>
+        <extra_attributes>
+            <include_in_menu/>
+            <menu_section_1_column_width/>
+            <menu_section_2_column_width/>
+            <menu_section_3_column_width/>
+            <menu_section_4_column_width/>
+            <menu_section_5_column_width/>
+            <menu_section_6_column_width/>
+            <menu_section_7_column_width/>
+            <menu_section_1_content/>
+            <menu_section_2_content/>
+            <menu_section_3_content/>
+            <menu_section_4_content/>
+            <menu_section_5_content/>
+            <menu_section_6_content/>
+            <menu_section_7_content/>
+            <menu_link_type/>
+            <menu_link/>
+            <menu_name/>
+            <image/>
+            <thumbnail/>
+            <menu_dropdown_width/>
+            <menu_dropdown_type/>
+        </extra_attributes>
+    </theextensionlab_megamenu>
 
     <adminhtml>
         <events>
