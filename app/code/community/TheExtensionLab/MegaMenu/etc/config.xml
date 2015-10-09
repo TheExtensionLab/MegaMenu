@@ -102,7 +102,7 @@
 
         <theextensionlab_megamenu>
             <menu>
-                <tempate_filter>widget/template_filter</tempate_filter>
+                <tempate_filter>theextensionlab_megamenu/template_filter</tempate_filter>
                 <widget_prefetcher>theextensionlab_megamenu/prefetcher</widget_prefetcher>
             </menu>
         </theextensionlab_megamenu>
