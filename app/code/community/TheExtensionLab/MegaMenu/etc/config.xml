@@ -58,7 +58,7 @@
                     <!-- Add our own -->
                     <theextensionlab_megamenu>
                         <class>theextensionlab_megamenu/observer</class>
-                        <method>pageBlockHtmlTopmenGethtmlBefore</method>
+                        <method>pageBlockHtmlTopmenuGetHtmlBefore</method>
                     </theextensionlab_megamenu>
                 </observers>
             </page_block_html_topmenu_gethtml_before>

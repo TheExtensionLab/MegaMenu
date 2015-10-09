@@ -10,7 +10,7 @@
 
 class TheExtensionLab_MegaMenu_Model_Observer
 {
-    public function pageBlockHtmlTopmenGethtmlBefore(Varien_Event_Observer $observer)
+    public function pageBlockHtmlTopmenuGetHtmlBefore(Varien_Event_Observer $observer)
     {
         $menu = $observer->getMenu();
         $block = $observer->getBlock();
