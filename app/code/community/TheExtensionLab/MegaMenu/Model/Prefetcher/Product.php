@@ -20,6 +20,7 @@ class TheExtensionLab_MegaMenu_Model_Prefetcher_Product
             $featuredProductsCollection = Mage::getModel('catalog/product')->getCollection()
                 ->addAttributeToFilter('entity_id', array('in' => $directiveValues['product_ids']))
                 ->addAttributeToSelect(array('name', 'menu_image', 'price', 'special_price', 'url_key'))
+                ->addFinalPrice()
                 ->setPageSize($featuredProductLimit)
                 ->load();
 

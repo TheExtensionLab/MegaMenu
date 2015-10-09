@@ -29,7 +29,10 @@ class TheExtensionLab_MegaMenu_Block_Widget_Product_Featured
         $prefetchedCollection = $this->_getPrefetchedProductCollection();
 
         foreach ($featuredProducts as $featuredProductId => $featuredProduct) {
-            $featuredProductCollection->addItem($prefetchedCollection->getItemById($featuredProductId));
+            $item = $prefetchedCollection->getItemById($featuredProductId);
+            if($item) {
+                $featuredProductCollection->addItem($item);
+            }
         }
 
         return $featuredProductCollection;
