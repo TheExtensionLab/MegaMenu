@@ -42,13 +42,6 @@ class TheExtensionLab_MegaMenu_Helper_Category extends Mage_Core_Model_Abstract
             return $this->_storeCategories[$cacheKey];
         }
 
-        if (!$this->_checkIfParentNodeStillExists($parent)) {
-            if ($asCollection) {
-                return new Varien_Data_Collection();
-            }
-            return array();
-        }
-
         $recursionLevel = $this->_getRecursionLevel();
         $storeCategories = $this->_getCategories($parent, $recursionLevel, $sorted, $asCollection, $toLoad);
 
