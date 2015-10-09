@@ -75,14 +75,7 @@ class TheExtensionLab_MegaMenu_Model_Menu_Populator
 
     private function _getSubCategories($category)
     {
-//        $flatHelper = Mage::helper('catalog/category_flat');
-
-//        if ($flatHelper->isEnabled() && $flatHelper->isBuilt(true)) {
-//            $subcategories = (array)$category->getChildrenNodes();
-//        } else {
-            $subcategories = $category->getChildren();
-//        }
-
+        $subcategories = $category->getChildren();
         return $subcategories;
     }
 
@@ -93,7 +86,7 @@ class TheExtensionLab_MegaMenu_Model_Menu_Populator
 
         for ($i = 1; $i <= $maxColumns; $i++) {
             $columns['column_' . $i] = array(
-                'col_width'     => $category->getData(
+                'col_width'     => $category->getDatals(
                     'menu_section_' . $i . '_column_width'
                 ),
                 'content'       => $category->getData(
