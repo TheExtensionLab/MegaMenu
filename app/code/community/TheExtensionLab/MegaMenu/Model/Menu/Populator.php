@@ -86,7 +86,7 @@ class TheExtensionLab_MegaMenu_Model_Menu_Populator
 
         for ($i = 1; $i <= $maxColumns; $i++) {
             $columns['column_' . $i] = array(
-                'col_width'     => $category->getDatals(
+                'col_width'     => $category->getData(
                     'menu_section_' . $i . '_column_width'
                 ),
                 'content'       => $category->getData(
