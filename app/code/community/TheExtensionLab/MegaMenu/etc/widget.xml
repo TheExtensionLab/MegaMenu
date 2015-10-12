@@ -262,7 +262,6 @@
     <featured_product_menu_block type="theextensionlab_megamenu/widget_product_featured">
         <name>MegaMenu - Featured Product Section</name>
         <description>Add a featured product</description>
-        <is_email_compatible>1</is_email_compatible>
         <parameters>
             <title translate="label">
                 <visible>1</visible>
@@ -314,5 +313,48 @@
             </template>
         </parameters>
     </featured_product_menu_block>
+
+    <megamenu_static_block type="theextensionlab_megamenu/widget_cms_block">
+        <name>MegaMenu - Static Block</name>
+        <description>Add a static block</description>
+        <parameters>
+            <menu_static_block_id type="complex" translate="label">
+                <visible>1</visible>
+                <required>1</required>
+                <label>Block</label>
+                <type>label</type>
+                <helper_block>
+                    <type>adminhtml/cms_block_widget_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Block...</open>
+                        </button>
+                    </data>
+                </helper_block>
+                <sort_order>20</sort_order>
+            </menu_static_block_id>
+            <display_on>
+                <required>0</required>
+                <visible>1</visible>
+                <label>Display On</label>
+                <type>multiselect</type>
+                <value>small,medium,large</value>
+                <source_model>theextensionlab_megamenu/config_source_display</source_model>
+            </display_on>
+            <template>
+                <required>1</required>
+                <visible>1</visible>
+                <label>Template</label>
+                <type>select</type>
+                <value>theextensionlab/megamenu/cms/block.phtml</value>
+                <values>
+                    <default translate="label">
+                        <value>theextensionlab/megamenu/cms/block.phtml</value>
+                        <label>Default Static Block Template</label>
+                    </default>
+                </values>
+            </template>
+        </parameters>
+    </megamenu_static_block>
 
 </widgets>

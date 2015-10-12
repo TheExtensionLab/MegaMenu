@@ -7,7 +7,6 @@
  * @license     http://www.theextensionlab.com/license/license.txt - Commercial License
  * @author      James Anelay @ TheExtensionLab <james@theextensionlab.com>
  */
-
 class TheExtensionLab_MegaMenu_Model_Prefetcher
 {
     private $_prefetchModels = array();
@@ -42,21 +41,23 @@ class TheExtensionLab_MegaMenu_Model_Prefetcher
     private function _getDefaultPrefetchers()
     {
         return array(
-            'product' => 'theextensionlab_megamenu/prefetcher_product',
+            'product'          => 'theextensionlab_megamenu/prefetcher_product',
             'attribute_option' => 'theextensionlab_megamenu/prefetcher_attribute_option',
-            'attribute' => 'theextensionlab_megamenu/prefetcher_attribute',
-            'url_rewrite' => 'theextensionlab_megamenu/prefetcher_url_rewrite',
-            'cms_page' => 'theextensionlab_megamenu/prefetcher_cms_page'
+            'attribute'        => 'theextensionlab_megamenu/prefetcher_attribute',
+            'url_rewrite'      => 'theextensionlab_megamenu/prefetcher_url_rewrite',
+            'cms_page'         => 'theextensionlab_megamenu/prefetcher_cms_page',
+            'cms_block'        => 'theextensionlab_megamenu/prefetcher_cms_block'
         );
     }
 
     private function _getDefaultParsers()
     {
         return array(
-            'featured_product' => 'theextensionlab_megamenu/parser_product_featured',
-            'attribute_option' => 'theextensionlab_megamenu/parser_attribute_option',
-            'url_rewrite'      => 'theextensionlab_megamenu/parser_url_rewrite',
-            'featured_cms_page'     => 'theextensionlab_megamenu/parser_cms_page_featured'
+            'featured_product'  => 'theextensionlab_megamenu/parser_product_featured',
+            'attribute_option'  => 'theextensionlab_megamenu/parser_attribute_option',
+            'url_rewrite'       => 'theextensionlab_megamenu/parser_url_rewrite',
+            'featured_cms_page' => 'theextensionlab_megamenu/parser_cms_page_featured',
+            'cms_block'         => 'theextensionlab_megamenu/parser_cms_block'
         );
     }
 
