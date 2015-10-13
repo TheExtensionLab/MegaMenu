@@ -35,7 +35,7 @@
     private function _getErrorMessage()
     {
         $serverName = $_SERVER['SERVER_NAME'];
-        $serverName = Mage::helper('theextensionlab_protector')->stripSubdomainsFromServerName($serverName);
+        $serverName = Mage::helper('theextensionlab_megamenu/protector')->stripSubdomainsFromServerName($serverName);
         $errorMessage = Mage::helper('theextensionlab_megamenu')->__(
             'The Serial Key is invalid or not present and therefore the functionality of this extension has been limited. You can enter a serial key at System > Configuration > Catalog > Catalog Navigation (ServerName : %s)',$serverName
         );
