@@ -83,19 +83,10 @@ class TheExtensionLab_MegaMenu_Model_Menu_Populator
     {
         $columns = array();
         $maxColumns = Mage::getStoreConfig('catalog/navigation/sections_count');
-        $categoryData = $category->getData();
 
         for ($i = 1; $i <= $maxColumns; $i++) {
-            $colWidth = null;
-            $colContent = null;
-
-            if(isset($categoryData['menu_section_' . $i . '_column_width'])){
-                $colWidth = $categoryData['menu_section_' . $i . '_column_width'];
-            }
-            if(isset($categoryData['menu_section_' . $i . '_content'])){
-                $colContent = $categoryData['menu_section_' . $i . '_content'];
-            }
-
+            $colWidth = $category->getData('menu_section_' . $i . '_column_width');
+            $colContent =  $category->getData('menu_section_' . $i . '_content');
             $columns['column_' . $i] = array(
                 'col_width'     => $colWidth,
                 'content'       => $colContent,
