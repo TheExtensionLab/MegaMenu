@@ -82,16 +82,23 @@ class TheExtensionLab_MegaMenu_Model_Menu_Populator
     private function _getCategoryColumns($category)
     {
         $columns = array();
-        $maxColumns = Mage::helper('theextensionlab_megamenu/column_types')->getMaxColumns();
+        $maxColumns = Mage::getStoreConfig('catalog/navigation/sections_count');
+        $categoryData = $category->getData();
 
         for ($i = 1; $i <= $maxColumns; $i++) {
+            $colWidth = null;
+            $colContent = null;
+
+            if(isset($categoryData['menu_section_' . $i . '_column_width'])){
+                $colWidth = $categoryData['menu_section_' . $i . '_column_width'];
+            }
+            if(isset($categoryData['menu_section_' . $i . '_content'])){
+                $colContent = $categoryData['menu_section_' . $i . '_content'];
+            }
+
             $columns['column_' . $i] = array(
-                'col_width'     => $category->getData(
-                    'menu_section_' . $i . '_column_width'
-                ),
-                'content'       => $category->getData(
-                    'menu_section_' . $i . '_content'
-                ),
+                'col_width'     => $colWidth,
+                'content'       => $colContent,
                 'column_number' => $i
             );
         }
