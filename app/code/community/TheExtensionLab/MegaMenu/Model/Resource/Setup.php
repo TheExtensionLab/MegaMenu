@@ -64,16 +64,6 @@ class TheExtensionLab_MegaMenu_Model_Resource_Setup
         );
     }
 
-
-    public function endSetup(){
-        if($this->_getCategoryFlatHelper()->isEnabled()){
-            Mage::getModel('catalog/category_indexer_flat')->reindexAll();
-        }
-
-        parent::endSetup();
-        return $this;
-    }
-
     private function _getMenuProductAttributes()
     {
         $productAttributes = array(
@@ -204,10 +194,6 @@ class TheExtensionLab_MegaMenu_Model_Resource_Setup
             'global'     => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_STORE,
             'group'      => 'MegaMenu Contents'
         );
-    }
-
-    private function _getCategoryFlatHelper(){
-        return Mage::helper('catalog/category_flat');
     }
 
     private function _getInboxModel()
