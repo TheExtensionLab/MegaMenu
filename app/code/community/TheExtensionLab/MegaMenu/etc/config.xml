@@ -9,7 +9,7 @@
 <config>
     <modules>
         <TheExtensionLab_MegaMenu>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
         </TheExtensionLab_MegaMenu>
     </modules>
 
@@ -130,7 +130,6 @@
             <menu_link/>
             <menu_name/>
             <image/>
-            <thumbnail/>
             <menu_dropdown_width/>
             <menu_dropdown_type/>
         </extra_attributes>
