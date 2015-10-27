@@ -31,7 +31,6 @@ class TheExtensionLab_MegaMenu_Test_Config_Main
     {
         $this->assertSetupResourceDefined();
         $this->assertSetupResourceExists();
-        $this->assertSetupScriptVersions();
     }
 
     public function testFeaturedCmsWidgetNodeExists()
