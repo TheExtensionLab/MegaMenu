@@ -82,7 +82,7 @@ class TheExtensionLab_MegaMenu_Model_Observer
     }
 
     private function _isMenuTreeAlreadyStored(){
-        if(Mage::registry($this->_menuKey) == null){
+        if(Mage::registry($this->_menuKey) === null){
             return false;
         }
 
