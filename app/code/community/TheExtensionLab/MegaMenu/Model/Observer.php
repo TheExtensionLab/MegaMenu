@@ -10,16 +10,19 @@
 
 class TheExtensionLab_MegaMenu_Model_Observer
 {
+    private $_menuKey = 'current_menu';
+
     public function pageBlockHtmlTopmenuGetHtmlBefore(Varien_Event_Observer $observer)
     {
-        $menu = $observer->getMenu();
         $block = $observer->getBlock();
-
         $block->addCacheTag(Mage_Catalog_Model_Category::CACHE_TAG);
 
-        $this->_getMenuPopulator()->addCategoriesToMenu($menu, $block);
+        $menu = $observer->getMenu();
 
-        Mage::register('current_menu', $menu);
+        if(!$this->_isMenuTreeAlreadyStored()){
+            $this->_getMenuPopulator()->addCategoriesToMenu($menu, $block);
+            Mage::register($this->_menuKey, $menu);
+        }
     }
 
     public function enableWysiwygInWysiwygConfig(Varien_Event_Observer $observer)
@@ -76,6 +79,14 @@ class TheExtensionLab_MegaMenu_Model_Observer
             $tabs = $observer->getTabs();
             $this->_getConfigUpdater()->updateTabs($tabs);
         }
+    }
+
+    private function _isMenuTreeAlreadyStored(){
+        if(Mage::registry($this->_menuKey) == null){
+            return false;
+        }
+
+        return true;
     }
 
     private function _getConfigDependancyModel()
