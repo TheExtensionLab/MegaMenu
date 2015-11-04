@@ -29,4 +29,4 @@ class TheExtensionLab_MegaMenu_Block_Widget_Category_Featured
         return $categoryNode;
 
     }
-}git s
+}
