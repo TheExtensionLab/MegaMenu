@@ -11,15 +11,17 @@
 <?php /** @var $this TheExtensionLab_MegaMenu_Block_Widget_Category_Featured */
 $featuredCategoryNode = $this->getFeaturedCategoryNode();?>
 
-<div class="featured-category featured-section <?php echo $this->getDisplayClass();?>">
-    <a href="<?php echo $featuredCategoryNode->getUrl();?>">
-        <?php if($this->hasFeaturedImage()):?>
-            <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).$this->getFeaturedImage();?>" />
-        <?php endif;?>
-        <?php if($this->hasTitle()):?>
-            <span><?php echo $this->getTitle();?></span>
-        <?php else:?>
-            <span><?php echo $featuredCategoryNode->getName(); ?></span>
-        <?php endif;?>
-    </a>
-</div>
+<?php if($featuredCategoryNode):?>
+    <div class="featured-category featured-section <?php echo $this->getDisplayClass();?>">
+        <a href="<?php echo $featuredCategoryNode->getUrl();?>">
+            <?php if($this->hasFeaturedImage()):?>
+                <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).$this->getFeaturedImage();?>" />
+            <?php endif;?>
+            <?php if($this->hasTitle()):?>
+                <span><?php echo $this->getTitle();?></span>
+            <?php else:?>
+                <span><?php echo $featuredCategoryNode->getName(); ?></span>
+            <?php endif;?>
+        </a>
+    </div>
+<?php endif;?>

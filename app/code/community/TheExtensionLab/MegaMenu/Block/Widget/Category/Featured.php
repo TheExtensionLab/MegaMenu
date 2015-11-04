@@ -19,9 +19,14 @@ class TheExtensionLab_MegaMenu_Block_Widget_Category_Featured
         $childNodes = $currentMenu->getAllChildNodes();
 
         $categoryNodeId = 'category-node-'.$this->getMenuFeaturedCategoryId();
+
+        if(!isset($childNodes[$categoryNodeId])){
+            return false;
+        }
+
         $categoryNode = $childNodes[$categoryNodeId];
 
         return $categoryNode;
 
     }
-}
+}git s
