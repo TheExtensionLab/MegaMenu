@@ -27,4 +27,15 @@ class TheExtensionLab_MegaMenu_Block_Widget_Category_List
 
         return $childNodes;
     }
+
+    protected function _getCategoryNodeById($childNodes, $categoryId)
+    {
+        $categoryNodeId = 'category-node-'.$categoryId;
+
+        if(!isset($childNodes[$categoryNodeId])):
+            return false;
+        endif;
+
+        return $childNodes[$categoryNodeId];
+    }
 }
