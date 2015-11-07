@@ -47,6 +47,10 @@
                         <value>theextensionlab/megamenu/categories/list.phtml</value>
                         <label>Default Categories List</label>
                     </default>
+                    <li_only>
+                        <value>theextensionlab/megamenu/categories/li-only-list.phtml</value>
+                        <label>Li Only List</label>
+                    </li_only>
                 </values>
             </template>
 
@@ -121,6 +125,10 @@
                         <value>theextensionlab/megamenu/attributes/list.phtml</value>
                         <label>Default Categories List</label>
                     </default>
+                    <li_only>
+                        <value>theextensionlab/megamenu/attributes/li-only-list.phtml</value>
+                        <label>Li Only List</label>
+                    </li_only>
                 </values>
             </template>
 

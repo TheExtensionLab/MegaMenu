@@ -1,0 +1,44 @@
+<?php
+/**
+ * @category    TheExtensionLab
+ * @package     TheExtensionLab_MegaMenu
+ * @copyright   Copyright (c) 2015 TheExtensionLab (http://www.theextensionlab.com)
+ * @license     http://www.theextensionlab.com/license/license.txt - Commercial License
+ * @author      James Anelay @ TheExtensionLab <james@theextensionlab.com>
+ */
+?>
+
+<?php $childNodes = $this->getLoadedMenuNodes(); ?>
+<?php $categoryTree = $this->getCategoryTree(); ?>
+
+<?php foreach($categoryTree as $category):?>
+
+    <?php $categoryNode = $this->_getCategoryNodeById($childNodes, $category->id);?>
+
+    <?php if($categoryNode):?>
+        <li <?php if(!empty($category->children)): echo 'class="section-title"';endif;?>>
+            <span>
+                <a href="<?php echo $categoryNode->getUrl(); ?>">
+                    <?php echo $categoryNode->getName(); ?>
+                </a>
+            </span>
+        </li>
+
+        <?php if(!empty($category->children)):?>
+            <?php foreach($category->children as $childCategory){?>
+                <?php $childCategoryNodeId = 'category-node-'.$childCategory->id;?>
+                <?php if(isset($childNodes[$childCategoryNodeId])):?>
+                    <?php $childCategoryNode = $childNodes[$childCategoryNodeId]; ?>
+                    <li><a href="<?php echo $childCategoryNode->getUrl();?>"><?php echo $childCategoryNode->getName();?></a></li>
+                <?php endif;?>
+            <?php } ?>
+            <li <?php if(!empty($category->children)):echo 'class="view-all small-only-view-all"';endif;?>>
+                <span>
+                    <a href="<?php echo $categoryNode->getUrl(); ?>">
+                        <?php echo $this->__('View All %s',$categoryNode->getName());?>
+                    </a>
+                </span>
+            </li>
+        <?php endif;?>
+    <?php endif; ?>
+<?php endforeach; ?>
