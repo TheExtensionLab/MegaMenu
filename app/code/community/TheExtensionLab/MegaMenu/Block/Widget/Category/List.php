@@ -38,4 +38,13 @@ class TheExtensionLab_MegaMenu_Block_Widget_Category_List
 
         return $childNodes[$categoryNodeId];
     }
+
+    protected function _getCategoryMenuName($categoryNode, $categoryJson)
+    {
+        if(isset($categoryJson->custom_name)){
+            return $categoryJson->custom_name;
+        }
+
+        return $categoryNode->getName();
+    }
 }

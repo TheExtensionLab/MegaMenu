@@ -19,7 +19,7 @@
         <li <?php if(!empty($category->children)): echo 'class="section-title"';endif;?>>
             <span>
                 <a href="<?php echo $categoryNode->getUrl(); ?>">
-                    <?php echo $categoryNode->getName(); ?>
+                    <?php echo $this->_getCategoryMenuName($categoryNode,$category);?>
                 </a>
             </span>
         </li>
@@ -29,13 +29,17 @@
                 <?php $childCategoryNodeId = 'category-node-'.$childCategory->id;?>
                 <?php if(isset($childNodes[$childCategoryNodeId])):?>
                     <?php $childCategoryNode = $childNodes[$childCategoryNodeId]; ?>
-                    <li><a href="<?php echo $childCategoryNode->getUrl();?>"><?php echo $childCategoryNode->getName();?></a></li>
+                    <li>
+                        <a href="<?php echo $childCategoryNode->getUrl();?>">
+                            <?php echo $this->_getCategoryMenuName($childCategoryNode, $childCategory);?>
+                        </a>
+                    </li>
                 <?php endif;?>
             <?php } ?>
             <li <?php if(!empty($category->children)):echo 'class="view-all small-only-view-all"';endif;?>>
                 <span>
                     <a href="<?php echo $categoryNode->getUrl(); ?>">
-                        <?php echo $this->__('View All %s',$categoryNode->getName());?>
+                        <?php echo $this->__('View All %s', $this->_getCategoryMenuName($categoryNode,$category));?>
                     </a>
                 </span>
             </li>
