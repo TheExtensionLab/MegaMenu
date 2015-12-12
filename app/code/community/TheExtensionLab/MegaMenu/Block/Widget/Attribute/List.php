@@ -17,7 +17,7 @@ class TheExtensionLab_MegaMenu_Block_Widget_Attribute_List
         $class = '';
         $columns = $this->getListColumns();
 
-        if($columns > 1) {
+        if ($columns > 1) {
             $class = "content-columns-{$columns}";
         }
 
@@ -27,11 +27,22 @@ class TheExtensionLab_MegaMenu_Block_Widget_Attribute_List
     protected function getDisplayClass()
     {
         $displayClass = parent::getDisplayClass();
-        if($this->hasContentColumns()){
-            $displayClass.= ' content-columns-section';
+        if ($this->hasContentColumns()) {
+            $displayClass .= ' content-columns-section';
         }
 
         return $displayClass;
+    }
+
+    public function getOptionIds(){
+        $optionsIds = json_decode($this->getData('option_ids'),true);
+        uasort($optionsIds, array($this, '_sortOptionsByPosition'));
+        return $optionsIds;
+    }
+
+    private static function _sortOptionsByPosition($a,$b)
+    {
+        return $a[0]['position'] - $b[0]['position'];
     }
 
     private function hasContentColumns()

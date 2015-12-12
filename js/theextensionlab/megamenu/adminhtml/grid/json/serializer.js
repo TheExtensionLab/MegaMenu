@@ -20,9 +20,7 @@ jsonSerializerController.prototype = Object.extend(Object.clone(serializerContro
                 //Put the data in array to avoid "}}" which will conflict with the widget directive we now get ]}] which wont match.
                 //Not perfect but better than an unreadable base_64 string which is the default for serializer.
                 if(JSON.stringify(pair.value).charAt(0) != "[") {
-                    var data = [];
-                    data.push(pair.value);
-                    clone.set(pair.key, data);
+                    clone.set(pair.key, [pair.value]);
                 }
             });
 

@@ -11,7 +11,7 @@
 <?php $collection = Mage::registry('megamenu_attribute_options');?>
 <?php $attributeCollection = Mage::registry('megamenu_attributes');?>
 
-<?php $optionIds = json_decode($this->getOptionIds(),true);?>
+<?php $optionIds = $this->getOptionIds();?>
 
 <?php $first_key = key($optionIds);?>
 

@@ -81,7 +81,7 @@ class TheExtensionLab_MegaMenu_Block_Adminhtml_Catalog_Category_Widget_Draggable
 
         $rootArray['use_ajax'] = false;
 
-        $rootArray['children']['0']['text'] = "Drag your categories here";
+        $rootArray['children']['0']['text'] = $this->__("Drag your categories here");
         $json = Mage::helper('core')->jsonEncode(
             isset($rootArray['children'])
                 ? $rootArray['children'] : array()

@@ -123,7 +123,7 @@
                 <values>
                     <default translate="label">
                         <value>theextensionlab/megamenu/attributes/list.phtml</value>
-                        <label>Default Categories List</label>
+                        <label>Default Shop By List</label>
                     </default>
                     <li_only>
                         <value>theextensionlab/megamenu/attributes/li-only-list.phtml</value>
