@@ -11,12 +11,21 @@
 <?php $childNodes = $this->getLoadedMenuNodes(); ?>
 <?php $categoryTree = $this->getCategoryTree(); ?>
 
+<?php if($this->hasTitle()):?>
+    <li class="section-title manual-section-title">
+            <span>
+                <?php echo $this->getTitle();?>
+            </span>
+    </li>
+<?php endif;?>
+
 <?php foreach($categoryTree as $category):?>
 
     <?php $categoryNode = $this->_getCategoryNodeById($childNodes, $category->id);?>
 
     <?php if($categoryNode):?>
-        <li <?php if(!empty($category->children)): echo 'class="section-title"';endif;?>>
+
+        <li <?php if(!empty($category->children) && !$this->hasTitle()): echo 'class="section-title"';endif;?>>
             <span>
                 <a href="<?php echo $categoryNode->getUrl(); ?>">
                     <?php echo $this->_getCustomCategoryMenuName($categoryNode,$category);?>

@@ -17,7 +17,18 @@ class TheExtensionLab_MegaMenu_Model_Prefetcher_Cms_Block implements TheExtensio
                 ->addFieldToFilter('block_id', array('in' => $directiveValues['static_block_ids']))
                 ->load();
 
+            $this->_filterBlockCollectionContent($blockCollection);
+
             Mage::register('megamenu_cms_blocks', $blockCollection);
+        }
+    }
+
+    private function _filterBlockCollectionContent($blockCollection)
+    {
+        foreach ($blockCollection as $block) {
+            $helper = Mage::helper('cms');
+            $processor = $helper->getBlockTemplateProcessor();
+            $block->setContent($processor->filter($block->getContent()));
         }
     }
 }

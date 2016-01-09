@@ -37,7 +37,7 @@ class TheExtensionLab_MegaMenu_Model_Config_Dependancy
             ->addFieldMap("group_{$groupId}menu_dropdown_width", 'menu_dropdown_width')
             ->addFieldMap("group_{$groupId}menu_link_type","menu_link_type")
             ->addFieldMap("group_{$groupId}menu_link","menu_link")
-            ->addFieldDependence('menu_dropdown_width', 'menu_dropdown_type', array("2","3","4","5"))
+            ->addFieldDependence('menu_dropdown_width', 'menu_dropdown_type', array("2","3","4","5","6"))
             ->addFieldDependence('menu_link','menu_link_type', array("1","2"));
     }
 
