@@ -12,6 +12,13 @@
         <name>MegaMenu - Category List Section</name>
         <description>Select your categories for this menu block</description>
         <parameters>
+            <title translate="label">
+                <visible>1</visible>
+                <label>Title</label>
+                <type>text</type>
+                <description>Optional</description>
+            </title>
+
             <category_json>
                 <visible>1</visible>
                 <required>1</required>
