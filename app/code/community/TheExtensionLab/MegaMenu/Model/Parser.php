@@ -35,6 +35,10 @@ class TheExtensionLab_MegaMenu_Model_Parser extends Mage_Widget_Model_Template_F
         return $constructions;
     }
 
+    public function setChildParser($key,$modelAlias){
+        $this->_parsers[$key] = $modelAlias;
+    }
+
     private function _callPrefetchDirective($construction)
     {
         $callback = array($this, $construction[1] . 'PrefetchDirective');
