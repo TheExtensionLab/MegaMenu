@@ -24,6 +24,10 @@ class TheExtensionLab_MegaMenu_Model_Prefetcher
         $this->_prefetchWaitingData();
     }
 
+    public function setChildPrefetcher($key,$modelAlias){
+        $this->_prefetchModels[$key] = $modelAlias;
+    }
+
     private function _prepareChildModels()
     {
         $this->_prefetchModels = $this->_getDefaultPrefetchers();
