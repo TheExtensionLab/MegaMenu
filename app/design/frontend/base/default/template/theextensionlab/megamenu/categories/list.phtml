@@ -27,11 +27,9 @@
 
             <?php if($categoryNode):?>
                 <li <?php if(!empty($category->children) && !$this->hasTitle()): echo 'class="section-title"';endif;?>>
-                    <span>
-                        <a href="<?php echo $categoryNode->getUrl(); ?>">
-                            <?php echo $this->_getCustomCategoryMenuName($categoryNode,$category);?>
-                        </a>
-                    </span>
+                    <a href="<?php echo $categoryNode->getUrl(); ?>">
+                        <span><?php echo $this->_getCustomCategoryMenuName($categoryNode,$category);?></span>
+                    </a>
                 </li>
 
                 <?php if(!empty($category->children)):?>
@@ -41,7 +39,7 @@
                             <?php $childCategoryNode = $childNodes[$childCategoryNodeId]; ?>
                             <li>
                                 <a href="<?php echo $childCategoryNode->getUrl();?>">
-                                    <?php echo $this->_getCustomCategoryMenuName($childCategoryNode, $childCategory);?>
+                                    <span><?php echo $this->_getCustomCategoryMenuName($childCategoryNode, $childCategory);?></span>
                                 </a>
                             </li>
                         <?php endif;?>
@@ -49,7 +47,7 @@
                     <li <?php if(!empty($category->children)):echo 'class="view-all small-only-view-all"';endif;?>>
                         <span>
                             <a href="<?php echo $categoryNode->getUrl(); ?>">
-                                <?php echo $this->__('View All %s', $this->_getCustomCategoryMenuName($categoryNode,$category));?>
+                                <span><?php echo $this->__('View All %s', $this->_getCustomCategoryMenuName($categoryNode,$category));?></span>
                             </a>
                         </span>
                     </li>
