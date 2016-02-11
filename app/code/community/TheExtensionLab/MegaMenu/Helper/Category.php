@@ -85,7 +85,10 @@ class TheExtensionLab_MegaMenu_Helper_Category extends Mage_Core_Model_Abstract
             ->loadChildren($recursionLevel)
             ->getChildren();
 
-        $tree->addCollectionData(null, $sorted, $parent, $toLoad, $onlyActive);
+        $collection = $tree->getCollection($sorted);
+        $collection->addAttributeToFilter('include_in_menu', 1);
+
+        $tree->addCollectionData($collection, $sorted, $parent, $toLoad, $onlyActive);
 
         if ($asCollection) {
             return $tree->getCollection();
