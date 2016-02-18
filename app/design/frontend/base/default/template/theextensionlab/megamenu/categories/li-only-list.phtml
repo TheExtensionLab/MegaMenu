@@ -20,38 +20,16 @@
 <?php endif;?>
 
 <?php foreach($categoryTree as $category):?>
-
     <?php $categoryNode = $this->_getCategoryNodeById($childNodes, $category->id);?>
+    <?php $categoryRenderer = $this->_getCategoryRenderer();?>
 
     <?php if($categoryNode):?>
-
         <li <?php if(!empty($category->children) && !$this->hasTitle()): echo 'class="section-title"';endif;?>>
-
-                <a href="<?php echo $categoryNode->getUrl(); ?>">
-                    <span><?php echo $this->_getCustomCategoryMenuName($categoryNode,$category);?></span>
-                </a>
-
+            <a href="<?php echo $categoryNode->getUrl(); ?>">
+                <span><?php echo $this->_getCustomCategoryMenuName($categoryNode,$category);?></span>
+            </a>
         </li>
-
-        <?php if(!empty($category->children)):?>
-            <?php foreach($category->children as $childCategory){?>
-                <?php $childCategoryNodeId = 'category-node-'.$childCategory->id;?>
-                <?php if(isset($childNodes[$childCategoryNodeId])):?>
-                    <?php $childCategoryNode = $childNodes[$childCategoryNodeId]; ?>
-                    <li>
-                        <a href="<?php echo $childCategoryNode->getUrl();?>">
-                            <?php echo $this->_getCustomCategoryMenuName($childCategoryNode, $childCategory);?>
-                        </a>
-                    </li>
-                <?php endif;?>
-            <?php } ?>
-            <li <?php if(!empty($category->children)):echo 'class="view-all small-only-view-all"';endif;?>>
-
-                    <a href="<?php echo $categoryNode->getUrl(); ?>">
-                        <span><?php echo $this->__('View All %s', $this->_getCustomCategoryMenuName($categoryNode,$category));?></span>
-                    </a>
-
-            </li>
-        <?php endif;?>
     <?php endif; ?>
+
+    <?php echo $categoryRenderer->render($category,$categoryNode,$childNodes);?>
 <?php endforeach; ?>

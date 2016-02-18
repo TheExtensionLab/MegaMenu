@@ -21,7 +21,8 @@
     {
         $renderer = $this->getLayout()->createBlock('theextensionlab_megamenu/widget_category_renderer');
 
-        if($template === null) {
+        if($template === null){
+            $currentTemplate = $this->getTemplate();
             $renderer->setTemplate('theextensionlab/megamenu/categories/list/renderer.phtml');
         }
 
