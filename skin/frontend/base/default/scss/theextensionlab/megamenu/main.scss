@@ -214,6 +214,12 @@ $max-content-columns: 5;
       border: 0px;
     }
   }
+
+  ul{
+    ul{
+      padding-left:30px;
+    }
+  }
 }
 
 /*------------- Display Classes --------------*/

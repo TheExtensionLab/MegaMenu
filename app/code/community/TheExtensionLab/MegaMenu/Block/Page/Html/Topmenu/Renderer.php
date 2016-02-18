@@ -11,7 +11,6 @@
 class TheExtensionLab_MegaMenu_Block_Page_Html_Topmenu_Renderer
     extends Mage_Page_Block_Html_Topmenu_Renderer
 {
-
     protected function _toHtml()
     {
         $html = parent::_toHtml();

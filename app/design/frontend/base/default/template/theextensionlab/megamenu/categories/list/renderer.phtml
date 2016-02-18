@@ -1,0 +1,30 @@
+<?php $categoryNode = $this->getCategoryNode();?>
+<?php $category = $this->getCategory();?>
+<?php $childNodes = $this->getChildNodes();?>
+
+<?php if($categoryNode):?>
+    <?php if(!empty($category->children)):?>
+        <?php foreach($category->children as $childCategory){?>
+            <?php $childCategoryNodeId = 'category-node-'.$childCategory->id;?>
+            <?php if(isset($childNodes[$childCategoryNodeId])):?>
+                <?php $childCategoryNode = $childNodes[$childCategoryNodeId]; ?>
+                <li>
+                    <a href="<?php echo $childCategoryNode->getUrl();?>">
+                        <span><?php echo $this->_getCustomCategoryMenuName($childCategoryNode, $childCategory);?></span>
+                    </a>
+                    <ul>
+                        <?php $renderer = $this->_getCategoryRenderer();?>
+                        <?php echo $renderer->render($childCategory,$childCategoryNode,$childNodes);?>
+                    </ul>
+                </li>
+            <?php endif;?>
+        <?php } ?>
+        <li <?php if(!empty($category->children)):echo 'class="view-all small-only-view-all"';endif;?>>
+            <span>
+                <a href="<?php echo $categoryNode->getUrl(); ?>">
+                    <span><?php echo $this->__('View All %s', $this->_getCustomCategoryMenuName($categoryNode,$category));?></span>
+                </a>
+            </span>
+        </li>
+    <?php endif;?>
+<?php endif; ?>

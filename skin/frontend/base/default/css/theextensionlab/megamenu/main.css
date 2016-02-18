@@ -216,6 +216,9 @@
   padding: 0px;
   border: 0px;
 }
+.list-block ul ul {
+  padding-left: 30px;
+}
 
 /*------------- Display Classes --------------*/
 .small-only-view-all {
