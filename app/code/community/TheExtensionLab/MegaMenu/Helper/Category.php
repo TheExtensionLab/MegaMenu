@@ -45,6 +45,8 @@ class TheExtensionLab_MegaMenu_Helper_Category extends Mage_Core_Model_Abstract
         $recursionLevel = $this->_getRecursionLevel();
         $storeCategories = $this->_getCategories($parent, $recursionLevel, $sorted, $asCollection, $toLoad);
 
+
+
         $this->_storeCategories[$cacheKey] = $storeCategories;
         return $storeCategories;
     }
@@ -78,15 +80,18 @@ class TheExtensionLab_MegaMenu_Helper_Category extends Mage_Core_Model_Abstract
     private function _getCategories(
         $parent, $recursionLevel = 0, $sorted = false, $asCollection = false, $toLoad = true, $onlyActive = false
     ) {
+        if(Mage::helper('catalog/category_flat')->isEnabled()) {
+            return $this->_getCategoriesFromFlatTables($parent, $recursionLevel, $sorted, $asCollection, $toLoad);
+        }
         /* @var $tree Mage_Catalog_Model_Resource_Category_Tree */
         $tree = Mage::getResourceModel('catalog/category_tree');
+
+        $collection = $tree->getCollection($sorted);
+        $collection->addAttributeToFilter('include_in_menu', 1);
 
         $nodes = $tree->loadNode($parent)
             ->loadChildren($recursionLevel)
             ->getChildren();
-
-        $collection = $tree->getCollection($sorted);
-        $collection->addAttributeToFilter('include_in_menu', 1);
 
         $tree->addCollectionData($collection, $sorted, $parent, $toLoad, $onlyActive);
 
@@ -97,5 +102,7 @@ class TheExtensionLab_MegaMenu_Helper_Category extends Mage_Core_Model_Abstract
         return $nodes;
     }
 
-
+    private function _getCategoriesFromFlatTables($parent, $recursionLevel = 0, $sorted = false, $asCollection = false, $toLoad = true){
+        return Mage::getResourceModel('theextensionlab_megamenu/category_flat')->getCategories($parent, $recursionLevel, $sorted, $asCollection, $toLoad);
+    }
 }
