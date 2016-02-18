@@ -74,7 +74,12 @@ class TheExtensionLab_MegaMenu_Model_Menu_Populator
 
     private function _getSubCategories($category)
     {
-        $subcategories = $category->getChildren();
+        if(Mage::helper('catalog/category_flat')->isBuilt()) {
+            $subcategories = $category->getChildrenNodes();
+        } else {
+            $subcategories = $category->getChildren();
+        }
+
         return $subcategories;
     }
 
