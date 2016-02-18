@@ -20,6 +20,12 @@ Core Hacks: 0
 
 Class Rewrites: 0
 
+Avaliable Add-Ons
+-----------------
+- https://github.com/TheExtensionLab/MegaMenuBubbleLayerCompat (Makes MegaMenu shop by attribute use the bubbleshop layered nav url structure in links)
+- https://github.com/TheExtensionLab/MegaMenuCatalinSeoCompatability (Makes MegaMenu shop by attribute use the catalin seo url structure in links)
+- https://github.com/TheExtensionLab/MegaMenuWordpressPostsWidget (Adds widget to add Wordpress/Fishpig post to MegaMenu by ID)
+
 Developer
 --------------
 James Anelay - TheExtensionLab
