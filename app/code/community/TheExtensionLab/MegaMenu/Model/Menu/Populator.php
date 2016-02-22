@@ -33,9 +33,12 @@ class TheExtensionLab_MegaMenu_Model_Menu_Populator
             $parentCategoryNode->addChild($categoryNode);
 
             $subcategories = $this->_getSubCategories($category);
-            $this->_addCategoriesToMenuParentNode(
-                $subcategories, $categoryNode, $menuBlock, $addTags
-            );
+
+            if($subcategories !== null) {
+                $this->_addCategoriesToMenuParentNode(
+                    $subcategories, $categoryNode, $menuBlock, $addTags
+                );
+            }
         }
     }
 
