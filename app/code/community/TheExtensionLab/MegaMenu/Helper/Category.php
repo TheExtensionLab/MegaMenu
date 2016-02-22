@@ -80,7 +80,7 @@ class TheExtensionLab_MegaMenu_Helper_Category extends Mage_Core_Model_Abstract
     private function _getCategories(
         $parent, $recursionLevel = 0, $sorted = false, $asCollection = false, $toLoad = true, $onlyActive = false
     ) {
-        if(Mage::helper('catalog/category_flat')->isBuilt() && Mage::helper('catalog/category_flat')->isEnabled()) {
+        if(Mage::helper('catalog/category_flat')->isEnabled() && Mage::helper('catalog/category_flat')->isBuilt()) {
             return $this->_getCategoriesFromFlatTables($parent, $recursionLevel, $sorted, $asCollection, $toLoad);
         }
         /* @var $tree Mage_Catalog_Model_Resource_Category_Tree */
