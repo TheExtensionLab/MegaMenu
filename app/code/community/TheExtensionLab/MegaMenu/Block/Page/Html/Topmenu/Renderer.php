@@ -15,10 +15,25 @@ class TheExtensionLab_MegaMenu_Block_Page_Html_Topmenu_Renderer
     {
         $html = parent::_toHtml();
         $prefetcher = $this->_getMegaMenuHelper()->getMenuWidgetPrefetcher();
-        $prefetcher->prefetch($html);
+        $prefetcher->prefetch($this->_getMenuContentHtml());
         $processor = $this->_getMegaMenuHelper()->getMenuTemplateProcessor();
         $html = $processor->filter($html);
+
         return $html;
+    }
+
+    protected function _getMenuContentHtml(){
+        $currentMenu = Mage::registry('current_menu');
+        $childNodes = $currentMenu->getAllChildNodes();
+        $menuContent = '';
+        foreach($childNodes as $childNode){
+            $columns = $childNode->getColumns();
+            foreach($columns as $column){
+                $menuContent .= $column['content'].' ';
+            }
+        }
+
+        return $menuContent;
     }
 
     protected function _getMenuItemClasses(Varien_Data_Tree_Node $item)

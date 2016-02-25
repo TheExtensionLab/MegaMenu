@@ -13,9 +13,9 @@
 
 <?php if($this->hasTitle()):?>
     <li class="section-title manual-section-title">
-            <span>
-                <?php echo $this->getTitle();?>
-            </span>
+        <span>
+            <?php echo $this->getTitle();?>
+        </span>
     </li>
 <?php endif;?>
 
@@ -28,8 +28,8 @@
             <a href="<?php echo $categoryNode->getUrl(); ?>">
                 <span><?php echo $this->_getCustomCategoryMenuName($categoryNode,$category);?></span>
             </a>
+            <?php echo $categoryRenderer->render($category,$categoryNode,$childNodes,$this->getRenderChildContent());?>
         </li>
     <?php endif; ?>
 
-    <?php echo $categoryRenderer->render($category,$categoryNode,$childNodes);?>
 <?php endforeach; ?>

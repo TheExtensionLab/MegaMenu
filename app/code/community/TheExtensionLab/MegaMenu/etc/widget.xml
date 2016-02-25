@@ -43,6 +43,15 @@
                 <source_model>theextensionlab_megamenu/config_source_display</source_model>
             </display_on>
 
+            <render_child_content>
+                <required>0</required>
+                <visible>1</visible>
+                <label>Render Child Category Content</label>
+                <type>select</type>
+                <value>0</value>
+                <source_model>adminhtml/system_config_source_yesno</source_model>
+            </render_child_content>
+
             <template>
                 <required>1</required>
                 <visible>1</visible>

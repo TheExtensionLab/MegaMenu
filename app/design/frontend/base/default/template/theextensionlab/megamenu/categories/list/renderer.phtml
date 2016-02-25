@@ -27,4 +27,19 @@
             </span>
         </li>
     <?php endif;?>
+
+    <?php if($this->getRenderChildContent()):?>
+        <?php if ($this->getHasDropDownContent($categoryNode)):?>
+            <ul>
+                <?php foreach($categoryNode->getColumns() as $column):?>
+                    <?php if(!empty($column['content']) && $column['col_width'] != 0):?>
+                        <div class="column xlab_column_<?php echo $column['col_width'];?>">
+                            <?php echo $column['content'];?>
+                        </div>
+                    <?php endif;?>
+                <?php endforeach;?>
+            </ul>
+        <?php endif;?>
+    <?php endif;?>
+
 <?php endif; ?>

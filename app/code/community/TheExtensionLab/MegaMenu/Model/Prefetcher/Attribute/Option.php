@@ -28,11 +28,6 @@ class TheExtensionLab_MegaMenu_Model_Prefetcher_Attribute_Option
         }
     }
 
-    public function test()
-    {
-
-    }
-
     private function getAttributeOptionCollection(array $optionIds)
     {
         $storeId = Mage::app()->getStore()->getStoreId();

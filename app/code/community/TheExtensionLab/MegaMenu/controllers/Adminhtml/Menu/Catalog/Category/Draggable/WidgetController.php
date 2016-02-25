@@ -46,5 +46,4 @@ class TheExtensionLab_MegaMenu_Adminhtml_Menu_Catalog_Category_Draggable_WidgetC
             );
     }
 
-
 }
