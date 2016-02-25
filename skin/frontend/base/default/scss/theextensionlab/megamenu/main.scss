@@ -10,7 +10,7 @@ $dropdwon-external-border-color: #e8eaeb;
   position: relative;
   z-index: 150;
 
-  li{
+  > li{
     position: static;
   }
 }

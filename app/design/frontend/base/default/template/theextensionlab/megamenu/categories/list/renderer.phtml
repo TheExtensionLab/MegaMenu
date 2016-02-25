@@ -30,7 +30,7 @@
 
     <?php if($this->getRenderChildContent()):?>
         <?php if ($this->getHasDropDownContent($categoryNode)):?>
-            <ul>
+            <ul class="megamenu-child-content">
                 <?php foreach($categoryNode->getColumns() as $column):?>
                     <?php if(!empty($column['content']) && $column['col_width'] != 0):?>
                         <div class="column xlab_column_<?php echo $column['col_width'];?>">

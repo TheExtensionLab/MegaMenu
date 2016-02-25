@@ -3,7 +3,7 @@
   position: relative;
   z-index: 150;
 }
-.megamenu-nav li {
+.megamenu-nav > li {
   position: static;
 }
 
