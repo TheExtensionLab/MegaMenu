@@ -24,7 +24,9 @@
             <li class="section-title"><span><?php echo $this->__('Shop By %s',$parentAttribute->getFrontendLabel());?></span></li>
             <?php foreach($optionIds as $key => $value):?>
                 <li>
-                    <a href="<?php echo Mage::helper('theextensionlab_megamenu/attribute_url')->getFilterUrl($this->getCategoryId(),$parentAttribute->getAttributeCode(),$key)?>"><?php echo $collection[$key]->getValue();?></a>
+                    <a href="<?php echo Mage::helper('theextensionlab_megamenu/attribute_url')->getFilterUrl($this->getCategoryId(),$parentAttribute->getAttributeCode(),$key)?>">
+                        <span><?php echo $collection[$key]->getValue();?></span>
+                    </a>
                 </li>
             <?php endforeach;?>
         </ul>

@@ -20,11 +20,13 @@
     <?php foreach ($featuredProductsCollection as $featuredProduct): ?>
         <div class="featured-product <?php echo $this->getDisplayClass(); ?>">
             <a href="<?php echo $featuredProduct->getProductUrl(); ?>">
-                <?php if ($featuredProduct->hasMenuImage()): ?>
-                    <?php $imageUrl = $_helper->init($featuredProduct, 'menu_image') ?>
-                    <img src="<?php echo $imageUrl ?>"/>
-                <?php endif; ?>
-                <?php echo $featuredProduct->getName(); ?>
+                <span>
+                    <?php if ($featuredProduct->hasMenuImage()): ?>
+                        <?php $imageUrl = $_helper->init($featuredProduct, 'menu_image') ?>
+                        <img src="<?php echo $imageUrl ?>"/>
+                    <?php endif; ?>
+                    <?php echo $featuredProduct->getName(); ?>
+                </span>
             </a>
             <p><?php echo Mage::helper('core')->currency($featuredProduct->getFinalPrice(),true,true);?></p>
             <a class="button" href="<?php echo $featuredProduct->getProductUrl(); ?>">

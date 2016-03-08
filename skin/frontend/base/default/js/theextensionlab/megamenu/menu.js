@@ -44,8 +44,8 @@ var mainNav = function() {
             main.initDelayedResizingEvent();
             obj.lists = obj.childElements();
             obj.lists.each(function(el,ind){
-                newchildren = el.select('div,ul,section');
-                newchildren.each(function(childel,ind){
+                var newChildren = el.select('div,ul,section');
+                newChildren.each(function(childel,ind){
                     main.handlNavElementBubbling(childel);
                 });
                 main.handlNavElement(el);

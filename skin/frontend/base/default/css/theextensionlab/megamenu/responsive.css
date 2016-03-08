@@ -1,4 +1,4 @@
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 770px) {
   /*------------- Widget Blocks --------------*/
   .list-block {
     margin-left: 0px;
@@ -11,7 +11,7 @@
     padding-bottom: 15px;
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 770px) {
   .megamenu-nav-primary li.level0 {
     display: block;
   }
@@ -223,12 +223,12 @@
     width: 100%;
   }
 }
-@media only screen and (min-width: 770px) and (max-width: 979px) {
+@media only screen and (min-width: 771px) and (max-width: 979px) {
   .hide-on-medium {
     display: none !important;
   }
 }
-@media only screen and (min-width: 979px) {
+@media only screen and (min-width: 980px) {
   .hide-on-large {
     display: none !important;
   }
