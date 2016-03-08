@@ -33,9 +33,12 @@ class TheExtensionLab_MegaMenu_Model_Menu_Populator
             $parentCategoryNode->addChild($categoryNode);
 
             $subcategories = $this->_getSubCategories($category);
-            $this->_addCategoriesToMenuParentNode(
-                $subcategories, $categoryNode, $menuBlock, $addTags
-            );
+
+            if($subcategories !== null) {
+                $this->_addCategoriesToMenuParentNode(
+                    $subcategories, $categoryNode, $menuBlock, $addTags
+                );
+            }
         }
     }
 
@@ -74,7 +77,7 @@ class TheExtensionLab_MegaMenu_Model_Menu_Populator
 
     private function _getSubCategories($category)
     {
-        if(Mage::helper('catalog/category_flat')->isBuilt()) {
+        if(Mage::helper('catalog/category_flat')->isEnabled() && Mage::helper('catalog/category_flat')->isBuilt()) {
             $subcategories = $category->getChildrenNodes();
         } else {
             $subcategories = $category->getChildren();
