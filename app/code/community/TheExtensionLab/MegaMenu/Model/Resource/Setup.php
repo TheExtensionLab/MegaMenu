@@ -106,6 +106,8 @@ class TheExtensionLab_MegaMenu_Model_Resource_Setup
                 'sort_order' => 20,
                 'global'     => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_STORE,
                 'group'      => 'MegaMenu Settings',
+                'required'                 => false,
+                'default'                    => 1
             ),
             'menu_dropdown_width' => array(
                 'type'                     => 'text',
