@@ -19,10 +19,10 @@
         <li <?php echo $this->_getRenderedMenuItemAttributes($child);?>>
             <?php if(!$this->_isCategoryPlaceholder($child)):?>
                 <a href="<?php echo $child->getUrl();?>" class="<?php echo $this->getCategoryLiClass($child)?>">
-                    <span><?php echo $this->escapeHtml($this->__($child->getName()))?></span>
+                    <span><?php echo $this->escapeHtml($child->getName())?></span>
                 </a>
             <?php else:?>
-                <span class="<?php echo $this->getCategoryLiClass($child)?>"><?php echo $this->escapeHtml($this->__($child->getName()))?></span>
+                <span class="<?php echo $this->getCategoryLiClass($child)?>"><?php echo $this->escapeHtml($child->getName())?></span>
             <?php endif;?>
 
             <?php if(!empty($childrenWrapClass)) :?>
