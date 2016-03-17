@@ -27,7 +27,7 @@
 
             <?php if($categoryNode):?>
                 <li <?php if(!empty($category->children) && !$this->hasTitle()): echo 'class="section-title"';endif;?>>
-                    <a href="<?php echo $categoryNode->getUrl(); ?>" class="<?php echo $this->getCategoryLiClass($categoryNode)?>">
+                    <a href="<?php echo $categoryNode->getUrl(); ?>" class="<?php echo $this->getCategoryLiClass($categoryNode,$category)?>">
                         <span><?php echo $this->_getCustomCategoryMenuName($categoryNode,$category);?></span>
                     </a>
                     <?php echo $categoryRenderer->render($category,$categoryNode,$childNodes,$this->getRenderChildContent());?>

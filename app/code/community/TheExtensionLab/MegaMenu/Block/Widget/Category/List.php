@@ -28,11 +28,12 @@ class TheExtensionLab_MegaMenu_Block_Widget_Category_List
         return $childNodes;
     }
 
-    protected function getCategoryLiClass($category){
-        $hasChildren = ($category->hasChildren()) ? ' has-children' : '';
+    protected function getCategoryLiClass($categoryNode,$category){
+        $hasDropDownContent = ($categoryNode->getHasDropdownContent()) ? ' parent' : '';
+        $hasChildren = isset($category->children);
 
-        $class = 'level'.$category->getLevel();
-        $class .= $hasChildren;
+        $class = $hasDropDownContent;
+        $class .= ' '.$hasChildren;
 
         return $class;
     }
