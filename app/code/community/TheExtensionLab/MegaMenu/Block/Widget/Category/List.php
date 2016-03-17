@@ -28,6 +28,15 @@ class TheExtensionLab_MegaMenu_Block_Widget_Category_List
         return $childNodes;
     }
 
+    protected function getCategoryLiClass($category){
+        $hasChildren = ($category->hasChildren()) ? ' has-children' : '';
+
+        $class = 'level'.$category->getLevel();
+        $class .= $hasChildren;
+
+        return $class;
+    }
+
     protected function _getCategoryNodeById($childNodes, $categoryId)
     {
         $categoryNodeId = 'category-node-'.$categoryId;

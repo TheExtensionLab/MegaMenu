@@ -14,7 +14,7 @@
                     </a>
                     <ul>
                         <?php $renderer = $this->_getCategoryRenderer();?>
-                        <?php echo $renderer->render($childCategory,$childCategoryNode,$childNodes);?>
+                        <?php echo $renderer->render($childCategory,$childCategoryNode,$childNodes,$this->getRenderChildContent());?>
                     </ul>
                 </li>
             <?php endif;?>
