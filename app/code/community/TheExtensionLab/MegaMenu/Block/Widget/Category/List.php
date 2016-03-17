@@ -29,11 +29,13 @@ class TheExtensionLab_MegaMenu_Block_Widget_Category_List
     }
 
     protected function getCategoryLiClass($categoryNode,$category){
-        $hasDropDownContent = ($categoryNode->getHasDropdownContent()) ? ' parent' : '';
-        $hasChildren = isset($category->children);
+        $hasDropDownContent = ($this->getHasDropdownContent($categoryNode)) ? ' parent' : '';
+        $hasChildren = property_exists($category,'children');
 
         $class = $hasDropDownContent;
-        $class .= ' '.$hasChildren;
+        if($hasChildren) {
+            $class .= ' ' . 'has-children';
+        }
 
         return $class;
     }
@@ -67,5 +69,25 @@ class TheExtensionLab_MegaMenu_Block_Widget_Category_List
         }
 
        return $renderer;
+    }
+
+    protected function getHasDropdownContent(Varien_Data_Tree_Node $item)
+    {
+        $hasContent = false;
+
+        if(!$item->hasColumns()):
+            return false;
+        endif;
+
+        $columns = $item->getColumns();
+
+        foreach($columns as $column){
+            if(!empty($column['content'])):
+                if($column['col_width'] != 0) {
+                    $hasContent = true;
+                }
+            endif;
+        }
+        return $hasContent;
     }
 }
