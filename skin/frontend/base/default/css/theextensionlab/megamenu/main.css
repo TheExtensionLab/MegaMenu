@@ -39,13 +39,15 @@
   display: block;
 }
 .megamenu-nav-primary a, .megamenu-nav-primary span.level0 {
-  line-height: 30px;
   color: #636363;
   display: block;
 }
 .megamenu-nav-primary a:hover, .megamenu-nav-primary span.level0:hover {
   color: #3399cc;
   text-decoration: none;
+}
+.megamenu-nav-primary a, .megamenu-nav-primary span.level0, .megamenu-nav-primary .section-title span {
+  line-height: 30px;
 }
 .megamenu-nav-primary li:hover > a {
   color: #3399cc;
