@@ -13,7 +13,9 @@ class TheExtensionLab_MegaMenu_Helper_Category_Url extends Mage_Core_Model_Abstr
     public function getCategoryUrl($category)
     {
         if ($this->_checkIsCategoryInternalLink($category)) {
-            return Mage::getUrl($category->getMenuLink());
+            $url = Mage::getUrl($category->getMenuLink());
+//            $url = Mage::getModel('core/url')->sessionUrlVar($url);
+            return $url;
         }
 
         if ($this->_checkIsCategoryExternalLink($category)) {
