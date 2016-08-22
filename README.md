@@ -20,7 +20,7 @@ Modman: Yes (However this extension has other Magento Extension dependencies com
 
 Composer: Yes
 
-GitHub: Private
+GitHub: Public :)
 
 Core Hacks: 0
 
