@@ -25,6 +25,7 @@ class TheExtensionLab_MegaMenu_Helper_Attribute_Url
         }
 
         $url = Mage::getUrl($requestPath, array('_query' => $query));
+        $url = Mage::getModel('core/url')->sessionUrlVar($url);
         $url = str_replace('/?', '?', $url);
 
         $urlData = new Varien_Object(

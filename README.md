@@ -3,6 +3,12 @@
 
 Adds a easy to manage, fast mega menu dropdown to Magento.
 
+License
+-------
+http://www.theextensionlab.com/license/license.txt - commercial license.
+
+Although the source code is avaliable here on Github to view. You MUST purchage the extension/license at [https://www.theextensionlab.com/megamenu](https://www.theextensionlab.com/megamenu) to use it.
+
 Installation & Configuration
 ------------------
 For up to date installation & configuration instructions please check out the documentation at
@@ -14,7 +20,7 @@ Modman: Yes (However this extension has other Magento Extension dependencies com
 
 Composer: Yes
 
-GitHub: Private
+GitHub: Public :)
 
 Core Hacks: 0
 
@@ -34,9 +40,6 @@ James Anelay - TheExtensionLab
 
 [@JamesAnelay](https://twitter.com/jamesanelay) - [@TheExtensionLab](https://twitter.com/TheExtensionLab)
 
-License
--------
-http://www.theextensionlab.com/license/license.txt - commercial license.
 
 Copyright
 ---------

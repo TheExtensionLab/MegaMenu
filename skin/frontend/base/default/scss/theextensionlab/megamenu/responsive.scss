@@ -42,7 +42,8 @@
     padding-left:25px;
   }
 
-  .megamenu-nav-primary li.parent > a:after {
+  .megamenu-nav-primary li.parent > a:after,
+  .megamenu-nav-primary li.parent > span:after{
     content: '';
     position: absolute;
     width: 0;
@@ -58,7 +59,8 @@
     margin-top: -5px;
   }
 
-  .megamenu-nav-primary li.parent.menu-active > a:after {
+  .megamenu-nav-primary li.parent.menu-active > a:after,
+  .megamenu-nav-primary li.parent.menu-active > span:after{
     content: '';
     position: absolute;
     width: 0;

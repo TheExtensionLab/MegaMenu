@@ -53,13 +53,16 @@ $dropdwon-external-border-color: #e8eaeb;
   }
 
   a,span.level0 {
-    line-height:30px;
     color: #636363;
     display:block;
     &:hover{
       color:#3399cc;
       text-decoration:none;
     }
+  }
+
+  a,span.level0,.section-title span{
+    line-height:30px;
   }
 
   li{
