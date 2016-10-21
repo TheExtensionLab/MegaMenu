@@ -11,14 +11,14 @@
 <?php $featuredProductsCollection = $this->getFeaturedProductsCollection();?>
 <?php $_helper = $this->helper('catalog/image');?>
 
-<div class="megamenu-featured-products secondary">
+<div class="megamenu-featured-products secondary <?php echo $this->getDisplayClass();?>">
 
     <?php if($this->hasTitle()):?>
         <p class="section-title"><?php echo $this->getTitle();?></p>
     <?php endif;?>
 
     <?php foreach($featuredProductsCollection as $featuredProduct):?>
-        <div class="featured-product <?php echo $this->getDisplayClass();?>">
+        <div class="featured-product">
             <a class="img" href="<?php echo $featuredProduct->getProductUrl();?>">
                 <?php if($featuredProduct->hasMenuImage()):?>
                     <?php $imageUrl = $_helper->init($featuredProduct, 'menu_image') ?>
