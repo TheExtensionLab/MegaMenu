@@ -1,5 +1,5 @@
 #TheExtensionLab MegaMenu
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](james@theextensionlab.com)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/JamesAnelay)
 
 This is a free extension - if it saves you time feel free to buy me  a beer :)
 
