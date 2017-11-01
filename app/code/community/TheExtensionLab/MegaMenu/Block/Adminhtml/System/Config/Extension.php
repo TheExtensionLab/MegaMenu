@@ -4,7 +4,7 @@
  * @category    TheExtensionLab
  * @package     TheExtensionLab_MegaMenu
  * @copyright   Copyright (c) TheExtensionLab (http://www.theextensionlab.com)
- * @license     http://www.theextensionlab.com/license/license.txt - Commercial License
+ * @license     Open Software License (OSL 3.0
  * @author      James Anelay @ TheExtensionLab <james@theextensionlab.com>
  */
 class TheExtensionLab_MegaMenu_Block_Adminhtml_System_Config_Extension
@@ -23,18 +23,5 @@ class TheExtensionLab_MegaMenu_Block_Adminhtml_System_Config_Extension
     {
         $html = $this->renderView();
         return $html;
-    }
-
-    public function checkExtension()
-    {
-        return Mage::helper('theextensionlab_megamenu/protector')->checkExtension();
-    }
-
-    public function getErrorMessage()
-    {
-        $serverName = $_SERVER['SERVER_NAME'];
-        return $this->__(
-            'The Serial Key for TheExtensionLab_MegaMenu is invalid or not present and therefore the functionality of this extension has been limited. (ServerName : %s)',$serverName
-        );
     }
 }

@@ -1,13 +1,13 @@
 #TheExtensionLab MegaMenu
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/TheExtensionLab/MegaMenu?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](james@theextensionlab.com)
+
+This is a free extension - if it saves you time feel free to buy me  a beer :)
 
 Adds a easy to manage, fast mega menu dropdown to Magento.
 
 License
 -------
-http://www.theextensionlab.com/license/license.txt - commercial license.
-
-Although the source code is avaliable here on Github to view. You MUST purchage the extension/license at [https://www.theextensionlab.com/megamenu](https://www.theextensionlab.com/megamenu) to use it.
+@license     Open Software License (OSL 3.0
 
 Installation & Configuration
 ------------------
