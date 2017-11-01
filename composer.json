@@ -3,7 +3,7 @@
   "type":"magento-module",
   "homepage":"http://www.theextensionlab.com/magento/mega-menu",
   "description":"Magento MegaMenu extension",
-  "license":"http://www.theextensionlab.com/license/license.txt",
+  "license":"Open Software License (OSL 3.0)",
   "authors":[
     {
       "name":"James Anelay",

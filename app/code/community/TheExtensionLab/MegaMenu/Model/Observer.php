@@ -4,7 +4,7 @@
  * @category    TheExtensionLab
  * @package     TheExtensionLab_MegaMenu
  * @copyright   Copyright (c) 2015 TheExtensionLab (http://www.theextensionlab.com)
- * @license     http://www.theextensionlab.com/license/license.txt - Commercial License
+ * @license     Open Software License (OSL 3.0)
  * @author      James Anelay @ TheExtensionLab <james@theextensionlab.com>
  */
 
@@ -71,13 +71,6 @@ class TheExtensionLab_MegaMenu_Model_Observer
         {
             $form = $block->getForm();
             $form->setEnctype('multipart/form-data');
-        }
-    }
-
-    public function updateTabs(Varien_Event_Observer $observer){
-        if(!$this->_getProtectorHelper()->checkExtension()) {
-            $tabs = $observer->getTabs();
-            $this->_getConfigUpdater()->updateTabs($tabs);
         }
     }
 
