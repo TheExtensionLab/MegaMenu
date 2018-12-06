@@ -25,9 +25,9 @@ class TheExtensionLab_MegaMenu_Model_Parser_Url_Rewrite
     {
         $optionIds = json_decode($params['option_ids']);
         $categoryId = $params['category_id'];
-        foreach ($optionIds as $key => $value):
+        foreach ($optionIds as $key => $value) {
             $prefetchConfig['rewrite_ids'][] = 'category/' . $categoryId;
-        endforeach;
+        }
 
         return $optionIds;
     }
